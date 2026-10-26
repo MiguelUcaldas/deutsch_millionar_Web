@@ -1,0 +1,100 @@
+/* Tokens de color, tipografía y espaciado. Ningún componente escribe un color a mano. */
+:root,
+[data-theme='oscuro'] {
+  --fondo: #0e1424;
+  --superficie: #161e31;
+  --superficie-2: #1d2740;
+  --superficie-hundida: #121a2b;
+  --borde: #2b3754;
+  --borde-fuerte: #3a4766;
+  --texto: #eceff6;
+  --texto-suave: #a3adc4;
+  --texto-tenue: #8c96ad;
+  --acento: #d9b45f;
+  --acento-hover: #eccb7e;
+  --acento-borde: #6b5a30;
+  --sobre-acento: #1a1406;
+  --seleccion: #e9a23b;
+  --seleccion-fondo: rgba(233, 162, 59, 0.14);
+  --seleccion-texto: #f3c27a;
+  --correcto: #43a57d;
+  --correcto-fondo: rgba(67, 165, 125, 0.16);
+  --correcto-texto: #8bd8b4;
+  --sobre-correcto: #08130e;
+  --incorrecto: #d8645d;
+  --incorrecto-fondo: rgba(216, 100, 93, 0.14);
+  --incorrecto-texto: #f2a19b;
+  --sobre-incorrecto: #1a0907;
+  --titulo-fallo: #ee8c85;
+  --publico: #7fa7e0;
+  --resaltado-fondo: rgba(217, 180, 95, 0.18);
+  --resaltado-texto: #f0cf85;
+  --marquesina: #b9a574;
+  --velo: rgba(8, 12, 22, 0.72);
+  color-scheme: dark;
+}
+
+[data-theme='claro'] {
+  --fondo: #f5f3ee;
+  --superficie: #ffffff;
+  --superficie-2: #efece4;
+  --superficie-hundida: #f9f8f4;
+  --borde: #ddd8cc;
+  --borde-fuerte: #c9c2b2;
+  --texto: #1a2233;
+  --texto-suave: #5a6478;
+  --texto-tenue: #6b7488;
+  --acento: #8c6a1f;
+  --acento-hover: #745716;
+  --acento-borde: #cdb98a;
+  --sobre-acento: #ffffff;
+  --seleccion: #b86e12;
+  --seleccion-fondo: rgba(184, 110, 18, 0.1);
+  --seleccion-texto: #8a520c;
+  --correcto: #2c7a58;
+  --correcto-fondo: rgba(44, 122, 88, 0.1);
+  --correcto-texto: #22603f;
+  --sobre-correcto: #ffffff;
+  --incorrecto: #b23f38;
+  --incorrecto-fondo: rgba(178, 63, 56, 0.09);
+  --incorrecto-texto: #9a322c;
+  --sobre-incorrecto: #ffffff;
+  --titulo-fallo: #b23f38;
+  --publico: #3d6fb6;
+  --resaltado-fondo: rgba(140, 106, 31, 0.14);
+  --resaltado-texto: #6e5216;
+  --marquesina: #7a6630;
+  --velo: rgba(26, 34, 51, 0.45);
+  color-scheme: light;
+}
+
+:root {
+  --fuente: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --fuente-mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+
+  --radio-s: 8px;
+  --radio-m: 12px;
+  --radio-l: 16px;
+  --radio-xl: 20px;
+
+  --espacio-1: 4px;
+  --espacio-2: 8px;
+  --espacio-3: 12px;
+  --espacio-4: 16px;
+  --espacio-5: 20px;
+  --espacio-6: 24px;
+  --espacio-8: 32px;
+
+  --texto-xs: 12px;
+  --texto-s: 13px;
+  --texto-m: 15px;
+  --texto-l: 17px;
+  --texto-opcion: clamp(17px, 1.6vw, 19px);
+  --texto-enunciado: clamp(24px, 3vw, 34px);
+  --texto-titulo: clamp(26px, 4vw, 40px);
+  --texto-veredicto: clamp(34px, 5vw, 48px);
+
+  --ancho-contenido: 1200px;
+  --ancho-inicio: 1040px;
+  --ancho-lectura: 880px;
+}

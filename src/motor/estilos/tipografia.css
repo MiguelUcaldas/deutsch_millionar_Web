@@ -1,0 +1,6 @@
+/* Las fuentes se cargan desde Google Fonts en index.html (con font-display: swap). */
+h1,
+h2,
+h3 {
+  overflow-wrap: anywhere;
+}
