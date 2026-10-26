@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "types": ["svelte", "vite/client", "node"],
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "paths": {
+      "@motor/*": ["./src/motor/*"],
+      "@temario/*": ["./temarios/aleman/*"],
+      "@temario": ["./temarios/aleman/temario.config.ts"]
+    }
+  },
+  "include": ["src", "temarios", "tests", "scripts", "vite.config.ts", "playwright.config.ts"]
+}

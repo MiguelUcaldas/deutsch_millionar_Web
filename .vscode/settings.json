@@ -1,0 +1,16 @@
+{
+  "json.schemas": [
+    {
+      "fileMatch": ["**/contenido/temas/*/preguntas.json"],
+      "url": "./esquemas/preguntas.schema.json"
+    },
+    {
+      "fileMatch": ["**/contenido/fichas/*.json"],
+      "url": "./esquemas/ficha.schema.json"
+    },
+    {
+      "fileMatch": ["**/contenido/traducciones.json"],
+      "url": "./esquemas/traducciones.schema.json"
+    }
+  ]
+}
