@@ -1,0 +1,32 @@
+name: Validar
+
+on:
+  pull_request:
+  push:
+    branches-ignore: [main] # en main ya lo hace «Desplegar», que además publica
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    env:
+      TEMARIO: ${{ vars.TEMARIO || 'aleman' }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: lts/*
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run check
+      - run: npm run validar
+      - run: npm test
+      - run: npx playwright install --with-deps chromium
+      - run: npx playwright test
+      - run: npm run test:pwa
+      - if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: informe-playwright
+          path: test-results/
+          if-no-files-found: ignore

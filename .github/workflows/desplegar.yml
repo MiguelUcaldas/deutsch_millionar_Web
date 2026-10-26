@@ -1,0 +1,56 @@
+name: Desplegar
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Un solo despliegue a la vez; uno nuevo reemplaza al que todavía no terminó.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  construir:
+    runs-on: ubuntu-latest
+    env:
+      # Para publicar otro temario sin tocar el código: variable de repositorio TEMARIO.
+      TEMARIO: ${{ vars.TEMARIO || 'aleman' }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: lts/*
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run check
+      - run: npm run validar
+      - run: npm test
+      - run: npx playwright install --with-deps chromium
+      - run: npx playwright test
+      - run: npm run test:pwa
+      - uses: actions/configure-pages@v6
+      - name: Compilar
+        run: npm run build
+        env:
+          # Las rutas deben incluir el nombre del repositorio: usuario.github.io/<repositorio>/
+          BASE_PATH: /${{ github.event.repository.name }}/
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+
+  publicar:
+    needs: construir
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.despliegue.outputs.page_url }}
+    steps:
+      - id: despliegue
+        uses: actions/deploy-pages@v5
