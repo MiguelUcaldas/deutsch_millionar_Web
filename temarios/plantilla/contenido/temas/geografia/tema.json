@@ -1,0 +1,24 @@
+{
+  "$schema": "../../../../../esquemas/tema.schema.json",
+  "id": "geografia",
+  "prefijo": "GEO",
+  "orden": 1,
+  "nombre_corto": "Geografía",
+  "titulo": "Geografía básica",
+  "resumen": "Países, capitales, océanos y accidentes geográficos.",
+  "que_es": "La geografía estudia cómo es la superficie de la Tierra: sus continentes, océanos, ríos, países y ciudades.",
+  "como_reconocerlo": [
+    "Preguntan por un lugar del mundo.",
+    "Piden una capital, un río, un océano o un continente."
+  ],
+  "ejemplos": [
+    {
+      "original": "La capital de Francia es París.",
+      "traduccion": "París es la ciudad donde está el gobierno francés."
+    }
+  ],
+  "errores_comunes": [
+    "Confundir la ciudad más grande con la capital (Australia: Canberra, no Sídney)."
+  ],
+  "ficha_principal": "regla_capitales"
+}

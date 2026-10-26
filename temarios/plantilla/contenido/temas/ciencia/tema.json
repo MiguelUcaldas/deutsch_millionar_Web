@@ -1,0 +1,25 @@
+{
+  "$schema": "../../../../../esquemas/tema.schema.json",
+  "id": "ciencia",
+  "prefijo": "CIE",
+  "orden": 2,
+  "nombre_corto": "Ciencia",
+  "titulo": "Ciencia básica",
+  "resumen": "Astronomía, química, biología y física elemental.",
+  "que_es": "La ciencia explica cómo funciona la naturaleza con observaciones y pruebas.",
+  "como_reconocerlo": [
+    "Preguntan por un dato del universo, la materia o los seres vivos.",
+    "Piden un símbolo, una cifra o un nombre de científico."
+  ],
+  "ejemplos": [
+    {
+      "original": "El agua hierve a 100 °C.",
+      "traduccion": "A nivel del mar, el agua líquida pasa a gas a esa temperatura."
+    }
+  ],
+  "errores_comunes": [
+    "Confundir peso con masa.",
+    "Olvidar que la temperatura de ebullición cambia con la altura."
+  ],
+  "ficha_principal": "tabla_estados_agua"
+}

@@ -1,0 +1,39 @@
+{
+  "tipo": "escala",
+  "titulo": "Planetas por tamaño",
+  "desde": "Más pequeño",
+  "hasta": "Más grande",
+  "elementos": [
+    {
+      "id": "mercurio",
+      "original": "Mercurio",
+      "traduccion": "4.880 km"
+    },
+    {
+      "id": "marte",
+      "original": "Marte",
+      "traduccion": "6.779 km"
+    },
+    {
+      "id": "tierra",
+      "original": "Tierra",
+      "traduccion": "12.742 km"
+    },
+    {
+      "id": "neptuno",
+      "original": "Neptuno",
+      "traduccion": "49.244 km"
+    },
+    {
+      "id": "saturno",
+      "original": "Saturno",
+      "traduccion": "116.460 km"
+    },
+    {
+      "id": "jupiter",
+      "original": "Júpiter",
+      "traduccion": "139.820 km"
+    }
+  ],
+  "nota": "Se muestra el diámetro aproximado."
+}

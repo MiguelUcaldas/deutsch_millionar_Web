@@ -1,0 +1,26 @@
+{
+  "tipo": "regla",
+  "titulo": "Capitales que se confunden",
+  "puntos": [
+    {
+      "id": "australia",
+      "texto": "La capital no siempre es la ciudad más grande.",
+      "ejemplos": [
+        {
+          "original": "Australia",
+          "traduccion": "Canberra, no Sídney"
+        }
+      ]
+    },
+    {
+      "id": "brasil",
+      "texto": "Algunas capitales se trasladaron a propósito.",
+      "ejemplos": [
+        {
+          "original": "Brasil",
+          "traduccion": "Brasilia, no Río de Janeiro"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+[
+  {
+    "id": "CIE-001",
+    "nivel": 1,
+    "enunciado": "¿Cuántos planetas tiene el sistema solar?",
+    "opciones": ["8", "9", "7", "10"],
+    "correcta": "8",
+    "explicacion": "Son ocho: de Mercurio a Neptuno."
+  },
+  {
+    "id": "CIE-002",
+    "nivel": 1,
+    "enunciado": "El agua hierve a ___ grados Celsius al nivel del mar.",
+    "opciones": ["100", "90", "80", "120"],
+    "correcta": "100",
+    "explicacion": "A 100 °C el agua líquida pasa a gas.",
+    "ficha": "tabla_estados_agua",
+    "resaltar": ["gaseoso.temperatura"],
+    "flecha": ["liquido.temperatura", "gaseoso.temperatura"]
+  },
+  {
+    "id": "CIE-003",
+    "nivel": 2,
+    "enunciado": "¿Qué gas necesitan las plantas para la fotosíntesis?",
+    "opciones": ["Dióxido de carbono", "Oxígeno", "Nitrógeno", "Hidrógeno"],
+    "correcta": "Dióxido de carbono",
+    "explicacion": "Las plantas toman CO₂, agua y luz para producir azúcares."
+  },
+  {
+    "id": "CIE-004",
+    "nivel": 2,
+    "enunciado": "¿Cuál es el planeta más grande del sistema solar?",
+    "opciones": ["Júpiter", "Saturno", "Neptuno", "Tierra"],
+    "correcta": "Júpiter",
+    "explicacion": "Júpiter es el mayor de todos.",
+    "ficha": "escala_planetas",
+    "resaltar": ["jupiter"]
+  },
+  {
+    "id": "CIE-005",
+    "nivel": 3,
+    "enunciado": "¿Cuál es el símbolo químico del oro?",
+    "opciones": ["Au", "Ag", "Or", "Fe"],
+    "correcta": "Au",
+    "explicacion": "Au viene del latín «aurum»."
+  },
+  {
+    "id": "CIE-006",
+    "nivel": 3,
+    "enunciado": "¿Cuántos huesos tiene un adulto humano?",
+    "opciones": ["206", "180", "250", "300"],
+    "correcta": "206",
+    "explicacion": "Al crecer, varios huesos de la infancia se fusionan hasta quedar 206."
+  },
+  {
+    "id": "CIE-007",
+    "nivel": 4,
+    "enunciado": "¿Qué partícula tiene carga eléctrica negativa?",
+    "opciones": ["Electrón", "Protón", "Neutrón", "Fotón"],
+    "correcta": "Electrón",
+    "explicacion": "El electrón tiene carga negativa; el protón, positiva; el neutrón, ninguna."
+  },
+  {
+    "id": "CIE-008",
+    "nivel": 4,
+    "enunciado": "¿Cuál es la velocidad aproximada de la luz en el vacío?",
+    "opciones": ["300.000 km/s", "150.000 km/s", "30.000 km/s", "3.000.000 km/s"],
+    "correcta": "300.000 km/s",
+    "explicacion": "La luz recorre unos 300.000 km cada segundo."
+  },
+  {
+    "id": "CIE-009",
+    "nivel": 5,
+    "enunciado": "¿Cuál es el elemento más abundante del universo?",
+    "opciones": ["Hidrógeno", "Helio", "Oxígeno", "Carbono"],
+    "correcta": "Hidrógeno",
+    "explicacion": "Cerca de tres cuartas partes de la materia normal son hidrógeno."
+  },
+  {
+    "id": "CIE-010",
+    "nivel": 5,
+    "enunciado": "¿En qué unidad se mide la fuerza en el Sistema Internacional?",
+    "opciones": ["Newton", "Joule", "Pascal", "Watt"],
+    "correcta": "Newton",
+    "explicacion": "Un newton es la fuerza que acelera 1 kg a 1 m/s²."
+  }
+]

@@ -1,0 +1,99 @@
+[
+  {
+    "id": "GEO-001",
+    "nivel": 1,
+    "enunciado": "¿Cuál es la capital de Francia?",
+    "opciones": ["París", "Roma", "Madrid", "Lisboa"],
+    "correcta": "París",
+    "explicacion": "París es la capital de Francia desde hace siglos."
+  },
+  {
+    "id": "GEO-002",
+    "nivel": 1,
+    "enunciado": "¿En qué continente está Brasil?",
+    "opciones": ["América del Sur", "África", "Asia", "Europa"],
+    "correcta": "América del Sur",
+    "explicacion": "Brasil ocupa gran parte de América del Sur."
+  },
+  {
+    "id": "GEO-003",
+    "nivel": 2,
+    "enunciado": "El océano más grande del mundo es el ___.",
+    "opciones": ["Pacífico", "Atlántico", "Índico", "Ártico"],
+    "correcta": "Pacífico",
+    "explicacion": "El Pacífico cubre más de un tercio de la superficie del planeta.",
+    "estructura": [
+      {
+        "texto": "El océano más grande del mundo",
+        "etiqueta": "Sujeto"
+      },
+      {
+        "texto": "es",
+        "etiqueta": "Verbo"
+      },
+      {
+        "texto": "el Pacífico",
+        "etiqueta": "Atributo",
+        "resaltar": true
+      }
+    ]
+  },
+  {
+    "id": "GEO-004",
+    "nivel": 2,
+    "enunciado": "¿Cuál es la capital de Colombia?",
+    "opciones": ["Bogotá", "Medellín", "Lima", "Quito"],
+    "correcta": "Bogotá",
+    "explicacion": "Bogotá es la capital y la ciudad más poblada de Colombia."
+  },
+  {
+    "id": "GEO-005",
+    "nivel": 3,
+    "enunciado": "¿Cuál es el río más caudaloso del mundo?",
+    "opciones": ["Amazonas", "Nilo", "Misisipi", "Yangtsé"],
+    "correcta": "Amazonas",
+    "explicacion": "El Amazonas lleva más agua que cualquier otro río."
+  },
+  {
+    "id": "GEO-006",
+    "nivel": 3,
+    "enunciado": "¿Cuál es el país más grande del mundo por superficie?",
+    "opciones": ["Rusia", "Canadá", "China", "Estados Unidos"],
+    "correcta": "Rusia",
+    "explicacion": "Rusia supera los 17 millones de km²."
+  },
+  {
+    "id": "GEO-007",
+    "nivel": 4,
+    "enunciado": "¿Cuál es la capital de Australia?",
+    "opciones": ["Canberra", "Sídney", "Melbourne", "Perth"],
+    "correcta": "Canberra",
+    "explicacion": "Canberra se construyó como capital; Sídney es más grande pero no es la capital.",
+    "ficha": "regla_capitales",
+    "resaltar": ["australia"]
+  },
+  {
+    "id": "GEO-008",
+    "nivel": 4,
+    "enunciado": "¿Cuál es el desierto cálido más grande del mundo?",
+    "opciones": ["Sahara", "Gobi", "Kalahari", "Atacama"],
+    "correcta": "Sahara",
+    "explicacion": "El Sahara ocupa gran parte del norte de África."
+  },
+  {
+    "id": "GEO-009",
+    "nivel": 5,
+    "enunciado": "¿Cuál es el lago más profundo del mundo?",
+    "opciones": ["Baikal", "Titicaca", "Superior", "Victoria"],
+    "correcta": "Baikal",
+    "explicacion": "El lago Baikal, en Rusia, supera los 1.600 m de profundidad."
+  },
+  {
+    "id": "GEO-010",
+    "nivel": 5,
+    "enunciado": "¿Qué país tiene más islas en el mundo?",
+    "opciones": ["Suecia", "Indonesia", "Filipinas", "Canadá"],
+    "correcta": "Suecia",
+    "explicacion": "Suecia cuenta cientos de miles de islas, casi todas pequeñas."
+  }
+]

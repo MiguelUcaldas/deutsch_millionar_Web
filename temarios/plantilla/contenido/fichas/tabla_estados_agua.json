@@ -1,0 +1,41 @@
+{
+  "tipo": "tabla",
+  "titulo": "Estados del agua",
+  "columnas": [
+    {
+      "id": "estado",
+      "texto": "Estado"
+    },
+    {
+      "id": "temperatura",
+      "texto": "Temperatura"
+    }
+  ],
+  "filas": [
+    {
+      "id": "solido",
+      "texto": "Hielo",
+      "celdas": {
+        "estado": "Sólido",
+        "temperatura": "0 °C o menos"
+      }
+    },
+    {
+      "id": "liquido",
+      "texto": "Agua",
+      "celdas": {
+        "estado": "Líquido",
+        "temperatura": "De 0 a 100 °C"
+      }
+    },
+    {
+      "id": "gaseoso",
+      "texto": "Vapor",
+      "celdas": {
+        "estado": "Gaseoso",
+        "temperatura": "100 °C o más"
+      }
+    }
+  ],
+  "nota": "Valores a nivel del mar."
+}
