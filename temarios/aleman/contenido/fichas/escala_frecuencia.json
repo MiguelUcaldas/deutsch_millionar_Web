@@ -1,0 +1,39 @@
+{
+  "tipo": "escala",
+  "titulo": "Adverbios de frecuencia",
+  "desde": "Nunca",
+  "hasta": "Siempre",
+  "elementos": [
+    {
+      "id": "nie",
+      "original": "nie",
+      "traduccion": "nunca"
+    },
+    {
+      "id": "selten",
+      "original": "selten",
+      "traduccion": "rara vez"
+    },
+    {
+      "id": "manchmal",
+      "original": "manchmal",
+      "traduccion": "a veces"
+    },
+    {
+      "id": "oft",
+      "original": "oft",
+      "traduccion": "a menudo"
+    },
+    {
+      "id": "meistens",
+      "original": "meistens",
+      "traduccion": "casi siempre"
+    },
+    {
+      "id": "immer",
+      "original": "immer",
+      "traduccion": "siempre"
+    }
+  ],
+  "nota": "En la oración van justo después del verbo conjugado: Ich spiele oft Fußball."
+}

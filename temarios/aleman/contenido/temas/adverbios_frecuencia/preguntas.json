@@ -1,0 +1,282 @@
+[
+  {
+    "id": "ADV-001",
+    "nivel": 1,
+    "enunciado": "Was bedeutet 'nie'?",
+    "opciones": ["siempre", "nunca", "a veces", "a menudo"],
+    "correcta": "nunca",
+    "explicacion": "nie es la frecuencia más baja.",
+    "traduccion": "nie = nunca",
+    "resaltar": ["nie"],
+    "ficha": "escala_frecuencia"
+  },
+  {
+    "id": "ADV-002",
+    "nivel": 1,
+    "enunciado": "Was bedeutet 'immer'?",
+    "opciones": ["siempre", "nunca", "raramente", "a veces"],
+    "correcta": "siempre",
+    "explicacion": "immer es la frecuencia más alta.",
+    "traduccion": "immer = siempre",
+    "resaltar": ["immer"],
+    "ficha": "escala_frecuencia"
+  },
+  {
+    "id": "ADV-003",
+    "nivel": 2,
+    "enunciado": "Was bedeutet 'oft'?",
+    "opciones": ["a menudo", "nunca", "raramente", "siempre"],
+    "correcta": "a menudo",
+    "explicacion": "oft es frecuente, pero no siempre.",
+    "traduccion": "oft = a menudo",
+    "resaltar": ["oft"],
+    "ficha": "escala_frecuencia"
+  },
+  {
+    "id": "ADV-004",
+    "nivel": 2,
+    "enunciado": "Was bedeutet 'manchmal'?",
+    "opciones": ["a veces", "nunca", "siempre", "casi nunca"],
+    "correcta": "a veces",
+    "explicacion": "manchmal está en la mitad de la escala.",
+    "traduccion": "manchmal = a veces",
+    "resaltar": ["manchmal"],
+    "ficha": "escala_frecuencia"
+  },
+  {
+    "id": "ADV-005",
+    "nivel": 3,
+    "enunciado": "Welcher Satz ist richtig?",
+    "opciones": [
+      "Ich spiele oft Fußball.",
+      "Ich oft spiele Fußball.",
+      "Oft ich spiele Fußball.",
+      "Ich spiele Fußball oft."
+    ],
+    "correcta": "Ich spiele oft Fußball.",
+    "explicacion": "El adverbio va justo después del verbo conjugado.",
+    "traduccion": "Juego fútbol a menudo.",
+    "resaltar": ["oft"],
+    "estructura": [
+      {
+        "texto": "Ich",
+        "etiqueta": "Sujeto"
+      },
+      {
+        "texto": "spiele",
+        "etiqueta": "Verbo"
+      },
+      {
+        "texto": "oft",
+        "etiqueta": "Adverbio",
+        "resaltar": true
+      },
+      {
+        "texto": "Fußball",
+        "etiqueta": "Objeto"
+      }
+    ],
+    "ficha": "escala_frecuencia"
+  },
+  {
+    "id": "ADV-006",
+    "nivel": 3,
+    "enunciado": "Welcher Satz ist richtig?",
+    "opciones": [
+      "Ich esse nie Fleisch.",
+      "Ich nie esse Fleisch.",
+      "Nie ich esse Fleisch.",
+      "Ich esse Fleisch nie."
+    ],
+    "correcta": "Ich esse nie Fleisch.",
+    "explicacion": "nie va justo después del verbo, no antes como en español.",
+    "traduccion": "Nunca como carne.",
+    "resaltar": ["nie"],
+    "estructura": [
+      {
+        "texto": "Ich",
+        "etiqueta": "Sujeto"
+      },
+      {
+        "texto": "esse",
+        "etiqueta": "Verbo"
+      },
+      {
+        "texto": "nie",
+        "etiqueta": "Adverbio",
+        "resaltar": true
+      },
+      {
+        "texto": "Fleisch",
+        "etiqueta": "Objeto"
+      }
+    ],
+    "ficha": "escala_frecuencia"
+  },
+  {
+    "id": "ADV-007",
+    "nivel": 3,
+    "enunciado": "Welcher Satz ist richtig?",
+    "opciones": [
+      "Sie kommt manchmal spät.",
+      "Sie manchmal kommt spät.",
+      "Manchmal sie kommt spät.",
+      "Sie kommt spät manchmal."
+    ],
+    "correcta": "Sie kommt manchmal spät.",
+    "explicacion": "manchmal va justo después del verbo conjugado.",
+    "traduccion": "Ella a veces llega tarde.",
+    "resaltar": ["manchmal"],
+    "estructura": [
+      {
+        "texto": "Sie",
+        "etiqueta": "Sujeto"
+      },
+      {
+        "texto": "kommt",
+        "etiqueta": "Verbo"
+      },
+      {
+        "texto": "manchmal",
+        "etiqueta": "Adverbio",
+        "resaltar": true
+      },
+      {
+        "texto": "spät",
+        "etiqueta": "Resto"
+      }
+    ],
+    "ficha": "escala_frecuencia"
+  },
+  {
+    "id": "ADV-008",
+    "nivel": 4,
+    "enunciado": "Was bedeutet 'selten'?",
+    "opciones": ["raramente", "a menudo", "siempre", "nunca"],
+    "correcta": "raramente",
+    "explicacion": "selten es poco frecuente, pero no es nunca (nie).",
+    "traduccion": "selten = rara vez",
+    "resaltar": ["selten"],
+    "ficha": "escala_frecuencia"
+  },
+  {
+    "id": "ADV-009",
+    "nivel": 4,
+    "enunciado": "Welcher Satz ist richtig?",
+    "opciones": [
+      "Ich gehe selten ins Kino.",
+      "Ich selten gehe ins Kino.",
+      "Selten ich gehe ins Kino.",
+      "Ich gehe ins Kino selten."
+    ],
+    "correcta": "Ich gehe selten ins Kino.",
+    "explicacion": "selten va justo después del verbo, no al final.",
+    "traduccion": "Rara vez voy al cine.",
+    "resaltar": ["selten"],
+    "estructura": [
+      {
+        "texto": "Ich",
+        "etiqueta": "Sujeto"
+      },
+      {
+        "texto": "gehe",
+        "etiqueta": "Verbo"
+      },
+      {
+        "texto": "selten",
+        "etiqueta": "Adverbio",
+        "resaltar": true
+      },
+      {
+        "texto": "ins Kino",
+        "etiqueta": "Lugar"
+      }
+    ],
+    "ficha": "escala_frecuencia"
+  },
+  {
+    "id": "ADV-010",
+    "nivel": 4,
+    "enunciado": "Welcher Satz ist richtig?",
+    "opciones": [
+      "Wir fahren oft nach Berlin.",
+      "Wir oft fahren nach Berlin.",
+      "Oft wir fahren nach Berlin.",
+      "Wir fahren nach Berlin oft."
+    ],
+    "correcta": "Wir fahren oft nach Berlin.",
+    "explicacion": "oft va justo después del verbo conjugado.",
+    "traduccion": "Vamos a menudo a Berlín.",
+    "resaltar": ["oft"],
+    "estructura": [
+      {
+        "texto": "Wir",
+        "etiqueta": "Sujeto"
+      },
+      {
+        "texto": "fahren",
+        "etiqueta": "Verbo"
+      },
+      {
+        "texto": "oft",
+        "etiqueta": "Adverbio",
+        "resaltar": true
+      },
+      {
+        "texto": "nach Berlin",
+        "etiqueta": "Lugar"
+      }
+    ],
+    "ficha": "escala_frecuencia"
+  },
+  {
+    "id": "ADV-011",
+    "nivel": 5,
+    "enunciado": "Was ist häufiger: 'meistens' oder 'manchmal'?",
+    "opciones": ["meistens", "manchmal", "beide gleich", "keine der beiden"],
+    "correcta": "meistens",
+    "explicacion": "meistens está casi arriba en la escala; manchmal está en la mitad.",
+    "traduccion": "meistens = casi siempre · manchmal = a veces",
+    "resaltar": ["meistens", "manchmal"],
+    "ficha": "escala_frecuencia"
+  },
+  {
+    "id": "ADV-012",
+    "nivel": 5,
+    "enunciado": "Welcher Satz ist richtig?",
+    "opciones": [
+      "Er kommt meistens pünktlich an.",
+      "Er meistens kommt pünktlich an.",
+      "Meistens er kommt pünktlich an.",
+      "Er kommt pünktlich meistens an."
+    ],
+    "correcta": "Er kommt meistens pünktlich an.",
+    "explicacion": "meistens va después del verbo; el prefijo an sigue al final.",
+    "traduccion": "Él casi siempre llega puntual.",
+    "resaltar": ["meistens"],
+    "estructura": [
+      {
+        "texto": "Er",
+        "etiqueta": "Sujeto"
+      },
+      {
+        "texto": "kommt",
+        "etiqueta": "Verbo"
+      },
+      {
+        "texto": "meistens",
+        "etiqueta": "Adverbio",
+        "resaltar": true
+      },
+      {
+        "texto": "pünktlich",
+        "etiqueta": "Resto"
+      },
+      {
+        "texto": "an",
+        "etiqueta": "Prefijo"
+      }
+    ],
+    "ficha": "escala_frecuencia"
+  }
+]

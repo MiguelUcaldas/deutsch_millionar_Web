@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "enunciados_fijos": {
+      "default": {},
+      "type": "object",
+      "propertyNames": {
+        "type": "string"
+      },
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "patrones_enunciado": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "original": {
+            "type": "string"
+          },
+          "traduccion": {
+            "type": "string"
+          }
+        },
+        "required": ["original", "traduccion"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

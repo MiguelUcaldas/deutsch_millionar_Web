@@ -1,0 +1,29 @@
+{
+  "$schema": "../../../../../esquemas/tema.schema.json",
+  "id": "adverbios_frecuencia",
+  "prefijo": "ADV",
+  "orden": 10,
+  "nombre_corto": "Adverbios de frecuencia",
+  "titulo": "Adverbios de frecuencia",
+  "resumen": "Palabras para decir qué tan seguido pasa algo.",
+  "que_es": "Van de nie (nunca) a immer (siempre). En la oración se colocan justo después del verbo conjugado, a diferencia del español, donde muchas veces van antes del verbo.",
+  "como_reconocerlo": [
+    "Orden: nie → selten → manchmal → oft → meistens → immer",
+    "Posición: sujeto + verbo + adverbio + resto"
+  ],
+  "errores_comunes": [
+    "Ponerlo antes del verbo como en español: 'Ich nie esse'",
+    "Confundir selten (rara vez) con nie (nunca)"
+  ],
+  "ejemplos": [
+    {
+      "original": "Ich esse nie Fleisch.",
+      "traduccion": "Nunca como carne."
+    },
+    {
+      "original": "Sie kommt manchmal spät.",
+      "traduccion": "Ella a veces llega tarde."
+    }
+  ],
+  "ficha_principal": "escala_frecuencia"
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "../../../../../esquemas/tema.schema.json",
+  "id": "der_die_das",
+  "prefijo": "DDD",
+  "orden": 4,
+  "nombre_corto": "der / die / das",
+  "titulo": "Género de los sustantivos (der, die, das)",
+  "resumen": "Saber si un sustantivo es masculino, femenino o neutro.",
+  "que_es": "En alemán el género casi nunca se deduce del significado y muchas veces no coincide con el español. Por eso cada sustantivo se aprende con su artículo. Algunas terminaciones sí dan pistas seguras.",
+  "como_reconocerlo": [
+    "-chen y -lein → das",
+    "-ung, -heit, -keit, -schaft → die",
+    "En el resto, memorizar la palabra con su artículo: der Tisch, no solo Tisch"
+  ],
+  "errores_comunes": [
+    "Aprender la palabra sin su artículo",
+    "Fiarse del género en español: die Sonne es femenino aunque 'el sol' sea masculino"
+  ],
+  "ejemplos": [
+    {
+      "original": "das Mädchen",
+      "traduccion": "la niña"
+    },
+    {
+      "original": "die Sonne / der Mond",
+      "traduccion": "el sol / la luna"
+    }
+  ],
+  "ficha_principal": "genero_terminaciones"
+}

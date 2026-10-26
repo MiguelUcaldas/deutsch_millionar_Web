@@ -1,0 +1,163 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "tipo": {
+          "type": "string",
+          "const": "tabla"
+        },
+        "titulo": {
+          "type": "string",
+          "minLength": 1
+        },
+        "columnas": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "texto": {
+                "type": "string"
+              }
+            },
+            "required": ["id", "texto"],
+            "additionalProperties": false
+          }
+        },
+        "filas": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "texto": {
+                "type": "string"
+              },
+              "celdas": {
+                "type": "object",
+                "propertyNames": {
+                  "type": "string"
+                },
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": ["id", "texto", "celdas"],
+            "additionalProperties": false
+          }
+        },
+        "nota": {
+          "type": "string"
+        }
+      },
+      "required": ["tipo", "titulo", "columnas", "filas"],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "tipo": {
+          "type": "string",
+          "const": "escala"
+        },
+        "titulo": {
+          "type": "string",
+          "minLength": 1
+        },
+        "desde": {
+          "type": "string"
+        },
+        "hasta": {
+          "type": "string"
+        },
+        "elementos": {
+          "minItems": 2,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "original": {
+                "type": "string"
+              },
+              "traduccion": {
+                "type": "string"
+              }
+            },
+            "required": ["id", "original", "traduccion"],
+            "additionalProperties": false
+          }
+        },
+        "nota": {
+          "type": "string"
+        }
+      },
+      "required": ["tipo", "titulo", "desde", "hasta", "elementos"],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "tipo": {
+          "type": "string",
+          "const": "regla"
+        },
+        "titulo": {
+          "type": "string",
+          "minLength": 1
+        },
+        "puntos": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "texto": {
+                "type": "string"
+              },
+              "ejemplos": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "original": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "traduccion": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": ["original", "traduccion"],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": ["id", "texto"],
+            "additionalProperties": {}
+          }
+        },
+        "nota": {
+          "type": "string"
+        }
+      },
+      "required": ["tipo", "titulo", "puntos"],
+      "additionalProperties": false
+    }
+  ]
+}

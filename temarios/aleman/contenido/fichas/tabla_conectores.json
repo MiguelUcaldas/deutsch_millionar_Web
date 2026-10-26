@@ -1,0 +1,48 @@
+{
+  "tipo": "tabla",
+  "titulo": "Conectores y posición del verbo",
+  "columnas": [
+    {
+      "id": "conectores",
+      "texto": "Conectores"
+    },
+    {
+      "id": "verbo",
+      "texto": "Qué pasa con el verbo"
+    },
+    {
+      "id": "ejemplo",
+      "texto": "Ejemplo"
+    }
+  ],
+  "filas": [
+    {
+      "id": "normal",
+      "texto": "Orden normal",
+      "celdas": {
+        "conectores": "und, aber, oder, denn",
+        "verbo": "Se queda en posición 2",
+        "ejemplo": "..., denn es regnet stark."
+      }
+    },
+    {
+      "id": "final",
+      "texto": "Verbo al final",
+      "celdas": {
+        "conectores": "weil, dass",
+        "verbo": "Se va al final de la oración",
+        "ejemplo": "..., weil es stark regnet."
+      }
+    },
+    {
+      "id": "inversion",
+      "texto": "Inversión",
+      "celdas": {
+        "conectores": "deshalb, trotzdem",
+        "verbo": "Va justo después del conector, antes del sujeto",
+        "ejemplo": "..., deshalb bleibe ich zu Hause."
+      }
+    }
+  ],
+  "nota": "weil y denn significan lo mismo (porque); la diferencia es solo la posición del verbo."
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "../../../../../esquemas/tema.schema.json",
+  "id": "conjugacion",
+  "prefijo": "CON",
+  "orden": 9,
+  "nombre_corto": "Conjugación",
+  "titulo": "Conjugación en presente (Präsens)",
+  "resumen": "Cómo cambia el verbo según quién hace la acción.",
+  "que_es": "El verbo cambia su terminación según la persona: -e con ich, -st con du, -t con er/sie/es... Hay tres tipos de verbos: regulares, con cambio de vocal en du y er/sie/es, e irregulares como sein y haben.",
+  "como_reconocerlo": [
+    "Regulares: raíz + -e, -st, -t, -en, -t, -en",
+    "Cambio vocálico: solo con du y er/sie/es (fahren → fährst, fährt)",
+    "Irregulares: cada forma se memoriza (sein → bin, bist, ist...)"
+  ],
+  "errores_comunes": [
+    "Olvidar la -st con du",
+    "Aplicar el cambio de vocal a ihr: es 'ihr fahrt', no 'ihr fährt'",
+    "Confundir ihr (ustedes, informal) con Sie (usted, formal)"
+  ],
+  "ejemplos": [
+    {
+      "original": "Du lernst Deutsch.",
+      "traduccion": "Tú aprendes alemán."
+    },
+    {
+      "original": "Er fährt zur Arbeit.",
+      "traduccion": "Él va al trabajo."
+    }
+  ]
+}

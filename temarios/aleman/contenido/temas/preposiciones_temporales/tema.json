@@ -1,0 +1,30 @@
+{
+  "$schema": "../../../../../esquemas/tema.schema.json",
+  "id": "preposiciones_temporales",
+  "prefijo": "PRE",
+  "orden": 7,
+  "nombre_corto": "Preposiciones de tiempo",
+  "titulo": "Preposiciones de tiempo (um, am, im)",
+  "resumen": "Cuándo usar um, am o im para hablar del tiempo.",
+  "que_es": "Las tres equivalen a 'a', 'el' o 'en' en español, pero cada una va con un tipo de tiempo distinto: um con horas, am con días y partes del día, im con meses y estaciones.",
+  "como_reconocerlo": [
+    "¿Es una hora? → um",
+    "¿Es un día, una fecha o una parte del día? → am",
+    "¿Es un mes o una estación? → im"
+  ],
+  "errores_comunes": [
+    "Usar im con días: es 'am Montag'",
+    "Olvidar que la noche es una excepción: 'in der Nacht'"
+  ],
+  "ejemplos": [
+    {
+      "original": "Ich komme um 8 Uhr.",
+      "traduccion": "Llego a las 8."
+    },
+    {
+      "original": "Wir fahren im Sommer nach Deutschland.",
+      "traduccion": "En verano vamos a Alemania."
+    }
+  ],
+  "ficha_principal": "tabla_preposiciones"
+}

@@ -1,0 +1,136 @@
+[
+  {
+    "id": "ART-001",
+    "nivel": 1,
+    "enunciado": "Das ist ___ Tisch.",
+    "opciones": ["ein", "eine", "einen", "einem"],
+    "correcta": "ein",
+    "explicacion": "Tisch es masculino (der Tisch) → ein.",
+    "traduccion": "Es una mesa.",
+    "resaltar": ["nominativo_indefinido.masculino"],
+    "ficha": "tabla_articulos"
+  },
+  {
+    "id": "ART-002",
+    "nivel": 1,
+    "enunciado": "Das ist ___ Lampe.",
+    "opciones": ["ein", "eine", "einen", "einer"],
+    "correcta": "eine",
+    "explicacion": "Lampe es femenino (die Lampe) → eine.",
+    "traduccion": "Es una lámpara.",
+    "resaltar": ["nominativo_indefinido.femenino"],
+    "ficha": "tabla_articulos"
+  },
+  {
+    "id": "ART-003",
+    "nivel": 2,
+    "enunciado": "Das ist ___ Buch.",
+    "opciones": ["ein", "eine", "einen", "einem"],
+    "correcta": "ein",
+    "explicacion": "Buch es neutro (das Buch) → ein, igual que el masculino.",
+    "traduccion": "Es un libro.",
+    "resaltar": ["nominativo_indefinido.neutro"],
+    "ficha": "tabla_articulos"
+  },
+  {
+    "id": "ART-004",
+    "nivel": 2,
+    "enunciado": "Ich habe ___ Hund.",
+    "opciones": ["ein", "eine", "einen", "einem"],
+    "correcta": "einen",
+    "explicacion": "Hund es masculino y es objeto directo → einen.",
+    "traduccion": "Tengo un perro.",
+    "resaltar": ["acusativo_indefinido.masculino"],
+    "flecha": ["nominativo_indefinido.masculino", "acusativo_indefinido.masculino"],
+    "ficha": "tabla_articulos"
+  },
+  {
+    "id": "ART-005",
+    "nivel": 3,
+    "enunciado": "Ich sehe ___ Katze.",
+    "opciones": ["ein", "eine", "einen", "einem"],
+    "correcta": "eine",
+    "explicacion": "Katze es femenino: en acusativo no cambia → eine.",
+    "traduccion": "Veo un gato.",
+    "resaltar": ["acusativo_indefinido.femenino"],
+    "ficha": "tabla_articulos"
+  },
+  {
+    "id": "ART-006",
+    "nivel": 3,
+    "enunciado": "Er kauft ___ Auto.",
+    "opciones": ["ein", "eine", "einen", "einem"],
+    "correcta": "ein",
+    "explicacion": "Auto es neutro: en acusativo no cambia → ein.",
+    "traduccion": "Él compra un carro.",
+    "resaltar": ["acusativo_indefinido.neutro"],
+    "ficha": "tabla_articulos"
+  },
+  {
+    "id": "ART-007",
+    "nivel": 3,
+    "enunciado": "Wir brauchen ___ Tisch für die Küche.",
+    "opciones": ["ein", "eine", "einen", "einem"],
+    "correcta": "einen",
+    "explicacion": "Tisch es masculino y es objeto directo → einen.",
+    "traduccion": "Necesitamos una mesa para la cocina.",
+    "resaltar": ["acusativo_indefinido.masculino"],
+    "flecha": ["nominativo_indefinido.masculino", "acusativo_indefinido.masculino"],
+    "ficha": "tabla_articulos"
+  },
+  {
+    "id": "ART-008",
+    "nivel": 4,
+    "enunciado": "Ich kaufe ___ Rock und ___ Bluse.",
+    "opciones": ["einen / eine", "eine / einen", "ein / eine", "einen / ein"],
+    "correcta": "einen / eine",
+    "explicacion": "Rock es masculino → einen; Bluse es femenino → eine.",
+    "traduccion": "Compro una falda y una blusa.",
+    "resaltar": ["acusativo_indefinido.masculino", "acusativo_indefinido.femenino"],
+    "ficha": "tabla_articulos"
+  },
+  {
+    "id": "ART-009",
+    "nivel": 4,
+    "enunciado": "Sie trägt ___ Hemd und ___ Jacke.",
+    "opciones": ["ein / eine", "einen / eine", "ein / einen", "eine / ein"],
+    "correcta": "ein / eine",
+    "explicacion": "Hemd es neutro → ein; Jacke es femenino → eine.",
+    "traduccion": "Ella lleva una camisa y una chaqueta.",
+    "resaltar": ["acusativo_indefinido.neutro", "acusativo_indefinido.femenino"],
+    "ficha": "tabla_articulos"
+  },
+  {
+    "id": "ART-010",
+    "nivel": 4,
+    "enunciado": "Er sucht ___ Job und ___ Wohnung.",
+    "opciones": ["einen / eine", "ein / eine", "einen / einen", "eine / einen"],
+    "correcta": "einen / eine",
+    "explicacion": "Job es masculino → einen; Wohnung es femenino → eine.",
+    "traduccion": "Él busca un trabajo y un apartamento.",
+    "resaltar": ["acusativo_indefinido.masculino", "acusativo_indefinido.femenino"],
+    "ficha": "tabla_articulos"
+  },
+  {
+    "id": "ART-011",
+    "nivel": 5,
+    "enunciado": "Für die Reise packe ich ___ Koffer und ___ Kamera ein.",
+    "opciones": ["einen / eine", "ein / eine", "einen / einen", "eine / einen"],
+    "correcta": "einen / eine",
+    "explicacion": "Koffer es masculino → einen; Kamera es femenino → eine.",
+    "traduccion": "Para el viaje empaco una maleta y una cámara.",
+    "resaltar": ["acusativo_indefinido.masculino", "acusativo_indefinido.femenino"],
+    "ficha": "tabla_articulos"
+  },
+  {
+    "id": "ART-012",
+    "nivel": 5,
+    "enunciado": "Morgen bringe ich ___ Kuchen und ___ Blume mit.",
+    "opciones": ["einen / eine", "ein / eine", "eine / einen", "einen / einen"],
+    "correcta": "einen / eine",
+    "explicacion": "Kuchen es masculino → einen; Blume es femenino → eine.",
+    "traduccion": "Mañana traigo un pastel y una flor.",
+    "resaltar": ["acusativo_indefinido.masculino", "acusativo_indefinido.femenino"],
+    "ficha": "tabla_articulos"
+  }
+]

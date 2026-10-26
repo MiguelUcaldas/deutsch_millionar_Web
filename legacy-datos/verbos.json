@@ -1,0 +1,373 @@
+{
+  "personas": [
+    {
+      "id": "ich",
+      "de": "ich",
+      "es": "yo"
+    },
+    {
+      "id": "du",
+      "de": "du",
+      "es": "tú"
+    },
+    {
+      "id": "er_sie_es",
+      "de": "er/sie/es",
+      "es": "él/ella"
+    },
+    {
+      "id": "wir",
+      "de": "wir",
+      "es": "nosotros"
+    },
+    {
+      "id": "ihr",
+      "de": "ihr",
+      "es": "ustedes (informal)"
+    },
+    {
+      "id": "sie_plural",
+      "de": "sie",
+      "es": "ellos/ellas"
+    },
+    {
+      "id": "Sie_formal",
+      "de": "Sie",
+      "es": "usted (formal)"
+    }
+  ],
+  "tiempos": {
+    "presente": {
+      "de": "Präsens",
+      "es": "presente"
+    }
+  },
+  "tipos": {
+    "regular": "Regular",
+    "cambio_vocalico": "Cambio vocálico",
+    "irregular": "Irregular"
+  },
+  "verbos": [
+    {
+      "infinitivo": "lernen",
+      "traduccion": "aprender",
+      "tipo": "regular",
+      "raiz": "lern",
+      "nota": "Verbo regular: raíz lern- + terminación.",
+      "tiempos": {
+        "presente": {
+          "ich": {
+            "de": "lerne",
+            "es": "aprendo"
+          },
+          "du": {
+            "de": "lernst",
+            "es": "aprendes"
+          },
+          "er_sie_es": {
+            "de": "lernt",
+            "es": "aprende"
+          },
+          "wir": {
+            "de": "lernen",
+            "es": "aprendemos"
+          },
+          "ihr": {
+            "de": "lernt",
+            "es": "aprenden"
+          },
+          "sie_plural": {
+            "de": "lernen",
+            "es": "aprenden"
+          },
+          "Sie_formal": {
+            "de": "lernen",
+            "es": "aprende"
+          }
+        }
+      }
+    },
+    {
+      "infinitivo": "spielen",
+      "traduccion": "jugar",
+      "tipo": "regular",
+      "raiz": "spiel",
+      "nota": "Verbo regular: raíz spiel- + terminación.",
+      "tiempos": {
+        "presente": {
+          "ich": {
+            "de": "spiele",
+            "es": "juego"
+          },
+          "du": {
+            "de": "spielst",
+            "es": "juegas"
+          },
+          "er_sie_es": {
+            "de": "spielt",
+            "es": "juega"
+          },
+          "wir": {
+            "de": "spielen",
+            "es": "jugamos"
+          },
+          "ihr": {
+            "de": "spielt",
+            "es": "juegan"
+          },
+          "sie_plural": {
+            "de": "spielen",
+            "es": "juegan"
+          },
+          "Sie_formal": {
+            "de": "spielen",
+            "es": "juega"
+          }
+        }
+      }
+    },
+    {
+      "infinitivo": "wohnen",
+      "traduccion": "vivir (residir)",
+      "tipo": "regular",
+      "raiz": "wohn",
+      "nota": "Verbo regular: raíz wohn- + terminación.",
+      "tiempos": {
+        "presente": {
+          "ich": {
+            "de": "wohne",
+            "es": "vivo"
+          },
+          "du": {
+            "de": "wohnst",
+            "es": "vives"
+          },
+          "er_sie_es": {
+            "de": "wohnt",
+            "es": "vive"
+          },
+          "wir": {
+            "de": "wohnen",
+            "es": "vivimos"
+          },
+          "ihr": {
+            "de": "wohnt",
+            "es": "viven"
+          },
+          "sie_plural": {
+            "de": "wohnen",
+            "es": "viven"
+          },
+          "Sie_formal": {
+            "de": "wohnen",
+            "es": "vive"
+          }
+        }
+      }
+    },
+    {
+      "infinitivo": "kommen",
+      "traduccion": "venir",
+      "tipo": "regular",
+      "raiz": "komm",
+      "nota": "En alemán es regular, aunque 'venir' sea irregular en español.",
+      "tiempos": {
+        "presente": {
+          "ich": {
+            "de": "komme",
+            "es": "vengo"
+          },
+          "du": {
+            "de": "kommst",
+            "es": "vienes"
+          },
+          "er_sie_es": {
+            "de": "kommt",
+            "es": "viene"
+          },
+          "wir": {
+            "de": "kommen",
+            "es": "venimos"
+          },
+          "ihr": {
+            "de": "kommt",
+            "es": "vienen"
+          },
+          "sie_plural": {
+            "de": "kommen",
+            "es": "vienen"
+          },
+          "Sie_formal": {
+            "de": "kommen",
+            "es": "viene"
+          }
+        }
+      }
+    },
+    {
+      "infinitivo": "essen",
+      "traduccion": "comer",
+      "tipo": "cambio_vocalico",
+      "nota": "Cambia e → i con du y er/sie/es. Con du es 'isst': como la raíz ya termina en s, solo se agrega -t.",
+      "tiempos": {
+        "presente": {
+          "ich": {
+            "de": "esse",
+            "es": "como"
+          },
+          "du": {
+            "de": "isst",
+            "es": "comes",
+            "especial": true
+          },
+          "er_sie_es": {
+            "de": "isst",
+            "es": "come",
+            "especial": true
+          },
+          "wir": {
+            "de": "essen",
+            "es": "comemos"
+          },
+          "ihr": {
+            "de": "esst",
+            "es": "comen"
+          },
+          "sie_plural": {
+            "de": "essen",
+            "es": "comen"
+          },
+          "Sie_formal": {
+            "de": "essen",
+            "es": "come"
+          }
+        }
+      }
+    },
+    {
+      "infinitivo": "fahren",
+      "traduccion": "ir (en vehículo), conducir",
+      "tipo": "cambio_vocalico",
+      "nota": "Cambia a → ä solo con du y er/sie/es. Con ihr no cambia: ihr fahrt.",
+      "tiempos": {
+        "presente": {
+          "ich": {
+            "de": "fahre",
+            "es": "voy"
+          },
+          "du": {
+            "de": "fährst",
+            "es": "vas",
+            "especial": true
+          },
+          "er_sie_es": {
+            "de": "fährt",
+            "es": "va",
+            "especial": true
+          },
+          "wir": {
+            "de": "fahren",
+            "es": "vamos"
+          },
+          "ihr": {
+            "de": "fahrt",
+            "es": "van"
+          },
+          "sie_plural": {
+            "de": "fahren",
+            "es": "van"
+          },
+          "Sie_formal": {
+            "de": "fahren",
+            "es": "va"
+          }
+        }
+      }
+    },
+    {
+      "infinitivo": "sein",
+      "traduccion": "ser / estar",
+      "tipo": "irregular",
+      "nota": "El verbo más irregular del alemán: todas sus formas se memorizan. Equivale a 'ser' y a 'estar'.",
+      "tiempos": {
+        "presente": {
+          "ich": {
+            "de": "bin",
+            "es": "soy / estoy",
+            "especial": true
+          },
+          "du": {
+            "de": "bist",
+            "es": "eres / estás",
+            "especial": true
+          },
+          "er_sie_es": {
+            "de": "ist",
+            "es": "es / está",
+            "especial": true
+          },
+          "wir": {
+            "de": "sind",
+            "es": "somos / estamos",
+            "especial": true
+          },
+          "ihr": {
+            "de": "seid",
+            "es": "son / están",
+            "especial": true
+          },
+          "sie_plural": {
+            "de": "sind",
+            "es": "son / están",
+            "especial": true
+          },
+          "Sie_formal": {
+            "de": "sind",
+            "es": "es / está",
+            "especial": true
+          }
+        }
+      }
+    },
+    {
+      "infinitivo": "haben",
+      "traduccion": "tener",
+      "tipo": "irregular",
+      "nota": "Irregular solo con du y er/sie/es: pierde la b (hast, hat).",
+      "tiempos": {
+        "presente": {
+          "ich": {
+            "de": "habe",
+            "es": "tengo"
+          },
+          "du": {
+            "de": "hast",
+            "es": "tienes",
+            "especial": true
+          },
+          "er_sie_es": {
+            "de": "hat",
+            "es": "tiene",
+            "especial": true
+          },
+          "wir": {
+            "de": "haben",
+            "es": "tenemos"
+          },
+          "ihr": {
+            "de": "habt",
+            "es": "tienen"
+          },
+          "sie_plural": {
+            "de": "haben",
+            "es": "tienen"
+          },
+          "Sie_formal": {
+            "de": "haben",
+            "es": "tiene"
+          }
+        }
+      }
+    }
+  ]
+}

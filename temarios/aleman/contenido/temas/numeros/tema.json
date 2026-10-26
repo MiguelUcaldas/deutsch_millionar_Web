@@ -1,0 +1,30 @@
+{
+  "$schema": "../../../../../esquemas/tema.schema.json",
+  "id": "numeros",
+  "prefijo": "NUM",
+  "orden": 5,
+  "nombre_corto": "Números",
+  "titulo": "Números (Zahlen)",
+  "resumen": "Cómo se dicen y se escriben los números en alemán.",
+  "que_es": "Del 0 al 12 cada número tiene nombre propio y del 13 al 19 se agrega -zehn. Desde el 21 se dice primero la unidad y después la decena, unidas con 'und'. El número completo se escribe en una sola palabra, por largo que sea.",
+  "como_reconocerlo": [
+    "Leer de izquierda a derecha: miles, centenas, unidad, und, decena",
+    "vierundzwanzig = cuatro y veinte = 24"
+  ],
+  "errores_comunes": [
+    "Leer vierundzwanzig como 42",
+    "Confundir achtzehn (18) con achtzig (80)",
+    "Escribir dreißig sin ß"
+  ],
+  "ejemplos": [
+    {
+      "original": "fünfunddreißig",
+      "traduccion": "35"
+    },
+    {
+      "original": "zweihundertsechsundfünfzig",
+      "traduccion": "256"
+    }
+  ],
+  "ficha_principal": "numeros_base"
+}

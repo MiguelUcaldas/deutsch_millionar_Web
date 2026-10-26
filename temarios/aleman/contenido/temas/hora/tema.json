@@ -1,0 +1,30 @@
+{
+  "$schema": "../../../../../esquemas/tema.schema.json",
+  "id": "hora",
+  "prefijo": "HOR",
+  "orden": 6,
+  "nombre_corto": "La hora",
+  "titulo": "La hora (die Uhrzeit)",
+  "resumen": "Decir la hora de forma formal e informal.",
+  "que_es": "La forma formal usa el reloj de 24 horas (vierzehn Uhr dreißig) y se escucha en horarios y anuncios. La informal usa el reloj de 12 horas con nach, vor, Viertel y halb, y es la que se usa al conversar.",
+  "como_reconocerlo": [
+    "Si aparece Uhr seguido de minutos, es formal",
+    "Si aparece nach, vor, Viertel o halb, es informal",
+    "halb siempre se refiere a la hora SIGUIENTE"
+  ],
+  "errores_comunes": [
+    "Pensar que halb drei es 3:30 (es 2:30)",
+    "Decir 'Minuten' en la hora formal"
+  ],
+  "ejemplos": [
+    {
+      "original": "Es ist Viertel nach drei.",
+      "traduccion": "Son las tres y cuarto."
+    },
+    {
+      "original": "Es ist halb drei.",
+      "traduccion": "Son las dos y media."
+    }
+  ],
+  "ficha_principal": "hora_informal"
+}

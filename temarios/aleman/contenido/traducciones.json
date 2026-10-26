@@ -1,0 +1,37 @@
+{
+  "enunciados_fijos": {
+    "Wie spät ist es?": "¿Qué hora es?",
+    "Welcher Satz ist richtig?": "¿Qué oración es correcta?",
+    "Wie sagt man richtig: Ich bin müde, weil...?": "¿Cómo se dice correctamente: Estoy cansado porque...?"
+  },
+  "patrones_enunciado": [
+    {
+      "original": "Was bedeutet die Zahl {x}?",
+      "traduccion": "¿Qué número es {x}?"
+    },
+    {
+      "original": "Was bedeutet {x}?",
+      "traduccion": "¿Qué significa {x}?"
+    },
+    {
+      "original": "Wie sagt man die Zahl {x} auf Deutsch?",
+      "traduccion": "¿Cómo se dice el número {x} en alemán?"
+    },
+    {
+      "original": "Wie viel Uhr ist {x}?",
+      "traduccion": "¿Qué hora es {x}?"
+    },
+    {
+      "original": "Es ist {x}. Wie sagt man das formell?",
+      "traduccion": "Son las {x}. ¿Cómo se dice de forma formal?"
+    },
+    {
+      "original": "Wie sagt man richtig mit {x}?",
+      "traduccion": "¿Cuál es la forma correcta con {x}?"
+    },
+    {
+      "original": "Was ist häufiger: {x}?",
+      "traduccion": "¿Qué es más frecuente: {x}?"
+    }
+  ]
+}

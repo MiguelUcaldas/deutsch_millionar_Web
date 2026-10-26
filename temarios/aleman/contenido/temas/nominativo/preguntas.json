@@ -1,0 +1,225 @@
+[
+  {
+    "id": "NOM-001",
+    "nivel": 1,
+    "enunciado": "___ Mann ist Lehrer.",
+    "opciones": ["Der", "Die", "Das", "Den"],
+    "correcta": "Der",
+    "explicacion": "Mann es masculino y es el sujeto → Der.",
+    "traduccion": "El hombre es profesor.",
+    "resaltar": ["nominativo_definido.masculino"],
+    "ficha": "tabla_articulos"
+  },
+  {
+    "id": "NOM-002",
+    "nivel": 1,
+    "enunciado": "___ Frau ist Ärztin.",
+    "opciones": ["Der", "Die", "Das", "Den"],
+    "correcta": "Die",
+    "explicacion": "Frau es femenino y es el sujeto → Die.",
+    "traduccion": "La mujer es médica.",
+    "resaltar": ["nominativo_definido.femenino"],
+    "ficha": "tabla_articulos"
+  },
+  {
+    "id": "NOM-003",
+    "nivel": 2,
+    "enunciado": "___ Kind spielt im Garten.",
+    "opciones": ["Der", "Die", "Das", "Den"],
+    "correcta": "Das",
+    "explicacion": "Kind es neutro y es el sujeto → Das.",
+    "traduccion": "El niño juega en el jardín.",
+    "resaltar": ["nominativo_definido.neutro"],
+    "ficha": "tabla_articulos"
+  },
+  {
+    "id": "NOM-004",
+    "nivel": 2,
+    "enunciado": "___ Hund läuft schnell.",
+    "opciones": ["Der", "Die", "Das", "Den"],
+    "correcta": "Der",
+    "explicacion": "Hund es masculino y es el sujeto → Der.",
+    "traduccion": "El perro corre rápido.",
+    "resaltar": ["nominativo_definido.masculino"],
+    "ficha": "tabla_articulos"
+  },
+  {
+    "id": "NOM-005",
+    "nivel": 3,
+    "enunciado": "___ Lehrerin erklärt die Aufgabe.",
+    "opciones": ["Der", "Die", "Das", "Den"],
+    "correcta": "Die",
+    "explicacion": "Lehrerin es femenino y es el sujeto → Die.",
+    "traduccion": "La profesora explica la tarea.",
+    "resaltar": ["nominativo_definido.femenino"],
+    "ficha": "tabla_articulos"
+  },
+  {
+    "id": "NOM-006",
+    "nivel": 3,
+    "enunciado": "___ Bahnhof liegt in der Stadtmitte.",
+    "opciones": ["Der", "Die", "Das", "Den"],
+    "correcta": "Der",
+    "explicacion": "Bahnhof es masculino y es el sujeto → Der.",
+    "traduccion": "La estación de tren queda en el centro de la ciudad.",
+    "resaltar": ["nominativo_definido.masculino"],
+    "ficha": "tabla_articulos"
+  },
+  {
+    "id": "NOM-007",
+    "nivel": 3,
+    "enunciado": "___ Krankenhaus ist sehr modern.",
+    "opciones": ["Der", "Die", "Das", "Den"],
+    "correcta": "Das",
+    "explicacion": "Krankenhaus es neutro y es el sujeto → Das.",
+    "traduccion": "El hospital es muy moderno.",
+    "resaltar": ["nominativo_definido.neutro"],
+    "ficha": "tabla_articulos"
+  },
+  {
+    "id": "NOM-008",
+    "nivel": 4,
+    "enunciado": "Heute kocht ___ Mutter das Abendessen.",
+    "opciones": ["der", "die", "das", "den"],
+    "correcta": "die",
+    "explicacion": "Mutter es el sujeto aunque va después del verbo; es femenino → die.",
+    "traduccion": "Hoy la mamá cocina la cena.",
+    "resaltar": ["nominativo_definido.femenino"],
+    "estructura": [
+      {
+        "texto": "Heute",
+        "etiqueta": "Posición 1"
+      },
+      {
+        "texto": "kocht",
+        "etiqueta": "Verbo"
+      },
+      {
+        "texto": "die Mutter",
+        "etiqueta": "Sujeto",
+        "resaltar": true
+      },
+      {
+        "texto": "das Abendessen",
+        "etiqueta": "Objeto"
+      }
+    ],
+    "ficha": "tabla_articulos"
+  },
+  {
+    "id": "NOM-009",
+    "nivel": 4,
+    "enunciado": "Morgen besucht ___ Mann seine Mutter.",
+    "opciones": ["der", "die", "das", "den"],
+    "correcta": "der",
+    "explicacion": "Mann es el sujeto aunque la oración empieza con Morgen; es masculino → der.",
+    "traduccion": "Mañana el hombre visita a su mamá.",
+    "resaltar": ["nominativo_definido.masculino"],
+    "estructura": [
+      {
+        "texto": "Morgen",
+        "etiqueta": "Posición 1"
+      },
+      {
+        "texto": "besucht",
+        "etiqueta": "Verbo"
+      },
+      {
+        "texto": "der Mann",
+        "etiqueta": "Sujeto",
+        "resaltar": true
+      },
+      {
+        "texto": "seine Mutter",
+        "etiqueta": "Objeto"
+      }
+    ],
+    "ficha": "tabla_articulos"
+  },
+  {
+    "id": "NOM-010",
+    "nivel": 4,
+    "enunciado": "Plötzlich klingelt ___ Telefon.",
+    "opciones": ["der", "die", "das", "den"],
+    "correcta": "das",
+    "explicacion": "Telefon es el sujeto (lo que suena); es neutro → das.",
+    "traduccion": "De repente suena el teléfono.",
+    "resaltar": ["nominativo_definido.neutro"],
+    "estructura": [
+      {
+        "texto": "Plötzlich",
+        "etiqueta": "Posición 1"
+      },
+      {
+        "texto": "klingelt",
+        "etiqueta": "Verbo"
+      },
+      {
+        "texto": "das Telefon",
+        "etiqueta": "Sujeto",
+        "resaltar": true
+      }
+    ],
+    "ficha": "tabla_articulos"
+  },
+  {
+    "id": "NOM-011",
+    "nivel": 5,
+    "enunciado": "Am Wochenende arbeitet ___ Vater im Garten.",
+    "opciones": ["der", "die", "das", "den"],
+    "correcta": "der",
+    "explicacion": "Vater es el sujeto aunque la oración empieza con Am Wochenende; es masculino → der.",
+    "traduccion": "El fin de semana el papá trabaja en el jardín.",
+    "resaltar": ["nominativo_definido.masculino"],
+    "estructura": [
+      {
+        "texto": "Am Wochenende",
+        "etiqueta": "Posición 1"
+      },
+      {
+        "texto": "arbeitet",
+        "etiqueta": "Verbo"
+      },
+      {
+        "texto": "der Vater",
+        "etiqueta": "Sujeto",
+        "resaltar": true
+      },
+      {
+        "texto": "im Garten",
+        "etiqueta": "Lugar"
+      }
+    ],
+    "ficha": "tabla_articulos"
+  },
+  {
+    "id": "NOM-012",
+    "nivel": 5,
+    "enunciado": "Zum Glück repariert ___ Nachbarin das Fahrrad.",
+    "opciones": ["der", "die", "das", "den"],
+    "correcta": "die",
+    "explicacion": "Nachbarin es el sujeto (quien repara); es femenino → die.",
+    "traduccion": "Por suerte la vecina repara la bicicleta.",
+    "resaltar": ["nominativo_definido.femenino"],
+    "estructura": [
+      {
+        "texto": "Zum Glück",
+        "etiqueta": "Posición 1"
+      },
+      {
+        "texto": "repariert",
+        "etiqueta": "Verbo"
+      },
+      {
+        "texto": "die Nachbarin",
+        "etiqueta": "Sujeto",
+        "resaltar": true
+      },
+      {
+        "texto": "das Fahrrad",
+        "etiqueta": "Objeto"
+      }
+    ],
+    "ficha": "tabla_articulos"
+  }
+]

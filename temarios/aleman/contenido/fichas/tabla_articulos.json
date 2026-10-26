@@ -1,0 +1,57 @@
+{
+  "tipo": "tabla",
+  "titulo": "Artículos en nominativo y acusativo",
+  "columnas": [
+    {
+      "id": "masculino",
+      "texto": "Masculino"
+    },
+    {
+      "id": "femenino",
+      "texto": "Femenino"
+    },
+    {
+      "id": "neutro",
+      "texto": "Neutro"
+    }
+  ],
+  "filas": [
+    {
+      "id": "nominativo_definido",
+      "texto": "Nominativo (el, la)",
+      "celdas": {
+        "masculino": "der",
+        "femenino": "die",
+        "neutro": "das"
+      }
+    },
+    {
+      "id": "nominativo_indefinido",
+      "texto": "Nominativo (un, una)",
+      "celdas": {
+        "masculino": "ein",
+        "femenino": "eine",
+        "neutro": "ein"
+      }
+    },
+    {
+      "id": "acusativo_definido",
+      "texto": "Acusativo (el, la)",
+      "celdas": {
+        "masculino": "den",
+        "femenino": "die",
+        "neutro": "das"
+      }
+    },
+    {
+      "id": "acusativo_indefinido",
+      "texto": "Acusativo (un, una)",
+      "celdas": {
+        "masculino": "einen",
+        "femenino": "eine",
+        "neutro": "ein"
+      }
+    }
+  ],
+  "nota": "Del nominativo al acusativo solo cambia el masculino: der → den, ein → einen."
+}

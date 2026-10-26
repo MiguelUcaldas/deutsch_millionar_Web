@@ -1,0 +1,290 @@
+{
+  "temas": {
+    "articulos": {
+      "titulo": "Artículos (der, die, das · ein, eine)",
+      "nombre_corto": "Artículos",
+      "resumen": "Cada sustantivo alemán tiene género y el artículo lo muestra.",
+      "que_es": "En alemán hay tres géneros: masculino, femenino y neutro. El artículo definido es der, die o das, y el indefinido es ein para masculino y neutro, y eine para femenino. Además, el artículo cambia según la función de la palabra en la oración.",
+      "como_reconocerlo": [
+        "der / ein → masculino",
+        "die / eine → femenino",
+        "das / ein → neutro",
+        "Si el sustantivo masculino es objeto directo, ein pasa a einen"
+      ],
+      "ejemplos": [
+        {
+          "de": "Das ist ein Tisch.",
+          "es": "Es una mesa."
+        },
+        {
+          "de": "Ich kaufe eine Bluse.",
+          "es": "Compro una blusa."
+        }
+      ],
+      "errores_comunes": [
+        "Usar el género del español: es 'der Tisch' aunque en español sea 'la mesa'",
+        "Olvidar que ein sirve tanto para masculino como para neutro"
+      ],
+      "ficha_principal": "tabla_articulos"
+    },
+    "nominativo": {
+      "titulo": "Nominativo (Nominativ)",
+      "nombre_corto": "Nominativo",
+      "resumen": "El caso del sujeto: quién hace la acción.",
+      "que_es": "El sujeto de la oración va en nominativo. Es la forma 'normal' del artículo, la que aparece en el diccionario: der, die, das, ein, eine.",
+      "como_reconocerlo": [
+        "Responde a Wer? (¿quién?) o Was? (¿qué?) hace la acción",
+        "El verbo se conjuga según el sujeto",
+        "El sujeto no siempre va primero: si la oración empieza con otra cosa, va justo después del verbo"
+      ],
+      "ejemplos": [
+        {
+          "de": "Der Mann ist Lehrer.",
+          "es": "El hombre es profesor."
+        },
+        {
+          "de": "Morgen besucht der Mann seine Mutter.",
+          "es": "Mañana el hombre visita a su mamá."
+        }
+      ],
+      "errores_comunes": [
+        "Pensar que la primera palabra de la oración siempre es el sujeto"
+      ],
+      "ficha_principal": "tabla_articulos"
+    },
+    "acusativo": {
+      "titulo": "Acusativo (Akkusativ)",
+      "nombre_corto": "Acusativo",
+      "resumen": "El caso del objeto directo: lo que recibe la acción del verbo.",
+      "que_es": "En 'Ich sehe den Hund', el perro es lo que veo. Eso es el objeto directo y en alemán va en acusativo, lo que cambia su artículo si es masculino.",
+      "como_reconocerlo": [
+        "Responde a Wen? (¿a quién?) o Was? (¿qué?)",
+        "Va con verbos como sehen, haben, kaufen, brauchen, lesen, besuchen",
+        "Solo cambia el masculino: der → den, ein → einen"
+      ],
+      "ejemplos": [
+        {
+          "de": "Ich kaufe einen Tisch.",
+          "es": "Compro una mesa."
+        },
+        {
+          "de": "Den Film finde ich langweilig.",
+          "es": "La película me parece aburrida."
+        }
+      ],
+      "errores_comunes": [
+        "Cambiar también el femenino o el neutro: es 'Ich sehe die Katze', no 'den Katze'",
+        "Creer que la primera palabra es el sujeto: en 'Den Film finde ich...' el sujeto es ich"
+      ],
+      "ficha_principal": "tabla_articulos"
+    },
+    "der_die_das": {
+      "titulo": "Género de los sustantivos (der, die, das)",
+      "nombre_corto": "der / die / das",
+      "resumen": "Saber si un sustantivo es masculino, femenino o neutro.",
+      "que_es": "En alemán el género casi nunca se deduce del significado y muchas veces no coincide con el español. Por eso cada sustantivo se aprende con su artículo. Algunas terminaciones sí dan pistas seguras.",
+      "como_reconocerlo": [
+        "-chen y -lein → das",
+        "-ung, -heit, -keit, -schaft → die",
+        "En el resto, memorizar la palabra con su artículo: der Tisch, no solo Tisch"
+      ],
+      "ejemplos": [
+        {
+          "de": "das Mädchen",
+          "es": "la niña"
+        },
+        {
+          "de": "die Sonne / der Mond",
+          "es": "el sol / la luna"
+        }
+      ],
+      "errores_comunes": [
+        "Aprender la palabra sin su artículo",
+        "Fiarse del género en español: die Sonne es femenino aunque 'el sol' sea masculino"
+      ],
+      "ficha_principal": "genero_terminaciones"
+    },
+    "numeros": {
+      "titulo": "Números (Zahlen)",
+      "nombre_corto": "Números",
+      "resumen": "Cómo se dicen y se escriben los números en alemán.",
+      "que_es": "Del 0 al 12 cada número tiene nombre propio y del 13 al 19 se agrega -zehn. Desde el 21 se dice primero la unidad y después la decena, unidas con 'und'. El número completo se escribe en una sola palabra, por largo que sea.",
+      "como_reconocerlo": [
+        "Leer de izquierda a derecha: miles, centenas, unidad, und, decena",
+        "vierundzwanzig = cuatro y veinte = 24"
+      ],
+      "ejemplos": [
+        {
+          "de": "fünfunddreißig",
+          "es": "35"
+        },
+        {
+          "de": "zweihundertsechsundfünfzig",
+          "es": "256"
+        }
+      ],
+      "errores_comunes": [
+        "Leer vierundzwanzig como 42",
+        "Confundir achtzehn (18) con achtzig (80)",
+        "Escribir dreißig sin ß"
+      ],
+      "ficha_principal": "numeros_base"
+    },
+    "hora": {
+      "titulo": "La hora (die Uhrzeit)",
+      "nombre_corto": "La hora",
+      "resumen": "Decir la hora de forma formal e informal.",
+      "que_es": "La forma formal usa el reloj de 24 horas (vierzehn Uhr dreißig) y se escucha en horarios y anuncios. La informal usa el reloj de 12 horas con nach, vor, Viertel y halb, y es la que se usa al conversar.",
+      "como_reconocerlo": [
+        "Si aparece Uhr seguido de minutos, es formal",
+        "Si aparece nach, vor, Viertel o halb, es informal",
+        "halb siempre se refiere a la hora SIGUIENTE"
+      ],
+      "ejemplos": [
+        {
+          "de": "Es ist Viertel nach drei.",
+          "es": "Son las tres y cuarto."
+        },
+        {
+          "de": "Es ist halb drei.",
+          "es": "Son las dos y media."
+        }
+      ],
+      "errores_comunes": [
+        "Pensar que halb drei es 3:30 (es 2:30)",
+        "Decir 'Minuten' en la hora formal"
+      ],
+      "ficha_principal": "hora_informal"
+    },
+    "preposiciones_temporales": {
+      "titulo": "Preposiciones de tiempo (um, am, im)",
+      "nombre_corto": "Preposiciones de tiempo",
+      "resumen": "Cuándo usar um, am o im para hablar del tiempo.",
+      "que_es": "Las tres equivalen a 'a', 'el' o 'en' en español, pero cada una va con un tipo de tiempo distinto: um con horas, am con días y partes del día, im con meses y estaciones.",
+      "como_reconocerlo": [
+        "¿Es una hora? → um",
+        "¿Es un día, una fecha o una parte del día? → am",
+        "¿Es un mes o una estación? → im"
+      ],
+      "ejemplos": [
+        {
+          "de": "Ich komme um 8 Uhr.",
+          "es": "Llego a las 8."
+        },
+        {
+          "de": "Wir fahren im Sommer nach Deutschland.",
+          "es": "En verano vamos a Alemania."
+        }
+      ],
+      "errores_comunes": [
+        "Usar im con días: es 'am Montag'",
+        "Olvidar que la noche es una excepción: 'in der Nacht'"
+      ],
+      "ficha_principal": "tabla_preposiciones"
+    },
+    "verbos_separables": {
+      "titulo": "Verbos separables (trennbare Verben)",
+      "nombre_corto": "Verbos separables",
+      "resumen": "Verbos con un prefijo que se separa y se va al final.",
+      "que_es": "Verbos como aufstehen, anrufen o einkaufen tienen un prefijo (auf-, an-, ein-) que cambia el significado del verbo. En la oración normal ese prefijo se separa y va al final; en una oración subordinada se vuelve a unir.",
+      "como_reconocerlo": [
+        "Prefijos comunes: an-, auf-, aus-, ein-, mit-, fern-, ab-",
+        "En el infinitivo el acento va en el prefijo: AUFstehen"
+      ],
+      "ejemplos": [
+        {
+          "de": "Ich rufe meine Mutter an.",
+          "es": "Llamo a mi mamá."
+        },
+        {
+          "de": "..., weil ich früh aufstehe.",
+          "es": "..., porque me levanto temprano."
+        }
+      ],
+      "errores_comunes": [
+        "Dejar el verbo unido en la oración normal: 'Ich aufstehe'",
+        "Separarlo en la subordinada: 'weil ich früh stehe auf'"
+      ],
+      "ficha_principal": "verbos_separables"
+    },
+    "conjugacion": {
+      "titulo": "Conjugación en presente (Präsens)",
+      "nombre_corto": "Conjugación",
+      "resumen": "Cómo cambia el verbo según quién hace la acción.",
+      "que_es": "El verbo cambia su terminación según la persona: -e con ich, -st con du, -t con er/sie/es... Hay tres tipos de verbos: regulares, con cambio de vocal en du y er/sie/es, e irregulares como sein y haben.",
+      "como_reconocerlo": [
+        "Regulares: raíz + -e, -st, -t, -en, -t, -en",
+        "Cambio vocálico: solo con du y er/sie/es (fahren → fährst, fährt)",
+        "Irregulares: cada forma se memoriza (sein → bin, bist, ist...)"
+      ],
+      "ejemplos": [
+        {
+          "de": "Du lernst Deutsch.",
+          "es": "Tú aprendes alemán."
+        },
+        {
+          "de": "Er fährt zur Arbeit.",
+          "es": "Él va al trabajo."
+        }
+      ],
+      "errores_comunes": [
+        "Olvidar la -st con du",
+        "Aplicar el cambio de vocal a ihr: es 'ihr fahrt', no 'ihr fährt'",
+        "Confundir ihr (ustedes, informal) con Sie (usted, formal)"
+      ],
+      "ficha_principal": null,
+      "usa_tabla_verbo": true
+    },
+    "adverbios_frecuencia": {
+      "titulo": "Adverbios de frecuencia",
+      "nombre_corto": "Adverbios de frecuencia",
+      "resumen": "Palabras para decir qué tan seguido pasa algo.",
+      "que_es": "Van de nie (nunca) a immer (siempre). En la oración se colocan justo después del verbo conjugado, a diferencia del español, donde muchas veces van antes del verbo.",
+      "como_reconocerlo": [
+        "Orden: nie → selten → manchmal → oft → meistens → immer",
+        "Posición: sujeto + verbo + adverbio + resto"
+      ],
+      "ejemplos": [
+        {
+          "de": "Ich esse nie Fleisch.",
+          "es": "Nunca como carne."
+        },
+        {
+          "de": "Sie kommt manchmal spät.",
+          "es": "Ella a veces llega tarde."
+        }
+      ],
+      "errores_comunes": [
+        "Ponerlo antes del verbo como en español: 'Ich nie esse'",
+        "Confundir selten (rara vez) con nie (nunca)"
+      ],
+      "ficha_principal": "escala_frecuencia"
+    },
+    "conectores": {
+      "titulo": "Conectores lógicos",
+      "nombre_corto": "Conectores",
+      "resumen": "Palabras que unen ideas y que pueden mover el verbo.",
+      "que_es": "Además de su significado (y, pero, porque, por eso...), cada conector afecta la posición del verbo. Hay tres grupos: los que no cambian nada, los que mandan el verbo al final y los que obligan a poner el verbo justo después de ellos.",
+      "como_reconocerlo": [
+        "und, aber, oder, denn → orden normal",
+        "weil, dass → verbo al final",
+        "deshalb, trotzdem → verbo justo después del conector"
+      ],
+      "ejemplos": [
+        {
+          "de": "Ich bleibe zu Hause, weil ich krank bin.",
+          "es": "Me quedo en casa porque estoy enfermo."
+        },
+        {
+          "de": "Ich bin krank, deshalb bleibe ich zu Hause.",
+          "es": "Estoy enfermo, por eso me quedo en casa."
+        }
+      ],
+      "errores_comunes": [
+        "Usar weil con el orden de denn: 'weil ich bin krank'",
+        "Poner el sujeto antes del verbo después de deshalb: 'deshalb ich bleibe'"
+      ],
+      "ficha_principal": "tabla_conectores"
+    }
+  }
+}

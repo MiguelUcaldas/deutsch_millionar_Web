@@ -1,0 +1,558 @@
+{
+  "sustantivos": [
+    {
+      "palabra": "Tisch",
+      "articulo": "der",
+      "plural": "Tische",
+      "traduccion": "la mesa",
+      "genero_es": "femenino",
+      "nivel": 1
+    },
+    {
+      "palabra": "Lampe",
+      "articulo": "die",
+      "plural": "Lampen",
+      "traduccion": "la lámpara",
+      "genero_es": "femenino",
+      "nivel": 1
+    },
+    {
+      "palabra": "Buch",
+      "articulo": "das",
+      "plural": "Bücher",
+      "traduccion": "el libro",
+      "genero_es": "masculino",
+      "nivel": 1
+    },
+    {
+      "palabra": "Mann",
+      "articulo": "der",
+      "plural": "Männer",
+      "traduccion": "el hombre",
+      "genero_es": "masculino",
+      "nivel": 1
+    },
+    {
+      "palabra": "Frau",
+      "articulo": "die",
+      "plural": "Frauen",
+      "traduccion": "la mujer",
+      "genero_es": "femenino",
+      "nivel": 1
+    },
+    {
+      "palabra": "Kind",
+      "articulo": "das",
+      "plural": "Kinder",
+      "traduccion": "el niño",
+      "genero_es": "masculino",
+      "nivel": 1
+    },
+    {
+      "palabra": "Auto",
+      "articulo": "das",
+      "plural": "Autos",
+      "traduccion": "el carro",
+      "genero_es": "masculino",
+      "nivel": 1
+    },
+    {
+      "palabra": "Haus",
+      "articulo": "das",
+      "plural": "Häuser",
+      "traduccion": "la casa",
+      "genero_es": "femenino",
+      "nivel": 1
+    },
+    {
+      "palabra": "Tür",
+      "articulo": "die",
+      "plural": "Türen",
+      "traduccion": "la puerta",
+      "genero_es": "femenino",
+      "nivel": 1
+    },
+    {
+      "palabra": "Schule",
+      "articulo": "die",
+      "plural": "Schulen",
+      "traduccion": "la escuela",
+      "genero_es": "femenino",
+      "nivel": 1
+    },
+    {
+      "palabra": "Stuhl",
+      "articulo": "der",
+      "plural": "Stühle",
+      "traduccion": "la silla",
+      "genero_es": "femenino",
+      "nivel": 1
+    },
+    {
+      "palabra": "Hund",
+      "articulo": "der",
+      "plural": "Hunde",
+      "traduccion": "el perro",
+      "genero_es": "masculino",
+      "nivel": 1
+    },
+    {
+      "palabra": "Katze",
+      "articulo": "die",
+      "plural": "Katzen",
+      "traduccion": "el gato",
+      "genero_es": "masculino",
+      "nivel": 1
+    },
+    {
+      "palabra": "Baum",
+      "articulo": "der",
+      "plural": "Bäume",
+      "traduccion": "el árbol",
+      "genero_es": "masculino",
+      "nivel": 1
+    },
+    {
+      "palabra": "Fenster",
+      "articulo": "das",
+      "plural": "Fenster",
+      "traduccion": "la ventana",
+      "genero_es": "femenino",
+      "nivel": 2
+    },
+    {
+      "palabra": "Garten",
+      "articulo": "der",
+      "plural": "Gärten",
+      "traduccion": "el jardín",
+      "genero_es": "masculino",
+      "nivel": 2
+    },
+    {
+      "palabra": "Blume",
+      "articulo": "die",
+      "plural": "Blumen",
+      "traduccion": "la flor",
+      "genero_es": "femenino",
+      "nivel": 2
+    },
+    {
+      "palabra": "Freund",
+      "articulo": "der",
+      "plural": "Freunde",
+      "traduccion": "el amigo",
+      "genero_es": "masculino",
+      "nivel": 2
+    },
+    {
+      "palabra": "Freundin",
+      "articulo": "die",
+      "plural": "Freundinnen",
+      "traduccion": "la amiga",
+      "genero_es": "femenino",
+      "nivel": 2
+    },
+    {
+      "palabra": "Zimmer",
+      "articulo": "das",
+      "plural": "Zimmer",
+      "traduccion": "la habitación",
+      "genero_es": "femenino",
+      "nivel": 2
+    },
+    {
+      "palabra": "Tasche",
+      "articulo": "die",
+      "plural": "Taschen",
+      "traduccion": "el bolso",
+      "genero_es": "masculino",
+      "nivel": 2
+    },
+    {
+      "palabra": "Computer",
+      "articulo": "der",
+      "plural": "Computer",
+      "traduccion": "el computador",
+      "genero_es": "masculino",
+      "nivel": 2
+    },
+    {
+      "palabra": "Stadt",
+      "articulo": "die",
+      "plural": "Städte",
+      "traduccion": "la ciudad",
+      "genero_es": "femenino",
+      "nivel": 2
+    },
+    {
+      "palabra": "Land",
+      "articulo": "das",
+      "plural": "Länder",
+      "traduccion": "el país",
+      "genero_es": "masculino",
+      "nivel": 2
+    },
+    {
+      "palabra": "Jahr",
+      "articulo": "das",
+      "plural": "Jahre",
+      "traduccion": "el año",
+      "genero_es": "masculino",
+      "nivel": 2
+    },
+    {
+      "palabra": "Tag",
+      "articulo": "der",
+      "plural": "Tage",
+      "traduccion": "el día",
+      "genero_es": "masculino",
+      "nivel": 2
+    },
+    {
+      "palabra": "Nacht",
+      "articulo": "die",
+      "plural": "Nächte",
+      "traduccion": "la noche",
+      "genero_es": "femenino",
+      "nivel": 2
+    },
+    {
+      "palabra": "Lehrer",
+      "articulo": "der",
+      "plural": "Lehrer",
+      "traduccion": "el profesor",
+      "genero_es": "masculino",
+      "nivel": 2
+    },
+    {
+      "palabra": "Küche",
+      "articulo": "die",
+      "plural": "Küchen",
+      "traduccion": "la cocina",
+      "genero_es": "femenino",
+      "nivel": 3
+    },
+    {
+      "palabra": "Bahnhof",
+      "articulo": "der",
+      "plural": "Bahnhöfe",
+      "traduccion": "la estación de tren",
+      "genero_es": "femenino",
+      "nivel": 3
+    },
+    {
+      "palabra": "Straße",
+      "articulo": "die",
+      "plural": "Straßen",
+      "traduccion": "la calle",
+      "genero_es": "femenino",
+      "nivel": 3
+    },
+    {
+      "palabra": "Apfel",
+      "articulo": "der",
+      "plural": "Äpfel",
+      "traduccion": "la manzana",
+      "genero_es": "femenino",
+      "nivel": 3
+    },
+    {
+      "palabra": "Milch",
+      "articulo": "die",
+      "traduccion": "la leche",
+      "genero_es": "femenino",
+      "nivel": 3
+    },
+    {
+      "palabra": "Brot",
+      "articulo": "das",
+      "plural": "Brote",
+      "traduccion": "el pan",
+      "genero_es": "masculino",
+      "nivel": 3
+    },
+    {
+      "palabra": "Zucker",
+      "articulo": "der",
+      "traduccion": "el azúcar",
+      "genero_es": "masculino",
+      "nivel": 3
+    },
+    {
+      "palabra": "Suppe",
+      "articulo": "die",
+      "plural": "Suppen",
+      "traduccion": "la sopa",
+      "genero_es": "femenino",
+      "nivel": 3
+    },
+    {
+      "palabra": "Wohnung",
+      "articulo": "die",
+      "plural": "Wohnungen",
+      "traduccion": "el apartamento",
+      "genero_es": "masculino",
+      "nivel": 3
+    },
+    {
+      "palabra": "Supermarkt",
+      "articulo": "der",
+      "plural": "Supermärkte",
+      "traduccion": "el supermercado",
+      "genero_es": "masculino",
+      "nivel": 3
+    },
+    {
+      "palabra": "Krankenhaus",
+      "articulo": "das",
+      "plural": "Krankenhäuser",
+      "traduccion": "el hospital",
+      "genero_es": "masculino",
+      "nivel": 3
+    },
+    {
+      "palabra": "Flughafen",
+      "articulo": "der",
+      "plural": "Flughäfen",
+      "traduccion": "el aeropuerto",
+      "genero_es": "masculino",
+      "nivel": 3
+    },
+    {
+      "palabra": "Kirche",
+      "articulo": "die",
+      "plural": "Kirchen",
+      "traduccion": "la iglesia",
+      "genero_es": "femenino",
+      "nivel": 3
+    },
+    {
+      "palabra": "Park",
+      "articulo": "der",
+      "plural": "Parks",
+      "traduccion": "el parque",
+      "genero_es": "masculino",
+      "nivel": 3
+    },
+    {
+      "palabra": "Kühlschrank",
+      "articulo": "der",
+      "plural": "Kühlschränke",
+      "traduccion": "la nevera",
+      "genero_es": "femenino",
+      "nivel": 4
+    },
+    {
+      "palabra": "Spiegel",
+      "articulo": "der",
+      "plural": "Spiegel",
+      "traduccion": "el espejo",
+      "genero_es": "masculino",
+      "nivel": 4
+    },
+    {
+      "palabra": "Teppich",
+      "articulo": "der",
+      "plural": "Teppiche",
+      "traduccion": "la alfombra",
+      "genero_es": "femenino",
+      "nivel": 4
+    },
+    {
+      "palabra": "Vorhang",
+      "articulo": "der",
+      "plural": "Vorhänge",
+      "traduccion": "la cortina",
+      "genero_es": "femenino",
+      "nivel": 4
+    },
+    {
+      "palabra": "Besteck",
+      "articulo": "das",
+      "traduccion": "los cubiertos",
+      "genero_es": "masculino",
+      "nivel": 4
+    },
+    {
+      "palabra": "Rathaus",
+      "articulo": "das",
+      "plural": "Rathäuser",
+      "traduccion": "la alcaldía",
+      "genero_es": "femenino",
+      "nivel": 4
+    },
+    {
+      "palabra": "Fabrik",
+      "articulo": "die",
+      "plural": "Fabriken",
+      "traduccion": "la fábrica",
+      "genero_es": "femenino",
+      "nivel": 4
+    },
+    {
+      "palabra": "Brücke",
+      "articulo": "die",
+      "plural": "Brücken",
+      "traduccion": "el puente",
+      "genero_es": "masculino",
+      "nivel": 4
+    },
+    {
+      "palabra": "Mädchen",
+      "articulo": "das",
+      "plural": "Mädchen",
+      "traduccion": "la niña",
+      "genero_es": "femenino",
+      "nivel": 4
+    },
+    {
+      "palabra": "Nachbarschaft",
+      "articulo": "die",
+      "plural": "Nachbarschaften",
+      "traduccion": "el vecindario",
+      "genero_es": "masculino",
+      "nivel": 4
+    },
+    {
+      "palabra": "Schublade",
+      "articulo": "die",
+      "plural": "Schubladen",
+      "traduccion": "el cajón",
+      "genero_es": "masculino",
+      "nivel": 4
+    },
+    {
+      "palabra": "Herd",
+      "articulo": "der",
+      "plural": "Herde",
+      "traduccion": "la estufa",
+      "genero_es": "femenino",
+      "nivel": 4
+    },
+    {
+      "palabra": "Spüle",
+      "articulo": "die",
+      "plural": "Spülen",
+      "traduccion": "el lavaplatos",
+      "genero_es": "masculino",
+      "nivel": 4
+    },
+    {
+      "palabra": "Keller",
+      "articulo": "der",
+      "plural": "Keller",
+      "traduccion": "el sótano",
+      "genero_es": "masculino",
+      "nivel": 4
+    },
+    {
+      "palabra": "Messer",
+      "articulo": "das",
+      "plural": "Messer",
+      "traduccion": "el cuchillo",
+      "genero_es": "masculino",
+      "nivel": 5
+    },
+    {
+      "palabra": "Gabel",
+      "articulo": "die",
+      "plural": "Gabeln",
+      "traduccion": "el tenedor",
+      "genero_es": "masculino",
+      "nivel": 5
+    },
+    {
+      "palabra": "Löffel",
+      "articulo": "der",
+      "plural": "Löffel",
+      "traduccion": "la cuchara",
+      "genero_es": "femenino",
+      "nivel": 5
+    },
+    {
+      "palabra": "Käse",
+      "articulo": "der",
+      "plural": "Käse",
+      "traduccion": "el queso",
+      "genero_es": "masculino",
+      "nivel": 5
+    },
+    {
+      "palabra": "Butter",
+      "articulo": "die",
+      "traduccion": "la mantequilla",
+      "genero_es": "femenino",
+      "nivel": 5
+    },
+    {
+      "palabra": "Bett",
+      "articulo": "das",
+      "plural": "Betten",
+      "traduccion": "la cama",
+      "genero_es": "femenino",
+      "nivel": 5
+    },
+    {
+      "palabra": "Mond",
+      "articulo": "der",
+      "plural": "Monde",
+      "traduccion": "la luna",
+      "genero_es": "femenino",
+      "nivel": 5
+    },
+    {
+      "palabra": "Sonne",
+      "articulo": "die",
+      "plural": "Sonnen",
+      "traduccion": "el sol",
+      "genero_es": "masculino",
+      "nivel": 5
+    },
+    {
+      "palabra": "Wasser",
+      "articulo": "das",
+      "traduccion": "el agua",
+      "genero_es": "femenino",
+      "nivel": 5
+    },
+    {
+      "palabra": "Feuer",
+      "articulo": "das",
+      "plural": "Feuer",
+      "traduccion": "el fuego",
+      "genero_es": "masculino",
+      "nivel": 5
+    },
+    {
+      "palabra": "Mensch",
+      "articulo": "der",
+      "plural": "Menschen",
+      "traduccion": "el ser humano",
+      "genero_es": "masculino",
+      "nivel": 5
+    },
+    {
+      "palabra": "Herz",
+      "articulo": "das",
+      "plural": "Herzen",
+      "traduccion": "el corazón",
+      "genero_es": "masculino",
+      "nivel": 5
+    },
+    {
+      "palabra": "Name",
+      "articulo": "der",
+      "plural": "Namen",
+      "traduccion": "el nombre",
+      "genero_es": "masculino",
+      "nivel": 5
+    },
+    {
+      "palabra": "Glück",
+      "articulo": "das",
+      "traduccion": "la suerte",
+      "genero_es": "femenino",
+      "nivel": 5
+    }
+  ]
+}

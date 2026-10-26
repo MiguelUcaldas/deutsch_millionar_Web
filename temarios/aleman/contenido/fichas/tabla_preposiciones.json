@@ -1,0 +1,41 @@
+{
+  "tipo": "tabla",
+  "titulo": "Preposiciones de tiempo: um, am, im",
+  "columnas": [
+    {
+      "id": "uso",
+      "texto": "Se usa con"
+    },
+    {
+      "id": "ejemplos",
+      "texto": "Ejemplos"
+    }
+  ],
+  "filas": [
+    {
+      "id": "um",
+      "texto": "um",
+      "celdas": {
+        "uso": "Horas exactas y momentos puntuales",
+        "ejemplos": "um 8 Uhr, um Mitternacht"
+      }
+    },
+    {
+      "id": "am",
+      "texto": "am",
+      "celdas": {
+        "uso": "Días, partes del día, fechas y el fin de semana",
+        "ejemplos": "am Montag, am Abend, am 3. Mai, am Wochenende"
+      }
+    },
+    {
+      "id": "im",
+      "texto": "im",
+      "celdas": {
+        "uso": "Meses y estaciones del año",
+        "ejemplos": "im Januar, im Sommer"
+      }
+    }
+  ],
+  "nota": "Excepción frecuente: la noche se dice 'in der Nacht', no 'am Nacht'."
+}

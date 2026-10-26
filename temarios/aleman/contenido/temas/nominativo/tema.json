@@ -1,0 +1,27 @@
+{
+  "$schema": "../../../../../esquemas/tema.schema.json",
+  "id": "nominativo",
+  "prefijo": "NOM",
+  "orden": 2,
+  "nombre_corto": "Nominativo",
+  "titulo": "Nominativo (Nominativ)",
+  "resumen": "El caso del sujeto: quién hace la acción.",
+  "que_es": "El sujeto de la oración va en nominativo. Es la forma 'normal' del artículo, la que aparece en el diccionario: der, die, das, ein, eine.",
+  "como_reconocerlo": [
+    "Responde a Wer? (¿quién?) o Was? (¿qué?) hace la acción",
+    "El verbo se conjuga según el sujeto",
+    "El sujeto no siempre va primero: si la oración empieza con otra cosa, va justo después del verbo"
+  ],
+  "errores_comunes": ["Pensar que la primera palabra de la oración siempre es el sujeto"],
+  "ejemplos": [
+    {
+      "original": "Der Mann ist Lehrer.",
+      "traduccion": "El hombre es profesor."
+    },
+    {
+      "original": "Morgen besucht der Mann seine Mutter.",
+      "traduccion": "Mañana el hombre visita a su mamá."
+    }
+  ],
+  "ficha_principal": "tabla_articulos"
+}

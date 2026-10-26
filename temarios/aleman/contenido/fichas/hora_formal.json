@@ -1,0 +1,36 @@
+{
+  "tipo": "regla",
+  "titulo": "Hora formal (horarios, radio, trenes)",
+  "puntos": [
+    {
+      "id": "en_punto",
+      "texto": "En punto: número de la hora + Uhr.",
+      "ejemplos": [
+        {
+          "original": "acht Uhr",
+          "traduccion": "las ocho en punto"
+        }
+      ]
+    },
+    {
+      "id": "con_minutos",
+      "texto": "Con minutos: hora + Uhr + minutos. Nunca se dice 'Minuten'.",
+      "ejemplos": [
+        {
+          "original": "acht Uhr fünfzehn",
+          "traduccion": "8:15"
+        }
+      ]
+    },
+    {
+      "id": "veinticuatro",
+      "texto": "Se usa el reloj de 24 horas.",
+      "ejemplos": [
+        {
+          "original": "vierzehn Uhr dreißig",
+          "traduccion": "14:30"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "tipo": "regla",
+  "titulo": "Cómo se forman los números",
+  "puntos": [
+    {
+      "id": "cero_doce",
+      "texto": "Del 0 al 12 cada número tiene palabra propia.",
+      "ejemplos": [
+        {
+          "original": "null, eins, zwei, drei ... elf, zwölf",
+          "traduccion": "0, 1, 2, 3 ... 11, 12"
+        }
+      ]
+    },
+    {
+      "id": "trece_diecinueve",
+      "texto": "Del 13 al 19 se pone la unidad + zehn. Ojo: sechzehn y siebzehn pierden letras.",
+      "ejemplos": [
+        {
+          "original": "dreizehn, sechzehn, siebzehn",
+          "traduccion": "13, 16, 17"
+        }
+      ]
+    },
+    {
+      "id": "decenas",
+      "texto": "Las decenas terminan en -zig, salvo dreißig (con ß). sechzig y siebzig también se acortan.",
+      "ejemplos": [
+        {
+          "original": "zwanzig, dreißig, sechzig, siebzig",
+          "traduccion": "20, 30, 60, 70"
+        }
+      ]
+    },
+    {
+      "id": "compuestos",
+      "texto": "Del 21 en adelante se dice primero la unidad, luego 'und' y después la decena.",
+      "ejemplos": [
+        {
+          "original": "vierundzwanzig",
+          "traduccion": "cuatro y veinte = 24"
+        }
+      ]
+    },
+    {
+      "id": "centenas_miles",
+      "texto": "Centenas y miles van primero, y todo el número se escribe en una sola palabra.",
+      "ejemplos": [
+        {
+          "original": "dreihundertsiebenundachtzig",
+          "traduccion": "387"
+        }
+      ]
+    }
+  ]
+}

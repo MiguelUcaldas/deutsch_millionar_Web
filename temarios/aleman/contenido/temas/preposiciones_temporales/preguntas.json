@@ -1,0 +1,134 @@
+[
+  {
+    "id": "PRE-001",
+    "nivel": 1,
+    "enunciado": "Der Film beginnt ___ 8 Uhr.",
+    "opciones": ["um", "am", "im", "in"],
+    "correcta": "um",
+    "explicacion": "Hora exacta → um.",
+    "traduccion": "La película empieza a las 8.",
+    "resaltar": ["um"],
+    "ficha": "tabla_preposiciones"
+  },
+  {
+    "id": "PRE-002",
+    "nivel": 1,
+    "enunciado": "Wir treffen uns ___ Montag.",
+    "opciones": ["um", "am", "im", "in"],
+    "correcta": "am",
+    "explicacion": "Día de la semana → am.",
+    "traduccion": "Nos vemos el lunes.",
+    "resaltar": ["am"],
+    "ficha": "tabla_preposiciones"
+  },
+  {
+    "id": "PRE-003",
+    "nivel": 2,
+    "enunciado": "Die Party ist ___ Samstag.",
+    "opciones": ["um", "am", "im", "in"],
+    "correcta": "am",
+    "explicacion": "Día de la semana → am.",
+    "traduccion": "La fiesta es el sábado.",
+    "resaltar": ["am"],
+    "ficha": "tabla_preposiciones"
+  },
+  {
+    "id": "PRE-004",
+    "nivel": 2,
+    "enunciado": "Der Unterricht beginnt ___ 9 Uhr.",
+    "opciones": ["um", "am", "im", "in"],
+    "correcta": "um",
+    "explicacion": "Hora exacta → um.",
+    "traduccion": "La clase empieza a las 9.",
+    "resaltar": ["um"],
+    "ficha": "tabla_preposiciones"
+  },
+  {
+    "id": "PRE-005",
+    "nivel": 3,
+    "enunciado": "Es ist sehr heiß ___ Sommer.",
+    "opciones": ["um", "am", "im", "in"],
+    "correcta": "im",
+    "explicacion": "Estación del año → im.",
+    "traduccion": "En verano hace mucho calor.",
+    "resaltar": ["im"],
+    "ficha": "tabla_preposiciones"
+  },
+  {
+    "id": "PRE-006",
+    "nivel": 3,
+    "enunciado": "Mein Geburtstag ist ___ Januar.",
+    "opciones": ["um", "am", "im", "in"],
+    "correcta": "im",
+    "explicacion": "Mes → im.",
+    "traduccion": "Mi cumpleaños es en enero.",
+    "resaltar": ["im"],
+    "ficha": "tabla_preposiciones"
+  },
+  {
+    "id": "PRE-007",
+    "nivel": 3,
+    "enunciado": "Wir bleiben ___ Wochenende zu Hause.",
+    "opciones": ["um", "am", "im", "in"],
+    "correcta": "am",
+    "explicacion": "Wochenende va con am, igual que los días.",
+    "traduccion": "El fin de semana nos quedamos en casa.",
+    "resaltar": ["am"],
+    "ficha": "tabla_preposiciones"
+  },
+  {
+    "id": "PRE-008",
+    "nivel": 4,
+    "enunciado": "Ich trinke Kaffee ___ Morgen.",
+    "opciones": ["um", "am", "im", "in"],
+    "correcta": "am",
+    "explicacion": "Parte del día → am (am Morgen, am Abend).",
+    "traduccion": "Tomo café por la mañana.",
+    "resaltar": ["am"],
+    "ficha": "tabla_preposiciones"
+  },
+  {
+    "id": "PRE-009",
+    "nivel": 4,
+    "enunciado": "Die Geister kommen ___ Mitternacht.",
+    "opciones": ["um", "am", "im", "in"],
+    "correcta": "um",
+    "explicacion": "Mitternacht es un momento exacto, como una hora → um.",
+    "traduccion": "Los fantasmas vienen a medianoche.",
+    "resaltar": ["um"],
+    "ficha": "tabla_preposiciones"
+  },
+  {
+    "id": "PRE-010",
+    "nivel": 4,
+    "enunciado": "Die Prüfung ist ___ Winter.",
+    "opciones": ["um", "am", "im", "in"],
+    "correcta": "im",
+    "explicacion": "Estación del año → im.",
+    "traduccion": "El examen es en invierno.",
+    "resaltar": ["im"],
+    "ficha": "tabla_preposiciones"
+  },
+  {
+    "id": "PRE-011",
+    "nivel": 5,
+    "enunciado": "Das Fest findet ___ 3. Mai statt.",
+    "opciones": ["um", "am", "im", "in"],
+    "correcta": "am",
+    "explicacion": "Fecha con día → am, aunque el mes solo sea im Mai.",
+    "traduccion": "La fiesta es el 3 de mayo.",
+    "resaltar": ["am"],
+    "ficha": "tabla_preposiciones"
+  },
+  {
+    "id": "PRE-012",
+    "nivel": 5,
+    "enunciado": "Ich lese ___ Abend gern ein Buch.",
+    "opciones": ["um", "am", "im", "in"],
+    "correcta": "am",
+    "explicacion": "Parte del día → am Abend.",
+    "traduccion": "En la noche me gusta leer un libro.",
+    "resaltar": ["am"],
+    "ficha": "tabla_preposiciones"
+  }
+]

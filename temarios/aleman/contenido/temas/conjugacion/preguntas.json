@@ -1,0 +1,182 @@
+[
+  {
+    "id": "CON-001",
+    "nivel": 1,
+    "enunciado": "Ich ___ Deutsch.",
+    "opciones": ["lerne", "lernst", "lernt", "lernen"],
+    "correcta": "lerne",
+    "explicacion": "Con ich, los verbos regulares terminan en -e: lerne.",
+    "traduccion": "Aprendo alemán.",
+    "ficha": {
+      "tipo": "conjugacion",
+      "verbo": "lernen",
+      "persona": "ich",
+      "tiempo": "presente"
+    }
+  },
+  {
+    "id": "CON-002",
+    "nivel": 1,
+    "enunciado": "Du ___ sehr gut.",
+    "opciones": ["spiele", "spielst", "spielt", "spielen"],
+    "correcta": "spielst",
+    "explicacion": "Con du, terminación -st: spielst.",
+    "traduccion": "Tú juegas muy bien.",
+    "ficha": {
+      "tipo": "conjugacion",
+      "verbo": "spielen",
+      "persona": "du",
+      "tiempo": "presente"
+    }
+  },
+  {
+    "id": "CON-003",
+    "nivel": 2,
+    "enunciado": "Er ___ jeden Tag Fußball.",
+    "opciones": ["spiele", "spielst", "spielt", "spielen"],
+    "correcta": "spielt",
+    "explicacion": "Con er, terminación -t: spielt.",
+    "traduccion": "Él juega fútbol todos los días.",
+    "ficha": {
+      "tipo": "conjugacion",
+      "verbo": "spielen",
+      "persona": "er_sie_es",
+      "tiempo": "presente"
+    }
+  },
+  {
+    "id": "CON-004",
+    "nivel": 2,
+    "enunciado": "Wir ___ in Berlin.",
+    "opciones": ["wohne", "wohnst", "wohnt", "wohnen"],
+    "correcta": "wohnen",
+    "explicacion": "Con wir, terminación -en: wohnen.",
+    "traduccion": "Vivimos en Berlín.",
+    "ficha": {
+      "tipo": "conjugacion",
+      "verbo": "wohnen",
+      "persona": "wir",
+      "tiempo": "presente"
+    }
+  },
+  {
+    "id": "CON-005",
+    "nivel": 3,
+    "enunciado": "Ich ___ müde.",
+    "opciones": ["bin", "bist", "ist", "sind"],
+    "correcta": "bin",
+    "explicacion": "sein es irregular: con ich es bin.",
+    "traduccion": "Estoy cansado.",
+    "ficha": {
+      "tipo": "conjugacion",
+      "verbo": "sein",
+      "persona": "ich",
+      "tiempo": "presente"
+    }
+  },
+  {
+    "id": "CON-006",
+    "nivel": 3,
+    "enunciado": "Du ___ einen Bruder.",
+    "opciones": ["habe", "hast", "hat", "haben"],
+    "correcta": "hast",
+    "explicacion": "haben pierde la b con du: hast.",
+    "traduccion": "Tienes un hermano.",
+    "ficha": {
+      "tipo": "conjugacion",
+      "verbo": "haben",
+      "persona": "du",
+      "tiempo": "presente"
+    }
+  },
+  {
+    "id": "CON-007",
+    "nivel": 3,
+    "enunciado": "Er ___ gern Pizza.",
+    "opciones": ["esse", "isst", "essen", "esst"],
+    "correcta": "isst",
+    "explicacion": "essen cambia e → i con er: isst.",
+    "traduccion": "A él le gusta comer pizza.",
+    "ficha": {
+      "tipo": "conjugacion",
+      "verbo": "essen",
+      "persona": "er_sie_es",
+      "tiempo": "presente"
+    }
+  },
+  {
+    "id": "CON-008",
+    "nivel": 4,
+    "enunciado": "Ihr ___ sehr schnell.",
+    "opciones": ["fahrt", "fährt", "fahren", "fährst"],
+    "correcta": "fahrt",
+    "explicacion": "Con ihr no hay cambio de vocal: fahrt.",
+    "traduccion": "Ustedes van muy rápido.",
+    "ficha": {
+      "tipo": "conjugacion",
+      "verbo": "fahren",
+      "persona": "ihr",
+      "tiempo": "presente"
+    }
+  },
+  {
+    "id": "CON-009",
+    "nivel": 4,
+    "enunciado": "Er ___ jeden Tag zur Arbeit.",
+    "opciones": ["fahrt", "fährt", "fahren", "fahre"],
+    "correcta": "fährt",
+    "explicacion": "fahren cambia a → ä con er: fährt.",
+    "traduccion": "Él va al trabajo todos los días.",
+    "ficha": {
+      "tipo": "conjugacion",
+      "verbo": "fahren",
+      "persona": "er_sie_es",
+      "tiempo": "presente"
+    }
+  },
+  {
+    "id": "CON-010",
+    "nivel": 4,
+    "enunciado": "Woher ___ Sie, Herr Müller?",
+    "opciones": ["kommst", "kommen", "kommt", "komme"],
+    "correcta": "kommen",
+    "explicacion": "Con Sie (usted) el verbo es igual que en plural: kommen.",
+    "traduccion": "¿De dónde viene usted, señor Müller?",
+    "ficha": {
+      "tipo": "conjugacion",
+      "verbo": "kommen",
+      "persona": "Sie_formal",
+      "tiempo": "presente"
+    }
+  },
+  {
+    "id": "CON-011",
+    "nivel": 5,
+    "enunciado": "___ Sie aus Deutschland?",
+    "opciones": ["Bist", "Sind", "Seid", "Ist"],
+    "correcta": "Sind",
+    "explicacion": "Con Sie (usted), sein es sind.",
+    "traduccion": "¿Usted es de Alemania?",
+    "ficha": {
+      "tipo": "conjugacion",
+      "verbo": "sein",
+      "persona": "Sie_formal",
+      "tiempo": "presente"
+    }
+  },
+  {
+    "id": "CON-012",
+    "nivel": 5,
+    "enunciado": "Ihr ___ heute sehr müde.",
+    "opciones": ["bist", "seid", "sind", "bin"],
+    "correcta": "seid",
+    "explicacion": "Con ihr, sein es seid.",
+    "traduccion": "Ustedes están muy cansados hoy.",
+    "ficha": {
+      "tipo": "conjugacion",
+      "verbo": "sein",
+      "persona": "ihr",
+      "tiempo": "presente"
+    }
+  }
+]

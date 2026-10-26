@@ -1,0 +1,86 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$"
+    },
+    "prefijo": {
+      "type": "string",
+      "pattern": "^[A-Z]+$"
+    },
+    "orden": {
+      "type": "integer",
+      "minimum": -9007199254740991,
+      "maximum": 9007199254740991
+    },
+    "nombre_corto": {
+      "type": "string",
+      "minLength": 1
+    },
+    "titulo": {
+      "type": "string",
+      "minLength": 1
+    },
+    "resumen": {
+      "type": "string",
+      "minLength": 1
+    },
+    "que_es": {
+      "type": "string",
+      "minLength": 1
+    },
+    "como_reconocerlo": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "ejemplos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "original": {
+            "type": "string",
+            "minLength": 1
+          },
+          "traduccion": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": ["original", "traduccion"],
+        "additionalProperties": false
+      }
+    },
+    "errores_comunes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "ficha_principal": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "prefijo",
+    "orden",
+    "nombre_corto",
+    "titulo",
+    "resumen",
+    "que_es",
+    "como_reconocerlo",
+    "ejemplos",
+    "errores_comunes"
+  ],
+  "additionalProperties": false
+}

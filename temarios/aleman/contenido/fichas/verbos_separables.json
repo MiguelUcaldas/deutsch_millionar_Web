@@ -1,0 +1,36 @@
+{
+  "tipo": "regla",
+  "titulo": "Dónde va el prefijo de un verbo separable",
+  "puntos": [
+    {
+      "id": "principal",
+      "texto": "Oración normal: el verbo conjugado en posición 2 y el prefijo al final.",
+      "ejemplos": [
+        {
+          "original": "Ich stehe um 7 Uhr auf.",
+          "traduccion": "Me levanto a las 7."
+        }
+      ]
+    },
+    {
+      "id": "pregunta",
+      "texto": "Pregunta: el verbo conjugado al inicio o después de la palabra interrogativa, y el prefijo al final.",
+      "ejemplos": [
+        {
+          "original": "Wann fängt der Film an?",
+          "traduccion": "¿A qué hora empieza la película?"
+        }
+      ]
+    },
+    {
+      "id": "subordinada",
+      "texto": "Después de weil, dass, wann...: el verbo va al final y el prefijo se vuelve a unir.",
+      "ejemplos": [
+        {
+          "original": "..., weil ich früh aufstehe.",
+          "traduccion": "..., porque me levanto temprano."
+        }
+      ]
+    }
+  ]
+}

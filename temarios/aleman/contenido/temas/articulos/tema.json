@@ -1,0 +1,31 @@
+{
+  "$schema": "../../../../../esquemas/tema.schema.json",
+  "id": "articulos",
+  "prefijo": "ART",
+  "orden": 1,
+  "nombre_corto": "Artículos",
+  "titulo": "Artículos (der, die, das · ein, eine)",
+  "resumen": "Cada sustantivo alemán tiene género y el artículo lo muestra.",
+  "que_es": "En alemán hay tres géneros: masculino, femenino y neutro. El artículo definido es der, die o das, y el indefinido es ein para masculino y neutro, y eine para femenino. Además, el artículo cambia según la función de la palabra en la oración.",
+  "como_reconocerlo": [
+    "der / ein → masculino",
+    "die / eine → femenino",
+    "das / ein → neutro",
+    "Si el sustantivo masculino es objeto directo, ein pasa a einen"
+  ],
+  "errores_comunes": [
+    "Usar el género del español: es 'der Tisch' aunque en español sea 'la mesa'",
+    "Olvidar que ein sirve tanto para masculino como para neutro"
+  ],
+  "ejemplos": [
+    {
+      "original": "Das ist ein Tisch.",
+      "traduccion": "Es una mesa."
+    },
+    {
+      "original": "Ich kaufe eine Bluse.",
+      "traduccion": "Compro una blusa."
+    }
+  ],
+  "ficha_principal": "tabla_articulos"
+}

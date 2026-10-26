@@ -1,0 +1,522 @@
+{
+  "enunciados_fijos": {
+    "Wie spät ist es?": "¿Qué hora es?",
+    "Welcher Satz ist richtig?": "¿Qué oración es correcta?",
+    "Wie sagt man richtig: Ich bin müde, weil...?": "¿Cómo se dice correctamente: Estoy cansado porque...?"
+  },
+  "patrones_enunciado": [
+    {
+      "de": "Was bedeutet die Zahl {x}?",
+      "es": "¿Qué número es {x}?"
+    },
+    {
+      "de": "Was bedeutet {x}?",
+      "es": "¿Qué significa {x}?"
+    },
+    {
+      "de": "Wie sagt man die Zahl {x} auf Deutsch?",
+      "es": "¿Cómo se dice el número {x} en alemán?"
+    },
+    {
+      "de": "Wie viel Uhr ist {x}?",
+      "es": "¿Qué hora es {x}?"
+    },
+    {
+      "de": "Es ist {x}. Wie sagt man das formell?",
+      "es": "Son las {x}. ¿Cómo se dice de forma formal?"
+    },
+    {
+      "de": "Wie sagt man richtig mit {x}?",
+      "es": "¿Cuál es la forma correcta con {x}?"
+    },
+    {
+      "de": "Was ist häufiger: {x}?",
+      "es": "¿Qué es más frecuente: {x}?"
+    }
+  ],
+  "fichas": {
+    "tabla_articulos": {
+      "tipo": "tabla",
+      "titulo": "Artículos en nominativo y acusativo",
+      "columnas": [
+        {
+          "id": "masculino",
+          "texto": "Masculino"
+        },
+        {
+          "id": "femenino",
+          "texto": "Femenino"
+        },
+        {
+          "id": "neutro",
+          "texto": "Neutro"
+        }
+      ],
+      "filas": [
+        {
+          "id": "nominativo_definido",
+          "texto": "Nominativo (el, la)",
+          "celdas": {
+            "masculino": "der",
+            "femenino": "die",
+            "neutro": "das"
+          }
+        },
+        {
+          "id": "nominativo_indefinido",
+          "texto": "Nominativo (un, una)",
+          "celdas": {
+            "masculino": "ein",
+            "femenino": "eine",
+            "neutro": "ein"
+          }
+        },
+        {
+          "id": "acusativo_definido",
+          "texto": "Acusativo (el, la)",
+          "celdas": {
+            "masculino": "den",
+            "femenino": "die",
+            "neutro": "das"
+          }
+        },
+        {
+          "id": "acusativo_indefinido",
+          "texto": "Acusativo (un, una)",
+          "celdas": {
+            "masculino": "einen",
+            "femenino": "eine",
+            "neutro": "ein"
+          }
+        }
+      ],
+      "nota": "Del nominativo al acusativo solo cambia el masculino: der → den, ein → einen."
+    },
+    "tabla_preposiciones": {
+      "tipo": "tabla",
+      "titulo": "Preposiciones de tiempo: um, am, im",
+      "columnas": [
+        {
+          "id": "uso",
+          "texto": "Se usa con"
+        },
+        {
+          "id": "ejemplos",
+          "texto": "Ejemplos"
+        }
+      ],
+      "filas": [
+        {
+          "id": "um",
+          "texto": "um",
+          "celdas": {
+            "uso": "Horas exactas y momentos puntuales",
+            "ejemplos": "um 8 Uhr, um Mitternacht"
+          }
+        },
+        {
+          "id": "am",
+          "texto": "am",
+          "celdas": {
+            "uso": "Días, partes del día, fechas y el fin de semana",
+            "ejemplos": "am Montag, am Abend, am 3. Mai, am Wochenende"
+          }
+        },
+        {
+          "id": "im",
+          "texto": "im",
+          "celdas": {
+            "uso": "Meses y estaciones del año",
+            "ejemplos": "im Januar, im Sommer"
+          }
+        }
+      ],
+      "nota": "Excepción frecuente: la noche se dice 'in der Nacht', no 'am Nacht'."
+    },
+    "tabla_conectores": {
+      "tipo": "tabla",
+      "titulo": "Conectores y posición del verbo",
+      "columnas": [
+        {
+          "id": "conectores",
+          "texto": "Conectores"
+        },
+        {
+          "id": "verbo",
+          "texto": "Qué pasa con el verbo"
+        },
+        {
+          "id": "ejemplo",
+          "texto": "Ejemplo"
+        }
+      ],
+      "filas": [
+        {
+          "id": "normal",
+          "texto": "Orden normal",
+          "celdas": {
+            "conectores": "und, aber, oder, denn",
+            "verbo": "Se queda en posición 2",
+            "ejemplo": "..., denn es regnet stark."
+          }
+        },
+        {
+          "id": "final",
+          "texto": "Verbo al final",
+          "celdas": {
+            "conectores": "weil, dass",
+            "verbo": "Se va al final de la oración",
+            "ejemplo": "..., weil es stark regnet."
+          }
+        },
+        {
+          "id": "inversion",
+          "texto": "Inversión",
+          "celdas": {
+            "conectores": "deshalb, trotzdem",
+            "verbo": "Va justo después del conector, antes del sujeto",
+            "ejemplo": "..., deshalb bleibe ich zu Hause."
+          }
+        }
+      ],
+      "nota": "weil y denn significan lo mismo (porque); la diferencia es solo la posición del verbo."
+    },
+    "escala_frecuencia": {
+      "tipo": "escala",
+      "titulo": "Adverbios de frecuencia",
+      "desde": "Nunca",
+      "hasta": "Siempre",
+      "elementos": [
+        {
+          "id": "nie",
+          "de": "nie",
+          "es": "nunca"
+        },
+        {
+          "id": "selten",
+          "de": "selten",
+          "es": "rara vez"
+        },
+        {
+          "id": "manchmal",
+          "de": "manchmal",
+          "es": "a veces"
+        },
+        {
+          "id": "oft",
+          "de": "oft",
+          "es": "a menudo"
+        },
+        {
+          "id": "meistens",
+          "de": "meistens",
+          "es": "casi siempre"
+        },
+        {
+          "id": "immer",
+          "de": "immer",
+          "es": "siempre"
+        }
+      ],
+      "nota": "En la oración van justo después del verbo conjugado: Ich spiele oft Fußball."
+    },
+    "numeros_base": {
+      "tipo": "regla",
+      "titulo": "Cómo se forman los números",
+      "puntos": [
+        {
+          "id": "cero_doce",
+          "texto": "Del 0 al 12 cada número tiene palabra propia.",
+          "ejemplos": [
+            {
+              "de": "null, eins, zwei, drei ... elf, zwölf",
+              "es": "0, 1, 2, 3 ... 11, 12"
+            }
+          ]
+        },
+        {
+          "id": "trece_diecinueve",
+          "texto": "Del 13 al 19 se pone la unidad + zehn. Ojo: sechzehn y siebzehn pierden letras.",
+          "ejemplos": [
+            {
+              "de": "dreizehn, sechzehn, siebzehn",
+              "es": "13, 16, 17"
+            }
+          ]
+        },
+        {
+          "id": "decenas",
+          "texto": "Las decenas terminan en -zig, salvo dreißig (con ß). sechzig y siebzig también se acortan.",
+          "ejemplos": [
+            {
+              "de": "zwanzig, dreißig, sechzig, siebzig",
+              "es": "20, 30, 60, 70"
+            }
+          ]
+        },
+        {
+          "id": "compuestos",
+          "texto": "Del 21 en adelante se dice primero la unidad, luego 'und' y después la decena.",
+          "ejemplos": [
+            {
+              "de": "vierundzwanzig",
+              "es": "cuatro y veinte = 24"
+            }
+          ]
+        },
+        {
+          "id": "centenas_miles",
+          "texto": "Centenas y miles van primero, y todo el número se escribe en una sola palabra.",
+          "ejemplos": [
+            {
+              "de": "dreihundertsiebenundachtzig",
+              "es": "387"
+            }
+          ]
+        }
+      ]
+    },
+    "hora_formal": {
+      "tipo": "regla",
+      "titulo": "Hora formal (horarios, radio, trenes)",
+      "puntos": [
+        {
+          "id": "en_punto",
+          "texto": "En punto: número de la hora + Uhr.",
+          "ejemplos": [
+            {
+              "de": "acht Uhr",
+              "es": "las ocho en punto"
+            }
+          ]
+        },
+        {
+          "id": "con_minutos",
+          "texto": "Con minutos: hora + Uhr + minutos. Nunca se dice 'Minuten'.",
+          "ejemplos": [
+            {
+              "de": "acht Uhr fünfzehn",
+              "es": "8:15"
+            }
+          ]
+        },
+        {
+          "id": "veinticuatro",
+          "texto": "Se usa el reloj de 24 horas.",
+          "ejemplos": [
+            {
+              "de": "vierzehn Uhr dreißig",
+              "es": "14:30"
+            }
+          ]
+        }
+      ]
+    },
+    "hora_informal": {
+      "tipo": "regla",
+      "titulo": "Hora informal (en la conversación)",
+      "puntos": [
+        {
+          "id": "en_punto",
+          "minutos": [
+            0,
+            0
+          ],
+          "texto": "En punto: número + Uhr.",
+          "ejemplos": [
+            {
+              "de": "drei Uhr",
+              "es": "3:00"
+            }
+          ]
+        },
+        {
+          "id": "nach",
+          "minutos": [
+            1,
+            20
+          ],
+          "texto": "Minutos después de la hora: X nach.",
+          "ejemplos": [
+            {
+              "de": "zehn nach zwei",
+              "es": "2:10"
+            }
+          ]
+        },
+        {
+          "id": "viertel_nach",
+          "minutos": [
+            15,
+            15
+          ],
+          "texto": "Un cuarto después: Viertel nach.",
+          "ejemplos": [
+            {
+              "de": "Viertel nach drei",
+              "es": "3:15"
+            }
+          ]
+        },
+        {
+          "id": "vor_halb",
+          "minutos": [
+            21,
+            29
+          ],
+          "texto": "Antes de la media: X vor halb + la hora SIGUIENTE.",
+          "ejemplos": [
+            {
+              "de": "fünf vor halb zwei",
+              "es": "1:25"
+            }
+          ]
+        },
+        {
+          "id": "halb",
+          "minutos": [
+            30,
+            30
+          ],
+          "texto": "halb + la hora SIGUIENTE: es media hora antes de esa hora.",
+          "ejemplos": [
+            {
+              "de": "halb drei",
+              "es": "2:30 (no 3:30)"
+            }
+          ]
+        },
+        {
+          "id": "nach_halb",
+          "minutos": [
+            31,
+            39
+          ],
+          "texto": "Después de la media: X nach halb + la hora SIGUIENTE.",
+          "ejemplos": [
+            {
+              "de": "fünf nach halb acht",
+              "es": "7:35"
+            }
+          ]
+        },
+        {
+          "id": "vor",
+          "minutos": [
+            40,
+            59
+          ],
+          "texto": "Minutos antes de la hora siguiente: X vor.",
+          "ejemplos": [
+            {
+              "de": "zwanzig vor zehn",
+              "es": "9:40"
+            }
+          ]
+        },
+        {
+          "id": "viertel_vor",
+          "minutos": [
+            45,
+            45
+          ],
+          "texto": "Un cuarto antes: Viertel vor.",
+          "ejemplos": [
+            {
+              "de": "Viertel vor sieben",
+              "es": "6:45"
+            }
+          ]
+        }
+      ],
+      "nota": "Los rangos de 'minutos' sirven para colorear la zona en el reloj analógico."
+    },
+    "verbos_separables": {
+      "tipo": "regla",
+      "titulo": "Dónde va el prefijo de un verbo separable",
+      "puntos": [
+        {
+          "id": "principal",
+          "texto": "Oración normal: el verbo conjugado en posición 2 y el prefijo al final.",
+          "ejemplos": [
+            {
+              "de": "Ich stehe um 7 Uhr auf.",
+              "es": "Me levanto a las 7."
+            }
+          ]
+        },
+        {
+          "id": "pregunta",
+          "texto": "Pregunta: el verbo conjugado al inicio o después de la palabra interrogativa, y el prefijo al final.",
+          "ejemplos": [
+            {
+              "de": "Wann fängt der Film an?",
+              "es": "¿A qué hora empieza la película?"
+            }
+          ]
+        },
+        {
+          "id": "subordinada",
+          "texto": "Después de weil, dass, wann...: el verbo va al final y el prefijo se vuelve a unir.",
+          "ejemplos": [
+            {
+              "de": "..., weil ich früh aufstehe.",
+              "es": "..., porque me levanto temprano."
+            }
+          ]
+        }
+      ]
+    },
+    "genero_terminaciones": {
+      "tipo": "regla",
+      "titulo": "Pistas para el género de un sustantivo",
+      "puntos": [
+        {
+          "id": "neutro_chen",
+          "terminaciones": [
+            "chen",
+            "lein"
+          ],
+          "articulo": "das",
+          "texto": "Las terminaciones -chen y -lein siempre son neutras.",
+          "ejemplos": [
+            {
+              "de": "das Mädchen",
+              "es": "la niña"
+            }
+          ]
+        },
+        {
+          "id": "femenino_sufijos",
+          "terminaciones": [
+            "ung",
+            "heit",
+            "keit",
+            "schaft"
+          ],
+          "articulo": "die",
+          "texto": "Las terminaciones -ung, -heit, -keit y -schaft siempre son femeninas.",
+          "ejemplos": [
+            {
+              "de": "die Wohnung, die Nachbarschaft",
+              "es": "el apartamento, el vecindario"
+            }
+          ]
+        },
+        {
+          "id": "sin_regla",
+          "terminaciones": [],
+          "articulo": null,
+          "texto": "La mayoría de sustantivos no tiene una regla segura: el artículo se aprende junto con la palabra.",
+          "ejemplos": [
+            {
+              "de": "der Tisch, die Lampe, das Buch",
+              "es": "la mesa, la lámpara, el libro"
+            }
+          ]
+        }
+      ],
+      "nota": "El generador elige el punto según la terminación de la palabra; si ninguna coincide, usa 'sin_regla'."
+    }
+  }
+}

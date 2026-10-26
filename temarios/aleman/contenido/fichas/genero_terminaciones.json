@@ -1,0 +1,43 @@
+{
+  "tipo": "regla",
+  "titulo": "Pistas para el género de un sustantivo",
+  "puntos": [
+    {
+      "id": "neutro_chen",
+      "terminaciones": ["chen", "lein"],
+      "articulo": "das",
+      "texto": "Las terminaciones -chen y -lein siempre son neutras.",
+      "ejemplos": [
+        {
+          "original": "das Mädchen",
+          "traduccion": "la niña"
+        }
+      ]
+    },
+    {
+      "id": "femenino_sufijos",
+      "terminaciones": ["ung", "heit", "keit", "schaft"],
+      "articulo": "die",
+      "texto": "Las terminaciones -ung, -heit, -keit y -schaft siempre son femeninas.",
+      "ejemplos": [
+        {
+          "original": "die Wohnung, die Nachbarschaft",
+          "traduccion": "el apartamento, el vecindario"
+        }
+      ]
+    },
+    {
+      "id": "sin_regla",
+      "terminaciones": [],
+      "articulo": null,
+      "texto": "La mayoría de sustantivos no tiene una regla segura: el artículo se aprende junto con la palabra.",
+      "ejemplos": [
+        {
+          "original": "der Tisch, die Lampe, das Buch",
+          "traduccion": "la mesa, la lámpara, el libro"
+        }
+      ]
+    }
+  ],
+  "nota": "El generador elige el punto según la terminación de la palabra; si ninguna coincide, usa 'sin_regla'."
+}

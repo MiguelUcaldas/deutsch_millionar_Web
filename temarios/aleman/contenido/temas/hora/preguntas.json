@@ -1,0 +1,179 @@
+[
+  {
+    "id": "HOR-001",
+    "nivel": 1,
+    "enunciado": "Wie spät ist es?",
+    "opciones": ["acht Uhr", "sieben Uhr", "neun Uhr", "acht Minuten"],
+    "correcta": "acht Uhr",
+    "explicacion": "En punto se dice el número de la hora + Uhr.",
+    "traduccion": "las ocho en punto",
+    "resaltar": ["en_punto"],
+    "apoyo": {
+      "tipo": "reloj",
+      "hora": "08:00"
+    },
+    "ficha": "hora_formal"
+  },
+  {
+    "id": "HOR-002",
+    "nivel": 1,
+    "enunciado": "Wie spät ist es?",
+    "opciones": ["drei Uhr", "dreizehn Uhr", "drei Minuten", "dritte Uhr"],
+    "correcta": "drei Uhr",
+    "explicacion": "En punto: drei + Uhr. 'Minuten' o un ordinal no sirven aquí.",
+    "traduccion": "las tres en punto",
+    "resaltar": ["en_punto"],
+    "apoyo": {
+      "tipo": "reloj",
+      "hora": "03:00"
+    },
+    "ficha": "hora_formal"
+  },
+  {
+    "id": "HOR-003",
+    "nivel": 2,
+    "enunciado": "Es ist 14:30. Wie sagt man das formell?",
+    "opciones": [
+      "vierzehn Uhr dreißig",
+      "vier Uhr dreißig",
+      "vierzehn Uhr dreizehn",
+      "halb vierzehn"
+    ],
+    "correcta": "vierzehn Uhr dreißig",
+    "explicacion": "Formal: hora en formato de 24 horas + Uhr + minutos.",
+    "traduccion": "las catorce y treinta (2:30 p. m.)",
+    "resaltar": ["con_minutos", "veinticuatro"],
+    "ficha": "hora_formal"
+  },
+  {
+    "id": "HOR-004",
+    "nivel": 2,
+    "enunciado": "Wie viel Uhr ist 'halb drei'?",
+    "opciones": ["2:30", "3:30", "3:00", "2:15"],
+    "correcta": "2:30",
+    "explicacion": "halb drei es media hora ANTES de las tres: 2:30.",
+    "traduccion": "las dos y media",
+    "resaltar": ["halb"],
+    "ficha": "hora_informal"
+  },
+  {
+    "id": "HOR-005",
+    "nivel": 3,
+    "enunciado": "Wie spät ist es?",
+    "opciones": ["Viertel nach drei", "Viertel vor drei", "halb drei", "Viertel nach zwei"],
+    "correcta": "Viertel nach drei",
+    "explicacion": "Viertel nach drei = un cuarto después de las tres.",
+    "traduccion": "las tres y cuarto",
+    "resaltar": ["viertel_nach"],
+    "apoyo": {
+      "tipo": "reloj",
+      "hora": "03:15"
+    },
+    "ficha": "hora_informal"
+  },
+  {
+    "id": "HOR-006",
+    "nivel": 3,
+    "enunciado": "Wie spät ist es?",
+    "opciones": ["halb fünf", "halb vier", "Viertel nach vier", "Viertel vor fünf"],
+    "correcta": "halb fünf",
+    "explicacion": "halb fünf = media hora antes de las cinco = 4:30.",
+    "traduccion": "las cuatro y media",
+    "resaltar": ["halb"],
+    "apoyo": {
+      "tipo": "reloj",
+      "hora": "04:30"
+    },
+    "ficha": "hora_informal"
+  },
+  {
+    "id": "HOR-007",
+    "nivel": 3,
+    "enunciado": "Wie spät ist es?",
+    "opciones": ["Viertel vor sieben", "Viertel nach sieben", "halb sieben", "Viertel vor sechs"],
+    "correcta": "Viertel vor sieben",
+    "explicacion": "Viertel vor sieben = un cuarto antes de las siete = 6:45.",
+    "traduccion": "un cuarto para las siete",
+    "resaltar": ["viertel_vor"],
+    "apoyo": {
+      "tipo": "reloj",
+      "hora": "06:45"
+    },
+    "ficha": "hora_informal"
+  },
+  {
+    "id": "HOR-008",
+    "nivel": 4,
+    "enunciado": "Wie spät ist es?",
+    "opciones": ["zehn nach zwei", "zehn vor zwei", "zwanzig nach zwei", "zehn nach drei"],
+    "correcta": "zehn nach zwei",
+    "explicacion": "zehn nach zwei = diez minutos después de las dos.",
+    "traduccion": "las dos y diez",
+    "resaltar": ["nach"],
+    "apoyo": {
+      "tipo": "reloj",
+      "hora": "02:10"
+    },
+    "ficha": "hora_informal"
+  },
+  {
+    "id": "HOR-009",
+    "nivel": 4,
+    "enunciado": "Wie spät ist es?",
+    "opciones": ["fünf vor sechs", "fünf nach sechs", "fünf vor fünf", "zehn vor sechs"],
+    "correcta": "fünf vor sechs",
+    "explicacion": "fünf vor sechs = cinco minutos antes de las seis.",
+    "traduccion": "cinco para las seis",
+    "resaltar": ["vor"],
+    "apoyo": {
+      "tipo": "reloj",
+      "hora": "05:55"
+    },
+    "ficha": "hora_informal"
+  },
+  {
+    "id": "HOR-010",
+    "nivel": 4,
+    "enunciado": "Wie spät ist es?",
+    "opciones": ["fünf nach halb acht", "fünf vor halb acht", "fünf nach halb sieben", "halb acht"],
+    "correcta": "fünf nach halb acht",
+    "explicacion": "Se toma halb acht (7:30) y se suman cinco minutos.",
+    "traduccion": "las siete y treinta y cinco",
+    "resaltar": ["nach_halb"],
+    "apoyo": {
+      "tipo": "reloj",
+      "hora": "07:35"
+    },
+    "ficha": "hora_informal"
+  },
+  {
+    "id": "HOR-011",
+    "nivel": 5,
+    "enunciado": "Wie spät ist es?",
+    "opciones": ["zwanzig vor zehn", "zwanzig nach neun", "zwanzig vor neun", "zehn vor zehn"],
+    "correcta": "zwanzig vor zehn",
+    "explicacion": "Faltan veinte minutos para las diez: zwanzig vor zehn.",
+    "traduccion": "veinte para las diez",
+    "resaltar": ["vor"],
+    "apoyo": {
+      "tipo": "reloj",
+      "hora": "09:40"
+    },
+    "ficha": "hora_informal"
+  },
+  {
+    "id": "HOR-012",
+    "nivel": 5,
+    "enunciado": "Wie spät ist es?",
+    "opciones": ["fünf vor halb zwei", "fünf nach halb zwei", "fünf vor halb eins", "halb zwei"],
+    "correcta": "fünf vor halb zwei",
+    "explicacion": "Se toma halb zwei (1:30) y se restan cinco minutos.",
+    "traduccion": "la una y veinticinco",
+    "resaltar": ["vor_halb"],
+    "apoyo": {
+      "tipo": "reloj",
+      "hora": "01:25"
+    },
+    "ficha": "hora_informal"
+  }
+]

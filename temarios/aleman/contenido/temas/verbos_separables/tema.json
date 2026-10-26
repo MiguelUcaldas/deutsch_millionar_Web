@@ -1,0 +1,29 @@
+{
+  "$schema": "../../../../../esquemas/tema.schema.json",
+  "id": "verbos_separables",
+  "prefijo": "SEP",
+  "orden": 8,
+  "nombre_corto": "Verbos separables",
+  "titulo": "Verbos separables (trennbare Verben)",
+  "resumen": "Verbos con un prefijo que se separa y se va al final.",
+  "que_es": "Verbos como aufstehen, anrufen o einkaufen tienen un prefijo (auf-, an-, ein-) que cambia el significado del verbo. En la oración normal ese prefijo se separa y va al final; en una oración subordinada se vuelve a unir.",
+  "como_reconocerlo": [
+    "Prefijos comunes: an-, auf-, aus-, ein-, mit-, fern-, ab-",
+    "En el infinitivo el acento va en el prefijo: AUFstehen"
+  ],
+  "errores_comunes": [
+    "Dejar el verbo unido en la oración normal: 'Ich aufstehe'",
+    "Separarlo en la subordinada: 'weil ich früh stehe auf'"
+  ],
+  "ejemplos": [
+    {
+      "original": "Ich rufe meine Mutter an.",
+      "traduccion": "Llamo a mi mamá."
+    },
+    {
+      "original": "..., weil ich früh aufstehe.",
+      "traduccion": "..., porque me levanto temprano."
+    }
+  ],
+  "ficha_principal": "verbos_separables"
+}

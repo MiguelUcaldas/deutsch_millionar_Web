@@ -1,0 +1,357 @@
+[
+  {
+    "id": "COX-001",
+    "nivel": 1,
+    "enunciado": "Was bedeutet 'und'?",
+    "opciones": ["y", "pero", "o", "porque"],
+    "correcta": "y",
+    "explicacion": "und une dos ideas y no cambia el orden.",
+    "traduccion": "und = y",
+    "resaltar": ["normal"],
+    "ficha": "tabla_conectores"
+  },
+  {
+    "id": "COX-002",
+    "nivel": 1,
+    "enunciado": "Was bedeutet 'oder'?",
+    "opciones": ["o", "y", "pero", "porque"],
+    "correcta": "o",
+    "explicacion": "oder presenta una alternativa y no cambia el orden.",
+    "traduccion": "oder = o",
+    "resaltar": ["normal"],
+    "ficha": "tabla_conectores"
+  },
+  {
+    "id": "COX-003",
+    "nivel": 2,
+    "enunciado": "Was bedeutet 'aber'?",
+    "opciones": ["pero", "y", "o", "porque"],
+    "correcta": "pero",
+    "explicacion": "aber marca un contraste y no cambia el orden.",
+    "traduccion": "aber = pero",
+    "resaltar": ["normal"],
+    "ficha": "tabla_conectores"
+  },
+  {
+    "id": "COX-004",
+    "nivel": 2,
+    "enunciado": "Ich möchte mitkommen, ___ ich habe keine Zeit.",
+    "opciones": ["aber", "und", "oder", "weil"],
+    "correcta": "aber",
+    "explicacion": "aber marca el contraste entre querer ir y no tener tiempo.",
+    "traduccion": "Quisiera ir, pero no tengo tiempo.",
+    "resaltar": ["normal"],
+    "estructura": [
+      {
+        "texto": "Ich möchte mitkommen,",
+        "etiqueta": "Oración principal"
+      },
+      {
+        "texto": "aber",
+        "etiqueta": "Conector",
+        "resaltar": true
+      },
+      {
+        "texto": "ich",
+        "etiqueta": "Sujeto"
+      },
+      {
+        "texto": "habe",
+        "etiqueta": "Verbo (posición 2)"
+      },
+      {
+        "texto": "keine Zeit",
+        "etiqueta": "Resto"
+      }
+    ],
+    "ficha": "tabla_conectores"
+  },
+  {
+    "id": "COX-005",
+    "nivel": 3,
+    "enunciado": "Ich bleibe zu Hause, ___ es heute stark regnet.",
+    "opciones": ["weil", "denn", "aber", "und"],
+    "correcta": "weil",
+    "explicacion": "weil da la razón y manda el verbo al final: regnet.",
+    "traduccion": "Me quedo en casa porque hoy llueve fuerte.",
+    "resaltar": ["final"],
+    "estructura": [
+      {
+        "texto": "Ich bleibe zu Hause,",
+        "etiqueta": "Oración principal"
+      },
+      {
+        "texto": "weil",
+        "etiqueta": "Conector"
+      },
+      {
+        "texto": "es",
+        "etiqueta": "Sujeto"
+      },
+      {
+        "texto": "heute stark",
+        "etiqueta": "Resto"
+      },
+      {
+        "texto": "regnet",
+        "etiqueta": "Verbo al final",
+        "resaltar": true
+      }
+    ],
+    "ficha": "tabla_conectores"
+  },
+  {
+    "id": "COX-006",
+    "nivel": 3,
+    "enunciado": "Sie lernt Deutsch, ___ sie in Berlin arbeiten möchte.",
+    "opciones": ["weil", "denn", "aber", "oder"],
+    "correcta": "weil",
+    "explicacion": "weil manda el verbo conjugado al final: möchte.",
+    "traduccion": "Ella aprende alemán porque quiere trabajar en Berlín.",
+    "resaltar": ["final"],
+    "estructura": [
+      {
+        "texto": "Sie lernt Deutsch,",
+        "etiqueta": "Oración principal"
+      },
+      {
+        "texto": "weil",
+        "etiqueta": "Conector"
+      },
+      {
+        "texto": "sie",
+        "etiqueta": "Sujeto"
+      },
+      {
+        "texto": "in Berlin arbeiten",
+        "etiqueta": "Resto"
+      },
+      {
+        "texto": "möchte",
+        "etiqueta": "Verbo al final",
+        "resaltar": true
+      }
+    ],
+    "ficha": "tabla_conectores"
+  },
+  {
+    "id": "COX-007",
+    "nivel": 3,
+    "enunciado": "Wie sagt man richtig: Ich bin müde, weil...?",
+    "opciones": [
+      "ich die ganze Nacht gearbeitet habe.",
+      "ich habe die ganze Nacht gearbeitet.",
+      "habe ich die ganze Nacht gearbeitet.",
+      "die ganze Nacht ich gearbeitet habe."
+    ],
+    "correcta": "ich die ganze Nacht gearbeitet habe.",
+    "oracion_completa": "Ich bin müde, weil ich die ganze Nacht gearbeitet habe.",
+    "explicacion": "Con weil el verbo conjugado (habe) va al final.",
+    "traduccion": "Estoy cansado porque trabajé toda la noche.",
+    "resaltar": ["final"],
+    "estructura": [
+      {
+        "texto": "Ich bin müde,",
+        "etiqueta": "Oración principal"
+      },
+      {
+        "texto": "weil",
+        "etiqueta": "Conector"
+      },
+      {
+        "texto": "ich",
+        "etiqueta": "Sujeto"
+      },
+      {
+        "texto": "die ganze Nacht gearbeitet",
+        "etiqueta": "Resto"
+      },
+      {
+        "texto": "habe",
+        "etiqueta": "Verbo al final",
+        "resaltar": true
+      }
+    ],
+    "ficha": "tabla_conectores"
+  },
+  {
+    "id": "COX-008",
+    "nivel": 4,
+    "enunciado": "Ich bleibe zu Hause, ___ es regnet stark.",
+    "opciones": ["denn", "weil", "obwohl", "trotzdem"],
+    "correcta": "denn",
+    "explicacion": "denn también es 'porque', pero el verbo se queda en posición 2: es regnet.",
+    "traduccion": "Me quedo en casa, porque llueve fuerte.",
+    "resaltar": ["normal"],
+    "estructura": [
+      {
+        "texto": "Ich bleibe zu Hause,",
+        "etiqueta": "Oración principal"
+      },
+      {
+        "texto": "denn",
+        "etiqueta": "Conector"
+      },
+      {
+        "texto": "es",
+        "etiqueta": "Sujeto"
+      },
+      {
+        "texto": "regnet",
+        "etiqueta": "Verbo (posición 2)",
+        "resaltar": true
+      },
+      {
+        "texto": "stark",
+        "etiqueta": "Resto"
+      }
+    ],
+    "ficha": "tabla_conectores"
+  },
+  {
+    "id": "COX-009",
+    "nivel": 4,
+    "enunciado": "Wie sagt man richtig mit 'denn'?",
+    "opciones": [
+      "Ich bin glücklich, denn ich habe die Prüfung bestanden.",
+      "Ich bin glücklich, denn ich die Prüfung bestanden habe.",
+      "Ich bin glücklich, denn habe ich die Prüfung bestanden.",
+      "Ich bin glücklich, denn bestanden ich habe die Prüfung."
+    ],
+    "correcta": "Ich bin glücklich, denn ich habe die Prüfung bestanden.",
+    "explicacion": "Con denn el orden es normal: ich habe.",
+    "traduccion": "Estoy feliz porque pasé el examen.",
+    "resaltar": ["normal"],
+    "estructura": [
+      {
+        "texto": "Ich bin glücklich,",
+        "etiqueta": "Oración principal"
+      },
+      {
+        "texto": "denn",
+        "etiqueta": "Conector"
+      },
+      {
+        "texto": "ich",
+        "etiqueta": "Sujeto"
+      },
+      {
+        "texto": "habe",
+        "etiqueta": "Verbo (posición 2)",
+        "resaltar": true
+      },
+      {
+        "texto": "die Prüfung bestanden",
+        "etiqueta": "Resto"
+      }
+    ],
+    "ficha": "tabla_conectores"
+  },
+  {
+    "id": "COX-010",
+    "nivel": 4,
+    "enunciado": "Es regnet, ___ nehme ich einen Regenschirm mit.",
+    "opciones": ["deshalb", "weil", "denn", "aber"],
+    "correcta": "deshalb",
+    "explicacion": "deshalb (por eso) va seguido del verbo: deshalb nehme ich.",
+    "traduccion": "Está lloviendo, por eso llevo un paraguas.",
+    "resaltar": ["inversion"],
+    "estructura": [
+      {
+        "texto": "Es regnet,",
+        "etiqueta": "Oración principal"
+      },
+      {
+        "texto": "deshalb",
+        "etiqueta": "Conector"
+      },
+      {
+        "texto": "nehme",
+        "etiqueta": "Verbo",
+        "resaltar": true
+      },
+      {
+        "texto": "ich",
+        "etiqueta": "Sujeto"
+      },
+      {
+        "texto": "einen Regenschirm",
+        "etiqueta": "Objeto"
+      },
+      {
+        "texto": "mit",
+        "etiqueta": "Prefijo"
+      }
+    ],
+    "ficha": "tabla_conectores"
+  },
+  {
+    "id": "COX-011",
+    "nivel": 5,
+    "enunciado": "Es regnet stark. ___ gehe ich spazieren.",
+    "opciones": ["Trotzdem", "Aber", "Weil", "Denn"],
+    "correcta": "Trotzdem",
+    "explicacion": "trotzdem (aun así) va seguido del verbo: trotzdem gehe ich.",
+    "traduccion": "Llueve fuerte. Aun así salgo a caminar.",
+    "resaltar": ["inversion"],
+    "estructura": [
+      {
+        "texto": "Trotzdem",
+        "etiqueta": "Conector"
+      },
+      {
+        "texto": "gehe",
+        "etiqueta": "Verbo",
+        "resaltar": true
+      },
+      {
+        "texto": "ich",
+        "etiqueta": "Sujeto"
+      },
+      {
+        "texto": "spazieren",
+        "etiqueta": "Resto"
+      }
+    ],
+    "ficha": "tabla_conectores"
+  },
+  {
+    "id": "COX-012",
+    "nivel": 5,
+    "enunciado": "Wie sagt man richtig mit 'deshalb'?",
+    "opciones": [
+      "Ich bin krank, deshalb gehe ich zum Arzt.",
+      "Ich bin krank, deshalb ich gehe zum Arzt.",
+      "Ich bin krank, deshalb gehe zum Arzt ich.",
+      "Ich bin krank, deshalb ich zum Arzt gehe."
+    ],
+    "correcta": "Ich bin krank, deshalb gehe ich zum Arzt.",
+    "explicacion": "Después de deshalb va el verbo y luego el sujeto: deshalb gehe ich.",
+    "traduccion": "Estoy enfermo, por eso voy al médico.",
+    "resaltar": ["inversion"],
+    "estructura": [
+      {
+        "texto": "Ich bin krank,",
+        "etiqueta": "Oración principal"
+      },
+      {
+        "texto": "deshalb",
+        "etiqueta": "Conector"
+      },
+      {
+        "texto": "gehe",
+        "etiqueta": "Verbo",
+        "resaltar": true
+      },
+      {
+        "texto": "ich",
+        "etiqueta": "Sujeto"
+      },
+      {
+        "texto": "zum Arzt",
+        "etiqueta": "Lugar"
+      }
+    ],
+    "ficha": "tabla_conectores"
+  }
+]

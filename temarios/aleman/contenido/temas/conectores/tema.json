@@ -1,0 +1,30 @@
+{
+  "$schema": "../../../../../esquemas/tema.schema.json",
+  "id": "conectores",
+  "prefijo": "COX",
+  "orden": 11,
+  "nombre_corto": "Conectores",
+  "titulo": "Conectores lógicos",
+  "resumen": "Palabras que unen ideas y que pueden mover el verbo.",
+  "que_es": "Además de su significado (y, pero, porque, por eso...), cada conector afecta la posición del verbo. Hay tres grupos: los que no cambian nada, los que mandan el verbo al final y los que obligan a poner el verbo justo después de ellos.",
+  "como_reconocerlo": [
+    "und, aber, oder, denn → orden normal",
+    "weil, dass → verbo al final",
+    "deshalb, trotzdem → verbo justo después del conector"
+  ],
+  "errores_comunes": [
+    "Usar weil con el orden de denn: 'weil ich bin krank'",
+    "Poner el sujeto antes del verbo después de deshalb: 'deshalb ich bleibe'"
+  ],
+  "ejemplos": [
+    {
+      "original": "Ich bleibe zu Hause, weil ich krank bin.",
+      "traduccion": "Me quedo en casa porque estoy enfermo."
+    },
+    {
+      "original": "Ich bin krank, deshalb bleibe ich zu Hause.",
+      "traduccion": "Estoy enfermo, por eso me quedo en casa."
+    }
+  ],
+  "ficha_principal": "tabla_conectores"
+}

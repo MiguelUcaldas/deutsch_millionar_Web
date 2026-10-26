@@ -1,0 +1,378 @@
+[
+  {
+    "id": "SEP-001",
+    "nivel": 1,
+    "enunciado": "Ich ___ jeden Morgen um 7 Uhr ___.",
+    "opciones": ["stehe / auf", "aufstehe / —", "steht / auf", "stehe / an"],
+    "correcta": "stehe / auf",
+    "explicacion": "aufstehen: stehe en posición 2 y auf al final.",
+    "traduccion": "Me levanto todas las mañanas a las 7.",
+    "resaltar": ["principal"],
+    "estructura": [
+      {
+        "texto": "Ich",
+        "etiqueta": "Sujeto"
+      },
+      {
+        "texto": "stehe",
+        "etiqueta": "Verbo"
+      },
+      {
+        "texto": "jeden Morgen um 7 Uhr",
+        "etiqueta": "Resto"
+      },
+      {
+        "texto": "auf",
+        "etiqueta": "Prefijo",
+        "resaltar": true
+      }
+    ],
+    "ficha": "verbos_separables"
+  },
+  {
+    "id": "SEP-002",
+    "nivel": 1,
+    "enunciado": "Es ist dunkel. Er ___ das Licht ___.",
+    "opciones": ["macht / an", "anmacht / —", "machen / an", "mache / an"],
+    "correcta": "macht / an",
+    "explicacion": "anmachen: macht en posición 2 y an al final.",
+    "traduccion": "Está oscuro. Él prende la luz.",
+    "resaltar": ["principal"],
+    "estructura": [
+      {
+        "texto": "Er",
+        "etiqueta": "Sujeto"
+      },
+      {
+        "texto": "macht",
+        "etiqueta": "Verbo"
+      },
+      {
+        "texto": "das Licht",
+        "etiqueta": "Objeto"
+      },
+      {
+        "texto": "an",
+        "etiqueta": "Prefijo",
+        "resaltar": true
+      }
+    ],
+    "ficha": "verbos_separables"
+  },
+  {
+    "id": "SEP-003",
+    "nivel": 2,
+    "enunciado": "Es ist spät. Wir ___ den Fernseher ___.",
+    "opciones": ["machen / aus", "ausmachen / —", "macht / aus", "mache / aus"],
+    "correcta": "machen / aus",
+    "explicacion": "ausmachen: machen en posición 2 y aus al final.",
+    "traduccion": "Es tarde. Apagamos el televisor.",
+    "resaltar": ["principal"],
+    "estructura": [
+      {
+        "texto": "Wir",
+        "etiqueta": "Sujeto"
+      },
+      {
+        "texto": "machen",
+        "etiqueta": "Verbo"
+      },
+      {
+        "texto": "den Fernseher",
+        "etiqueta": "Objeto"
+      },
+      {
+        "texto": "aus",
+        "etiqueta": "Prefijo",
+        "resaltar": true
+      }
+    ],
+    "ficha": "verbos_separables"
+  },
+  {
+    "id": "SEP-004",
+    "nivel": 2,
+    "enunciado": "Sie ___ ihre Freundin ___.",
+    "opciones": ["ruft / an", "rufe / an", "anruft / —", "rufen / an"],
+    "correcta": "ruft / an",
+    "explicacion": "anrufen: con sie (ella) es ruft, y an va al final.",
+    "traduccion": "Ella llama a su amiga.",
+    "resaltar": ["principal"],
+    "estructura": [
+      {
+        "texto": "Sie",
+        "etiqueta": "Sujeto"
+      },
+      {
+        "texto": "ruft",
+        "etiqueta": "Verbo"
+      },
+      {
+        "texto": "ihre Freundin",
+        "etiqueta": "Objeto"
+      },
+      {
+        "texto": "an",
+        "etiqueta": "Prefijo",
+        "resaltar": true
+      }
+    ],
+    "ficha": "verbos_separables"
+  },
+  {
+    "id": "SEP-005",
+    "nivel": 3,
+    "enunciado": "Wann ___ der Film ___?",
+    "opciones": ["fängt / an", "fängt / auf", "anfängt / —", "fangen / an"],
+    "correcta": "fängt / an",
+    "explicacion": "anfangen: fängt va después de Wann y an al final.",
+    "traduccion": "¿A qué hora empieza la película?",
+    "resaltar": ["pregunta"],
+    "estructura": [
+      {
+        "texto": "Wann",
+        "etiqueta": "Pregunta"
+      },
+      {
+        "texto": "fängt",
+        "etiqueta": "Verbo"
+      },
+      {
+        "texto": "der Film",
+        "etiqueta": "Sujeto"
+      },
+      {
+        "texto": "an",
+        "etiqueta": "Prefijo",
+        "resaltar": true
+      }
+    ],
+    "ficha": "verbos_separables"
+  },
+  {
+    "id": "SEP-006",
+    "nivel": 3,
+    "enunciado": "___ du am Wochenende ___?",
+    "opciones": ["Kaufst / ein", "Kaufst / aus", "Einkaufst / —", "Kauft / ein"],
+    "correcta": "Kaufst / ein",
+    "explicacion": "einkaufen: en preguntas de sí o no el verbo va primero y ein al final.",
+    "traduccion": "¿Haces mercado el fin de semana?",
+    "resaltar": ["pregunta"],
+    "estructura": [
+      {
+        "texto": "Kaufst",
+        "etiqueta": "Verbo"
+      },
+      {
+        "texto": "du",
+        "etiqueta": "Sujeto"
+      },
+      {
+        "texto": "am Wochenende",
+        "etiqueta": "Resto"
+      },
+      {
+        "texto": "ein",
+        "etiqueta": "Prefijo",
+        "resaltar": true
+      }
+    ],
+    "ficha": "verbos_separables"
+  },
+  {
+    "id": "SEP-007",
+    "nivel": 3,
+    "enunciado": "Wann ___ der Unterricht ___?",
+    "opciones": ["hört / auf", "hört / an", "aufhört / —", "hören / auf"],
+    "correcta": "hört / auf",
+    "explicacion": "aufhören: hört va después de Wann y auf al final.",
+    "traduccion": "¿A qué hora termina la clase?",
+    "resaltar": ["pregunta"],
+    "estructura": [
+      {
+        "texto": "Wann",
+        "etiqueta": "Pregunta"
+      },
+      {
+        "texto": "hört",
+        "etiqueta": "Verbo"
+      },
+      {
+        "texto": "der Unterricht",
+        "etiqueta": "Sujeto"
+      },
+      {
+        "texto": "auf",
+        "etiqueta": "Prefijo",
+        "resaltar": true
+      }
+    ],
+    "ficha": "verbos_separables"
+  },
+  {
+    "id": "SEP-008",
+    "nivel": 4,
+    "enunciado": "Ich bin müde, weil ich früh ___.",
+    "opciones": ["aufstehe", "stehe auf", "aufstehen", "aufgestanden"],
+    "correcta": "aufstehe",
+    "explicacion": "Después de weil el verbo va al final y el prefijo se une: aufstehe.",
+    "traduccion": "Estoy cansado porque me levanto temprano.",
+    "resaltar": ["subordinada"],
+    "estructura": [
+      {
+        "texto": "Ich bin müde,",
+        "etiqueta": "Oración principal"
+      },
+      {
+        "texto": "weil",
+        "etiqueta": "Conector"
+      },
+      {
+        "texto": "ich",
+        "etiqueta": "Sujeto"
+      },
+      {
+        "texto": "früh",
+        "etiqueta": "Resto"
+      },
+      {
+        "texto": "aufstehe",
+        "etiqueta": "Verbo unido al final",
+        "resaltar": true
+      }
+    ],
+    "ficha": "verbos_separables"
+  },
+  {
+    "id": "SEP-009",
+    "nivel": 4,
+    "enunciado": "Meine Mutter ist froh, dass ich mein Zimmer ___.",
+    "opciones": ["aufräume", "räume auf", "aufräumen", "aufgeräumt"],
+    "correcta": "aufräume",
+    "explicacion": "Después de dass el verbo va al final y se une: aufräume.",
+    "traduccion": "Mi mamá está contenta de que yo ordene mi cuarto.",
+    "resaltar": ["subordinada"],
+    "estructura": [
+      {
+        "texto": "Meine Mutter ist froh,",
+        "etiqueta": "Oración principal"
+      },
+      {
+        "texto": "dass",
+        "etiqueta": "Conector"
+      },
+      {
+        "texto": "ich",
+        "etiqueta": "Sujeto"
+      },
+      {
+        "texto": "mein Zimmer",
+        "etiqueta": "Objeto"
+      },
+      {
+        "texto": "aufräume",
+        "etiqueta": "Verbo unido al final",
+        "resaltar": true
+      }
+    ],
+    "ficha": "verbos_separables"
+  },
+  {
+    "id": "SEP-010",
+    "nivel": 4,
+    "enunciado": "Ich weiß, dass du heute Abend ___.",
+    "opciones": ["fernsiehst", "siehst fern", "fernsehst", "ferngesehen"],
+    "correcta": "fernsiehst",
+    "explicacion": "fernsehen se une al final y además cambia e → ie con du: fernsiehst.",
+    "traduccion": "Sé que esta noche ves televisión.",
+    "resaltar": ["subordinada"],
+    "estructura": [
+      {
+        "texto": "Ich weiß,",
+        "etiqueta": "Oración principal"
+      },
+      {
+        "texto": "dass",
+        "etiqueta": "Conector"
+      },
+      {
+        "texto": "du",
+        "etiqueta": "Sujeto"
+      },
+      {
+        "texto": "heute Abend",
+        "etiqueta": "Resto"
+      },
+      {
+        "texto": "fernsiehst",
+        "etiqueta": "Verbo unido al final",
+        "resaltar": true
+      }
+    ],
+    "ficha": "verbos_separables"
+  },
+  {
+    "id": "SEP-011",
+    "nivel": 5,
+    "enunciado": "Weißt du, wann der Zug ___?",
+    "opciones": ["abfährt", "fährt ab", "abfahren", "abgefahren"],
+    "correcta": "abfährt",
+    "explicacion": "En la pregunta indirecta con wann el verbo va al final y se une: abfährt.",
+    "traduccion": "¿Sabes a qué hora sale el tren?",
+    "resaltar": ["subordinada"],
+    "estructura": [
+      {
+        "texto": "Weißt du,",
+        "etiqueta": "Oración principal"
+      },
+      {
+        "texto": "wann",
+        "etiqueta": "Conector"
+      },
+      {
+        "texto": "der Zug",
+        "etiqueta": "Sujeto"
+      },
+      {
+        "texto": "abfährt",
+        "etiqueta": "Verbo unido al final",
+        "resaltar": true
+      }
+    ],
+    "ficha": "verbos_separables"
+  },
+  {
+    "id": "SEP-012",
+    "nivel": 5,
+    "enunciado": "Er sagt, dass er morgen ___.",
+    "opciones": ["mitkommt", "kommt mit", "mitkommen", "mitgekommen"],
+    "correcta": "mitkommt",
+    "explicacion": "Después de dass, mitkommen se une al final: mitkommt.",
+    "traduccion": "Él dice que mañana viene con nosotros.",
+    "resaltar": ["subordinada"],
+    "estructura": [
+      {
+        "texto": "Er sagt,",
+        "etiqueta": "Oración principal"
+      },
+      {
+        "texto": "dass",
+        "etiqueta": "Conector"
+      },
+      {
+        "texto": "er",
+        "etiqueta": "Sujeto"
+      },
+      {
+        "texto": "morgen",
+        "etiqueta": "Resto"
+      },
+      {
+        "texto": "mitkommt",
+        "etiqueta": "Verbo unido al final",
+        "resaltar": true
+      }
+    ],
+    "ficha": "verbos_separables"
+  }
+]

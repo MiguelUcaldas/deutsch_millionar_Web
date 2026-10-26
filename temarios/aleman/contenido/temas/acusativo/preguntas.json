@@ -1,0 +1,241 @@
+[
+  {
+    "id": "ACU-001",
+    "nivel": 1,
+    "enunciado": "Ich sehe ___ Hund.",
+    "opciones": ["der", "den", "dem", "die"],
+    "correcta": "den",
+    "explicacion": "Hund es masculino y es objeto directo: der → den.",
+    "traduccion": "Veo al perro.",
+    "resaltar": ["acusativo_definido.masculino"],
+    "flecha": ["nominativo_definido.masculino", "acusativo_definido.masculino"],
+    "ficha": "tabla_articulos"
+  },
+  {
+    "id": "ACU-002",
+    "nivel": 1,
+    "enunciado": "Ich kaufe ___ Tisch.",
+    "opciones": ["der", "den", "dem", "die"],
+    "correcta": "den",
+    "explicacion": "Tisch es masculino y es objeto directo: der → den.",
+    "traduccion": "Compro la mesa.",
+    "resaltar": ["acusativo_definido.masculino"],
+    "flecha": ["nominativo_definido.masculino", "acusativo_definido.masculino"],
+    "ficha": "tabla_articulos"
+  },
+  {
+    "id": "ACU-003",
+    "nivel": 2,
+    "enunciado": "Ich lese ___ Buch.",
+    "opciones": ["das", "den", "dem", "die"],
+    "correcta": "das",
+    "explicacion": "Buch es neutro: en acusativo no cambia → das.",
+    "traduccion": "Leo el libro.",
+    "resaltar": ["acusativo_definido.neutro"],
+    "flecha": ["nominativo_definido.neutro", "acusativo_definido.neutro"],
+    "ficha": "tabla_articulos"
+  },
+  {
+    "id": "ACU-004",
+    "nivel": 2,
+    "enunciado": "Ich besuche ___ Frau.",
+    "opciones": ["die", "den", "dem", "das"],
+    "correcta": "die",
+    "explicacion": "Frau es femenino: en acusativo no cambia → die.",
+    "traduccion": "Visito a la mujer.",
+    "resaltar": ["acusativo_definido.femenino"],
+    "flecha": ["nominativo_definido.femenino", "acusativo_definido.femenino"],
+    "ficha": "tabla_articulos"
+  },
+  {
+    "id": "ACU-005",
+    "nivel": 3,
+    "enunciado": "Ich habe ___ Bruder.",
+    "opciones": ["ein", "eine", "einen", "einem"],
+    "correcta": "einen",
+    "explicacion": "Bruder es masculino y es objeto directo: ein → einen.",
+    "traduccion": "Tengo un hermano.",
+    "resaltar": ["acusativo_indefinido.masculino"],
+    "flecha": ["nominativo_indefinido.masculino", "acusativo_indefinido.masculino"],
+    "ficha": "tabla_articulos"
+  },
+  {
+    "id": "ACU-006",
+    "nivel": 3,
+    "enunciado": "Sie hat ___ Schwester.",
+    "opciones": ["ein", "eine", "einen", "einem"],
+    "correcta": "eine",
+    "explicacion": "Schwester es femenino: en acusativo no cambia → eine.",
+    "traduccion": "Ella tiene una hermana.",
+    "resaltar": ["acusativo_indefinido.femenino"],
+    "flecha": ["nominativo_indefinido.femenino", "acusativo_indefinido.femenino"],
+    "ficha": "tabla_articulos"
+  },
+  {
+    "id": "ACU-007",
+    "nivel": 3,
+    "enunciado": "Wir brauchen ___ Computer.",
+    "opciones": ["ein", "eine", "einen", "einem"],
+    "correcta": "einen",
+    "explicacion": "Computer es masculino y es objeto directo: ein → einen.",
+    "traduccion": "Necesitamos un computador.",
+    "resaltar": ["acusativo_indefinido.masculino"],
+    "flecha": ["nominativo_indefinido.masculino", "acusativo_indefinido.masculino"],
+    "ficha": "tabla_articulos"
+  },
+  {
+    "id": "ACU-008",
+    "nivel": 4,
+    "enunciado": "___ Film finde ich langweilig.",
+    "opciones": ["Der", "Den", "Dem", "Die"],
+    "correcta": "Den",
+    "explicacion": "Film es el objeto aunque va al inicio; el sujeto es ich. Masculino: der → Den.",
+    "traduccion": "La película me parece aburrida.",
+    "resaltar": ["acusativo_definido.masculino"],
+    "flecha": ["nominativo_definido.masculino", "acusativo_definido.masculino"],
+    "estructura": [
+      {
+        "texto": "Den Film",
+        "etiqueta": "Objeto",
+        "resaltar": true
+      },
+      {
+        "texto": "finde",
+        "etiqueta": "Verbo"
+      },
+      {
+        "texto": "ich",
+        "etiqueta": "Sujeto"
+      },
+      {
+        "texto": "langweilig",
+        "etiqueta": "Resto"
+      }
+    ],
+    "ficha": "tabla_articulos"
+  },
+  {
+    "id": "ACU-009",
+    "nivel": 4,
+    "enunciado": "___ Kuchen hat meine Oma gebacken.",
+    "opciones": ["Der", "Den", "Dem", "Die"],
+    "correcta": "Den",
+    "explicacion": "Kuchen es el objeto; el sujeto es meine Oma. Masculino: der → Den.",
+    "traduccion": "El pastel lo horneó mi abuela.",
+    "resaltar": ["acusativo_definido.masculino"],
+    "flecha": ["nominativo_definido.masculino", "acusativo_definido.masculino"],
+    "estructura": [
+      {
+        "texto": "Den Kuchen",
+        "etiqueta": "Objeto",
+        "resaltar": true
+      },
+      {
+        "texto": "hat",
+        "etiqueta": "Verbo"
+      },
+      {
+        "texto": "meine Oma",
+        "etiqueta": "Sujeto"
+      },
+      {
+        "texto": "gebacken",
+        "etiqueta": "Participio"
+      }
+    ],
+    "ficha": "tabla_articulos"
+  },
+  {
+    "id": "ACU-010",
+    "nivel": 4,
+    "enunciado": "___ Suppe esse ich jeden Tag.",
+    "opciones": ["Der", "Den", "Dem", "Die"],
+    "correcta": "Die",
+    "explicacion": "Suppe es el objeto; el sujeto es ich. Femenino: no cambia → Die.",
+    "traduccion": "La sopa la como todos los días.",
+    "resaltar": ["acusativo_definido.femenino"],
+    "flecha": ["nominativo_definido.femenino", "acusativo_definido.femenino"],
+    "estructura": [
+      {
+        "texto": "Die Suppe",
+        "etiqueta": "Objeto",
+        "resaltar": true
+      },
+      {
+        "texto": "esse",
+        "etiqueta": "Verbo"
+      },
+      {
+        "texto": "ich",
+        "etiqueta": "Sujeto"
+      },
+      {
+        "texto": "jeden Tag",
+        "etiqueta": "Resto"
+      }
+    ],
+    "ficha": "tabla_articulos"
+  },
+  {
+    "id": "ACU-011",
+    "nivel": 5,
+    "enunciado": "___ Apfel hat das Kind schon gegessen.",
+    "opciones": ["Der", "Den", "Dem", "Die"],
+    "correcta": "Den",
+    "explicacion": "Apfel es el objeto; el sujeto es das Kind. Masculino: der → Den.",
+    "traduccion": "El niño ya se comió la manzana.",
+    "resaltar": ["acusativo_definido.masculino"],
+    "flecha": ["nominativo_definido.masculino", "acusativo_definido.masculino"],
+    "estructura": [
+      {
+        "texto": "Den Apfel",
+        "etiqueta": "Objeto",
+        "resaltar": true
+      },
+      {
+        "texto": "hat",
+        "etiqueta": "Verbo"
+      },
+      {
+        "texto": "das Kind",
+        "etiqueta": "Sujeto"
+      },
+      {
+        "texto": "schon gegessen",
+        "etiqueta": "Resto"
+      }
+    ],
+    "ficha": "tabla_articulos"
+  },
+  {
+    "id": "ACU-012",
+    "nivel": 5,
+    "enunciado": "___ Auto hat mein Vater letztes Jahr gekauft.",
+    "opciones": ["Der", "Den", "Dem", "Das"],
+    "correcta": "Das",
+    "explicacion": "Auto es el objeto; el sujeto es mein Vater. Neutro: no cambia → Das.",
+    "traduccion": "Mi papá compró el carro el año pasado.",
+    "resaltar": ["acusativo_definido.neutro"],
+    "flecha": ["nominativo_definido.neutro", "acusativo_definido.neutro"],
+    "estructura": [
+      {
+        "texto": "Das Auto",
+        "etiqueta": "Objeto",
+        "resaltar": true
+      },
+      {
+        "texto": "hat",
+        "etiqueta": "Verbo"
+      },
+      {
+        "texto": "mein Vater",
+        "etiqueta": "Sujeto"
+      },
+      {
+        "texto": "letztes Jahr gekauft",
+        "etiqueta": "Resto"
+      }
+    ],
+    "ficha": "tabla_articulos"
+  }
+]

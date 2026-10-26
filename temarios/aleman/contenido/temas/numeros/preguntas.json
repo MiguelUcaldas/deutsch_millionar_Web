@@ -1,0 +1,306 @@
+[
+  {
+    "id": "NUM-001",
+    "nivel": 1,
+    "enunciado": "Wie sagt man die Zahl 7 auf Deutsch?",
+    "opciones": ["sechs", "sieben", "acht", "neun"],
+    "correcta": "sieben",
+    "explicacion": "Del 0 al 12 cada número tiene palabra propia: 7 = sieben.",
+    "traduccion": "siete",
+    "resaltar": ["cero_doce"],
+    "ficha": "numeros_base"
+  },
+  {
+    "id": "NUM-002",
+    "nivel": 1,
+    "enunciado": "Wie sagt man die Zahl 12 auf Deutsch?",
+    "opciones": ["zwölf", "elf", "zehn", "dreizehn"],
+    "correcta": "zwölf",
+    "explicacion": "12 = zwölf, una de las palabras propias que hay que memorizar.",
+    "traduccion": "doce",
+    "resaltar": ["cero_doce"],
+    "ficha": "numeros_base"
+  },
+  {
+    "id": "NUM-003",
+    "nivel": 1,
+    "enunciado": "Was bedeutet die Zahl 'fünfzehn'?",
+    "opciones": ["14", "15", "16", "50"],
+    "correcta": "15",
+    "explicacion": "fünfzehn = fünf + zehn = 15.",
+    "traduccion": "quince",
+    "resaltar": ["trece_diecinueve"],
+    "estructura": [
+      {
+        "texto": "fünf",
+        "etiqueta": "5"
+      },
+      {
+        "texto": "zehn",
+        "etiqueta": "+ 10"
+      }
+    ],
+    "ficha": "numeros_base"
+  },
+  {
+    "id": "NUM-004",
+    "nivel": 2,
+    "enunciado": "Wie sagt man die Zahl 18 auf Deutsch?",
+    "opciones": ["achtzehn", "achtzig", "achtzehnte", "acht"],
+    "correcta": "achtzehn",
+    "explicacion": "achtzehn = acht + zehn = 18. No confundir con achtzig (80).",
+    "traduccion": "dieciocho",
+    "resaltar": ["trece_diecinueve"],
+    "estructura": [
+      {
+        "texto": "acht",
+        "etiqueta": "8"
+      },
+      {
+        "texto": "zehn",
+        "etiqueta": "+ 10"
+      }
+    ],
+    "ficha": "numeros_base"
+  },
+  {
+    "id": "NUM-005",
+    "nivel": 2,
+    "enunciado": "Was bedeutet die Zahl 'neunzehn'?",
+    "opciones": ["9", "90", "19", "91"],
+    "correcta": "19",
+    "explicacion": "neunzehn = neun + zehn = 19.",
+    "traduccion": "diecinueve",
+    "resaltar": ["trece_diecinueve"],
+    "estructura": [
+      {
+        "texto": "neun",
+        "etiqueta": "9"
+      },
+      {
+        "texto": "zehn",
+        "etiqueta": "+ 10"
+      }
+    ],
+    "ficha": "numeros_base"
+  },
+  {
+    "id": "NUM-006",
+    "nivel": 3,
+    "enunciado": "Was bedeutet die Zahl 'vierundzwanzig'?",
+    "opciones": ["24", "42", "4", "20"],
+    "correcta": "24",
+    "explicacion": "Primero la unidad y después la decena: vier-und-zwanzig = 24.",
+    "traduccion": "veinticuatro",
+    "resaltar": ["compuestos"],
+    "estructura": [
+      {
+        "texto": "vier",
+        "etiqueta": "4"
+      },
+      {
+        "texto": "und",
+        "etiqueta": "+"
+      },
+      {
+        "texto": "zwanzig",
+        "etiqueta": "20"
+      }
+    ],
+    "ficha": "numeros_base"
+  },
+  {
+    "id": "NUM-007",
+    "nivel": 3,
+    "enunciado": "Wie sagt man die Zahl 35 auf Deutsch?",
+    "opciones": ["fünfunddreißig", "dreißigfünf", "fünfzig", "dreiunddreißig"],
+    "correcta": "fünfunddreißig",
+    "explicacion": "Unidad + und + decena: fünf-und-dreißig. Ojo: dreißig va con ß.",
+    "traduccion": "treinta y cinco",
+    "resaltar": ["compuestos", "decenas"],
+    "estructura": [
+      {
+        "texto": "fünf",
+        "etiqueta": "5"
+      },
+      {
+        "texto": "und",
+        "etiqueta": "+"
+      },
+      {
+        "texto": "dreißig",
+        "etiqueta": "30",
+        "resaltar": true
+      }
+    ],
+    "ficha": "numeros_base"
+  },
+  {
+    "id": "NUM-008",
+    "nivel": 3,
+    "enunciado": "Was bedeutet die Zahl 'siebenundsechzig'?",
+    "opciones": ["67", "76", "17", "60"],
+    "correcta": "67",
+    "explicacion": "sieben-und-sechzig = 67. Ojo: sechzig pierde la s de sechs.",
+    "traduccion": "sesenta y siete",
+    "resaltar": ["compuestos", "decenas"],
+    "estructura": [
+      {
+        "texto": "sieben",
+        "etiqueta": "7"
+      },
+      {
+        "texto": "und",
+        "etiqueta": "+"
+      },
+      {
+        "texto": "sechzig",
+        "etiqueta": "60",
+        "resaltar": true
+      }
+    ],
+    "ficha": "numeros_base"
+  },
+  {
+    "id": "NUM-009",
+    "nivel": 4,
+    "enunciado": "Was bedeutet die Zahl 'dreihundertsiebenundachtzig'?",
+    "opciones": ["387", "378", "307", "317"],
+    "correcta": "387",
+    "explicacion": "300 + 87: primero la centena, después la unidad antes de la decena.",
+    "traduccion": "trescientos ochenta y siete",
+    "resaltar": ["centenas_miles", "compuestos"],
+    "estructura": [
+      {
+        "texto": "drei",
+        "etiqueta": "3"
+      },
+      {
+        "texto": "hundert",
+        "etiqueta": "× 100"
+      },
+      {
+        "texto": "sieben",
+        "etiqueta": "7"
+      },
+      {
+        "texto": "und",
+        "etiqueta": "+"
+      },
+      {
+        "texto": "achtzig",
+        "etiqueta": "80"
+      }
+    ],
+    "ficha": "numeros_base"
+  },
+  {
+    "id": "NUM-010",
+    "nivel": 4,
+    "enunciado": "Wie sagt man die Zahl 256 auf Deutsch?",
+    "opciones": [
+      "zweihundertsechsundfünfzig",
+      "zweihundertfünfzigsechs",
+      "sechsundfünfzighundert",
+      "zweihundertsechzig"
+    ],
+    "correcta": "zweihundertsechsundfünfzig",
+    "explicacion": "200 + 56: zwei-hundert + sechs-und-fünfzig, todo en una palabra.",
+    "traduccion": "doscientos cincuenta y seis",
+    "resaltar": ["centenas_miles", "compuestos"],
+    "estructura": [
+      {
+        "texto": "zwei",
+        "etiqueta": "2"
+      },
+      {
+        "texto": "hundert",
+        "etiqueta": "× 100"
+      },
+      {
+        "texto": "sechs",
+        "etiqueta": "6"
+      },
+      {
+        "texto": "und",
+        "etiqueta": "+"
+      },
+      {
+        "texto": "fünfzig",
+        "etiqueta": "50"
+      }
+    ],
+    "ficha": "numeros_base"
+  },
+  {
+    "id": "NUM-011",
+    "nivel": 5,
+    "enunciado": "Was bedeutet die Zahl 'zweitausendvierhundertzwölf'?",
+    "opciones": ["2412", "2142", "2420", "1412"],
+    "correcta": "2412",
+    "explicacion": "2000 + 400 + 12: miles, centenas y luego zwölf.",
+    "traduccion": "dos mil cuatrocientos doce",
+    "resaltar": ["centenas_miles"],
+    "estructura": [
+      {
+        "texto": "zwei",
+        "etiqueta": "2"
+      },
+      {
+        "texto": "tausend",
+        "etiqueta": "× 1000"
+      },
+      {
+        "texto": "vier",
+        "etiqueta": "4"
+      },
+      {
+        "texto": "hundert",
+        "etiqueta": "× 100"
+      },
+      {
+        "texto": "zwölf",
+        "etiqueta": "12"
+      }
+    ],
+    "ficha": "numeros_base"
+  },
+  {
+    "id": "NUM-012",
+    "nivel": 5,
+    "enunciado": "Wie sagt man die Zahl 1.530 auf Deutsch?",
+    "opciones": [
+      "eintausendfünfhundertdreißig",
+      "eintausendfünfhundertdreizehn",
+      "eintausendfünfhundert",
+      "eintausendfünfzig"
+    ],
+    "correcta": "eintausendfünfhundertdreißig",
+    "explicacion": "1000 + 500 + 30: ein-tausend-fünf-hundert-dreißig.",
+    "traduccion": "mil quinientos treinta",
+    "resaltar": ["centenas_miles"],
+    "estructura": [
+      {
+        "texto": "ein",
+        "etiqueta": "1"
+      },
+      {
+        "texto": "tausend",
+        "etiqueta": "× 1000"
+      },
+      {
+        "texto": "fünf",
+        "etiqueta": "5"
+      },
+      {
+        "texto": "hundert",
+        "etiqueta": "× 100"
+      },
+      {
+        "texto": "dreißig",
+        "etiqueta": "30"
+      }
+    ],
+    "ficha": "numeros_base"
+  }
+]
