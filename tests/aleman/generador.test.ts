@@ -86,13 +86,20 @@ describe('preguntas der/die/das generadas', () => {
     expect(pregunta.mantener_orden).toBe(true);
     expect(pregunta.subtitulo).toBe('Welcher Artikel ist richtig?');
     expect(pregunta.enunciado).toBe('___ Tisch');
-    expect(pregunta.traduccion).toBe('der Tisch → die Tische · mesa');
+    // El plural ya no va en la traducción: se muestra en su propio bloque.
+    expect(pregunta.traduccion).toBe('der Tisch · mesa');
     expect(pregunta.ficha).toBe('genero_terminaciones');
   });
 
   it('el plural va en un apoyo aparte, con el artículo «die», y solo si el sustantivo lo tiene', () => {
     const con = generarPregunta(sustantivo({ plural: 'Tische' }), puntos);
-    expect(con.apoyo).toEqual({ tipo: 'plural', singular: 'der Tisch', plural: 'die Tische' });
+    expect(con.apoyo).toEqual({
+      tipo: 'plural',
+      lugar: 'oracion',
+      singular: 'der Tisch',
+      plural: 'die Tische',
+    });
+    expect(con.traduccion).not.toContain('→');
     const sin = generarPregunta(sustantivo({ plural: undefined }), puntos);
     expect(sin.apoyo).toBeUndefined();
   });

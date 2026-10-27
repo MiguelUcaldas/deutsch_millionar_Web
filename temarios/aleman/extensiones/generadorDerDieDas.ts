@@ -39,13 +39,14 @@ export function generarPregunta(
   if (nota) explicacion += ` ${nota}`;
 
   let traduccion = `${sustantivo.articulo} ${sustantivo.palabra}`;
-  if (sustantivo.plural) traduccion += ` → die ${sustantivo.plural}`;
   if (sustantivo.traduccion) traduccion += ` · ${sustantivo.traduccion}`;
 
-  // El plural se muestra aparte, bien visible, solo en el resultado (ver ApoyoPlural.svelte).
+  // El plural no va en la traducción (una flecha apenas se nota): se muestra en un bloque propio
+  // dentro de «Oración completa», solo en el resultado (ver ApoyoPlural.svelte).
   const apoyo = sustantivo.plural
     ? {
         tipo: 'plural',
+        lugar: 'oracion',
         singular: `${sustantivo.articulo} ${sustantivo.palabra}`,
         plural: `die ${sustantivo.plural}`,
       }

@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test, type Page } from '@playwright/test';
 import { abrir, comenzar, responder } from './ayudas';
 import { revisarMaquetacion } from './maquetacion';
 import { ES_ALEMAN } from './temario';
@@ -6,26 +6,34 @@ import { ES_ALEMAN } from './temario';
 // Usa el tema «der / die / das» del temario alemán.
 test.skip(!ES_ALEMAN, 'Solo para el temario alemán');
 
-const bloquePlural = (page: import('@playwright/test').Page) =>
-  page.getByRole('group', { name: 'Singular y plural' });
+/** La tarjeta «Oración completa» del resultado. */
+const oracionCompleta = (page: Page) =>
+  page.locator('section.bloque', { has: page.getByRole('heading', { name: 'Oración completa' }) });
+const bloquePlural = (page: Page) => oracionCompleta(page).getByRole('group', { name: 'Plural' });
 
-test.describe('el plural en der / die / das', () => {
+test.describe('el plural en «Oración completa» (der / die / das)', () => {
   test('no se muestra durante la pregunta (delataría el artículo) y sí en el resultado', async ({
     page,
   }) => {
     await abrir(page, { reloj: true, temas: ['der_die_das'] });
     await comenzar(page);
-    await expect(bloquePlural(page)).toHaveCount(0);
+    await expect(page.getByRole('group', { name: 'Plural' })).toHaveCount(0);
     await responder(page, true, true);
 
     await expect(bloquePlural(page)).toBeVisible();
     await expect(bloquePlural(page).getByText(/plural · mehrzahl/i)).toBeVisible();
-    // Singular con su artículo y plural siempre con «die».
-    await expect(bloquePlural(page).locator('.forma').first()).toContainText(
-      /^Singular\s*(der|die|das) \S+/,
-    );
-    await expect(bloquePlural(page).locator('.forma.destacada')).toContainText(/Plural\s*die \S+/);
+    // El plural lleva siempre «die» y se explica el porqué.
+    await expect(bloquePlural(page).locator('.forma')).toHaveText(/^die \S+$/);
     await expect(bloquePlural(page).getByText('En plural el artículo siempre es')).toBeVisible();
+  });
+
+  test('la traducción ya no esconde el plural detrás de una flecha', async ({ page }) => {
+    await abrir(page, { reloj: true, temas: ['der_die_das'] });
+    await comenzar(page);
+    await responder(page, true, true);
+    const traduccion = oracionCompleta(page).locator('.traduccion');
+    await expect(traduccion).toHaveText(/^(der|die|das) \S+ · /);
+    await expect(traduccion).not.toContainText('→');
   });
 
   test('también se ve tras equivocarse', async ({ page }) => {

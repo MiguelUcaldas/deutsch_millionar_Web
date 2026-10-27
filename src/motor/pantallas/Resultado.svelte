@@ -79,6 +79,8 @@
       <h2 class="etiqueta">{textos.oracionCompleta}</h2>
       <Oracion {segmentos} pronunciar={pregunta.pronunciar} />
       {#if pregunta.traduccion}<p class="traduccion">{pregunta.traduccion}</p>{/if}
+      <!-- Un apoyo con `lugar: "oracion"` va aquí, junto a la oración y su traducción. -->
+      {#if pregunta.apoyo?.lugar === 'oracion'}<Apoyo {pregunta} momento="resultado" />{/if}
       {#if estado.motivoFin === 'tiempo'}
         <p class="tu-respuesta">{textos.seAcaboElTiempo}</p>
       {:else if !acierto && estado.opcionElegida}
@@ -98,7 +100,7 @@
       </section>
     {/if}
 
-    {#if pregunta.apoyo}
+    {#if pregunta.apoyo && pregunta.apoyo.lugar !== 'oracion'}
       <section class="tarjeta apoyo">
         <Apoyo {pregunta} momento="resultado" />
       </section>
