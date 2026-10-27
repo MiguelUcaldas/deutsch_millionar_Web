@@ -129,11 +129,14 @@
 
     <Progreso />
 
+    <!-- Enlace al repositorio, desactivado por ahora. Para volver a mostrarlo, quita este comentario
+         y el de los estilos de `footer` al final del archivo.
     {#if configuracion.repositorio}
       <footer>
         <a href={configuracion.repositorio}>{textos.codigoDelProyecto}</a>
       </footer>
     {/if}
+    -->
   </div>
 </section>
 
@@ -290,7 +293,9 @@
     border-radius: 999px;
     padding: 3px 8px;
   }
+  /* Estilos del enlace al repositorio (ver el comentario del marcado):
   footer {
     font-size: var(--texto-s);
   }
+  */
 </style>
