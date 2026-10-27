@@ -47,32 +47,70 @@ describe('fichas de selección rápida', () => {
 
   it('el estado de la ficha sale de las casillas: todos, algunos o ninguno', () => {
     const todos = ['uno', 'dos', 'tres'];
-    expect(estadoDeValor(temasDeEjemplo, todos, 'nivel', 'A1')).toBe('todos');
-    expect(estadoDeValor(temasDeEjemplo, ['uno', 'tres'], 'nivel', 'A1')).toBe('algunos');
-    expect(estadoDeValor(temasDeEjemplo, ['tres'], 'nivel', 'A1')).toBe('ninguno');
-    expect(estadoDeValor(temasDeEjemplo, [], 'nivel', 'A2')).toBe('ninguno');
+    expect(estadoDeValor(temasDeEjemplo, todos, nivel, 'A1')).toBe('todos');
+    expect(estadoDeValor(temasDeEjemplo, ['uno', 'tres'], nivel, 'A1')).toBe('algunos');
+    expect(estadoDeValor(temasDeEjemplo, ['tres'], nivel, 'A1')).toBe('ninguno');
+    expect(estadoDeValor(temasDeEjemplo, [], nivel, 'A2')).toBe('ninguno');
     // Un valor sin temas nunca está «todos».
-    expect(estadoDeValor(temasDeEjemplo, todos, 'nivel', 'B1')).toBe('ninguno');
+    expect(estadoDeValor(temasDeEjemplo, todos, nivel, 'B1')).toBe('ninguno');
   });
 
   it('pulsar con todos marcados los desmarca, y solo los de su valor', () => {
     const todos = ['uno', 'dos', 'tres'];
-    expect(alternarTemasDeValor(temasDeEjemplo, todos, 'nivel', 'A2')).toEqual(['uno', 'dos']);
-    expect(alternarTemasDeValor(temasDeEjemplo, todos, 'nivel', 'A1')).toEqual(['tres']);
+    expect(alternarTemasDeValor(temasDeEjemplo, todos, nivel, 'A2')).toEqual(['uno', 'dos']);
+    expect(alternarTemasDeValor(temasDeEjemplo, todos, nivel, 'A1')).toEqual(['tres']);
   });
 
   it('pulsar con alguno sin marcar los marca todos, sin tocar los demás', () => {
-    expect(alternarTemasDeValor(temasDeEjemplo, ['uno', 'tres'], 'nivel', 'A1')).toEqual([
+    expect(alternarTemasDeValor(temasDeEjemplo, ['uno', 'tres'], nivel, 'A1')).toEqual([
       'uno',
       'tres',
       'dos',
     ]);
-    expect(alternarTemasDeValor(temasDeEjemplo, [], 'nivel', 'A2')).toEqual(['tres']);
-    expect(alternarTemasDeValor(temasDeEjemplo, ['tres'], 'nivel', 'A1')).toEqual([
+    expect(alternarTemasDeValor(temasDeEjemplo, [], nivel, 'A2')).toEqual(['tres']);
+    expect(alternarTemasDeValor(temasDeEjemplo, ['tres'], nivel, 'A1')).toEqual([
       'tres',
       'uno',
       'dos',
     ]);
+  });
+});
+
+describe('fichas acumulativas (para llegar a A2 hay que pasar por A1)', () => {
+  const acumulativo = { ...nivel, acumulativa: true };
+  const todos = ['uno', 'dos', 'tres'];
+
+  it('la ficha A2 abarca los temas de A1 y de A2; la A1 solo los suyos', () => {
+    // Solo A1 marcado: A1 está completa, A2 todavía no (le falta «tres»).
+    expect(estadoDeValor(temasDeEjemplo, ['uno', 'dos'], acumulativo, 'A1')).toBe('todos');
+    expect(estadoDeValor(temasDeEjemplo, ['uno', 'dos'], acumulativo, 'A2')).toBe('algunos');
+    expect(estadoDeValor(temasDeEjemplo, todos, acumulativo, 'A2')).toBe('todos');
+    // Solo el tema de A2 marcado: A1 sin nada, A2 mixta.
+    expect(estadoDeValor(temasDeEjemplo, ['tres'], acumulativo, 'A1')).toBe('ninguno');
+    expect(estadoDeValor(temasDeEjemplo, ['tres'], acumulativo, 'A2')).toBe('algunos');
+  });
+
+  it('pulsar A2 marca A1 y A2, o los desmarca si ya estaban todos marcados', () => {
+    expect(alternarTemasDeValor(temasDeEjemplo, ['uno'], acumulativo, 'A2')).toEqual([
+      'uno',
+      'dos',
+      'tres',
+    ]);
+    expect(alternarTemasDeValor(temasDeEjemplo, todos, acumulativo, 'A2')).toEqual([]);
+  });
+
+  it('pulsar A1 no toca los temas de A2', () => {
+    expect(alternarTemasDeValor(temasDeEjemplo, todos, acumulativo, 'A1')).toEqual(['tres']);
+    expect(alternarTemasDeValor(temasDeEjemplo, ['tres'], acumulativo, 'A1')).toEqual([
+      'tres',
+      'uno',
+      'dos',
+    ]);
+  });
+
+  it('un valor sin temas propios sigue abarcando los de los niveles anteriores', () => {
+    expect(estadoDeValor(temasDeEjemplo, todos, acumulativo, 'B1')).toBe('todos');
+    expect(alternarTemasDeValor(temasDeEjemplo, [], acumulativo, 'B1')).toEqual(todos);
   });
 });
 
@@ -198,6 +236,23 @@ describe('selección rápida en el estado del juego (plantilla: geografía «Fá
     const juego = crear();
     expect(almacen['millonario:plantilla:filtros']).toBeUndefined();
     expect(juego.temasElegidos).toEqual(['geografia', 'ciencia']);
+  });
+
+  it('en una dimensión acumulativa «Medio» abarca también los temas «Fácil»', () => {
+    const acumulativa = {
+      ...configuracion,
+      filtrosTemas: [{ ...configuracion.filtrosTemas![0]!, acumulativa: true }],
+    };
+    const juego = crear(acumulativa);
+    juego.alternarNivel('dificultad', 'Fácil');
+    expect(juego.temasElegidos).toEqual(['ciencia']);
+    expect(juego.estadoDeFicha('dificultad', 'Fácil')).toBe('ninguno');
+    expect(juego.estadoDeFicha('dificultad', 'Medio')).toBe('algunos');
+    juego.alternarNivel('dificultad', 'Medio');
+    expect(juego.temasElegidos).toEqual(['ciencia', 'geografia']);
+    expect(juego.estadoDeFicha('dificultad', 'Medio')).toBe('todos');
+    juego.alternarNivel('dificultad', 'Medio');
+    expect(juego.temasElegidos).toEqual([]);
   });
 
   it('sin filtrosTemas no hay fichas y pulsar una no hace nada, pero Todos y Ninguno siguen', () => {

@@ -65,13 +65,13 @@ for (const apariencia of APARIENCIAS) {
 
       // Inicio y repaso, con el modal de un tema.
       problemas.push(...(await revisarMaquetacion(page, 'inicio')));
-      // Selección rápida: A2 desmarca su tema y una casilla desmarcada a mano deja A1 mixta.
+      // Selección rápida: A1 desmarca sus temas y una casilla marcada a mano deja A1 mixta.
       const nivel = (valor: string) =>
         page
           .getByRole('group', { name: 'Nivel' })
           .getByRole('button', { name: valor, exact: true });
-      await nivel('A2').click();
-      await page.getByRole('checkbox').nth(2).uncheck();
+      await nivel('A1').click();
+      await page.getByRole('checkbox').nth(2).check();
       await expect(nivel('A1')).toHaveAttribute('aria-pressed', 'mixed');
       problemas.push(...(await revisarMaquetacion(page, 'inicio: selección rápida')));
       await page.getByRole('button', { name: 'Todos', exact: true }).click();

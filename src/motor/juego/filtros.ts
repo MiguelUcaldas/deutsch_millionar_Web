@@ -29,14 +29,27 @@ export function filasDeFiltro(
     .filter((fila) => fila.valores.length >= 2);
 }
 
-const temasDelValor = (temas: readonly TemaConFiltros[], dimension: string, valor: string) =>
-  temas.filter((tema) => tema.filtros?.[dimension] === valor);
+/** Los valores que abarca una ficha: solo el suyo o, si la dimensión es acumulativa, también los anteriores. */
+function valoresAbarcados(dimension: DimensionFiltro, valor: string): string[] {
+  if (!dimension.acumulativa) return [valor];
+  const posicion = dimension.valores.indexOf(valor);
+  return posicion < 0 ? [valor] : dimension.valores.slice(0, posicion + 1);
+}
+
+const temasDelValor = (
+  temas: readonly TemaConFiltros[],
+  dimension: DimensionFiltro,
+  valor: string,
+) => {
+  const abarcados = valoresAbarcados(dimension, valor);
+  return temas.filter((tema) => abarcados.includes(tema.filtros?.[dimension.id] ?? ''));
+};
 
 /** El estado de una ficha sale siempre de las casillas marcadas: no se guarda aparte. */
 export function estadoDeValor(
   temas: readonly TemaConFiltros[],
   elegidos: readonly string[],
-  dimension: string,
+  dimension: DimensionFiltro,
   valor: string,
 ): EstadoDeValor {
   const delValor = temasDelValor(temas, dimension, valor);
@@ -46,13 +59,13 @@ export function estadoDeValor(
 }
 
 /**
- * Pulsar una ficha: si todos los temas de ese valor están marcados se desmarcan; si falta alguno,
- * se marcan todos. Los temas de otros valores no se tocan.
+ * Pulsar una ficha: si todos los temas que abarca están marcados se desmarcan; si falta alguno,
+ * se marcan todos. Los temas que no abarca no se tocan.
  */
 export function alternarTemasDeValor(
   temas: readonly TemaConFiltros[],
   elegidos: readonly string[],
-  dimension: string,
+  dimension: DimensionFiltro,
   valor: string,
 ): string[] {
   const ids = temasDelValor(temas, dimension, valor).map((tema) => tema.id);

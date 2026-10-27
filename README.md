@@ -56,7 +56,7 @@ Opcional: borra `temarios/aleman` del repositorio nuevo. El motor no lo necesita
   tener el mismo largo; `segundosPorNivel` y `rangosPublico` necesitan una entrada por nivel.
 - `moneda`, `textos` (solo lo que cambia frente a `src/motor/textos.ts`, incluido `textos.pausa`), `marquesina`, `confeti`.
 - `duracionesMs.suspensoSonando` y `suspensoSilencio` **se miden del `suspenso.mp3` real** con `npm run medir-sonidos`; `npm run validar` falla si no coinciden (±30 ms). `sonidos` permite cambiar cualquier sonido.
-- `filtrosTemas` (opcional): dimensiones para filtrar temas, por ejemplo `{ id: 'nivel', etiqueta: 'Nivel', valores: ['A1', 'A2'] }`. Si existe, cada `tema.json` declara `"filtros": { "nivel": "A1" }` y el juego muestra una ficha por valor que marca y desmarca esos temas.
+- `filtrosTemas` (opcional): dimensiones para filtrar temas, por ejemplo `{ id: 'nivel', etiqueta: 'Nivel', valores: ['A1', 'A2'] }`. Si existe, cada `tema.json` declara `"filtros": { "nivel": "A1" }` y el juego muestra una ficha por valor que marca y desmarca esos temas. Con `acumulativa: true` cada ficha incluye también los valores anteriores.
 - `extensiones`: componentes de apoyo visual junto al enunciado, fichas propias, generadores de
   preguntas, validadores y el `iconoPausa`. Son opcionales; la plantilla no usa ninguna.
 - `tema.css` (opcional): cambia los tokens de acento. No puede cambiar la maquetación.
@@ -84,7 +84,7 @@ mal antes de publicarse.
   revelar. Funcionan sin conexión. Los archivos están en `public/recursos/sonidos/`.
 - **Pausa** en cualquier momento (botón o tecla `P`): congela tiempo, animaciones y audio, y oculta
   la pregunta. En el temario alemán se llama «Ein Pausebrot».
-- **Selección rápida por nivel** (A1, A2…) en Inicio: fichas que marcan y desmarcan los temas de ese nivel, junto a Todos y Ninguno. Repaso muestra el nivel de cada tema.
+- **Selección rápida por nivel** (A1, A2…) en Inicio: fichas que marcan y desmarcan los temas de ese nivel (la A2 incluye también los de A1, porque el nivel es acumulativo), junto a Todos y Ninguno. Repaso muestra el nivel de cada tema.
 - **Repaso** de temas con su explicación y ficha, y **modo práctica** por tema: sin dinero, sin tiempo y
   sin comodines (se llega desde el repaso, con «Practicar este tema»).
 - **Progreso local** (récord, temas que más se fallan) y **repaso espaciado** de lo fallado: cada

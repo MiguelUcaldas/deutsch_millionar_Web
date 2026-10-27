@@ -189,6 +189,11 @@ const esquemaDimensionFiltro = z.strictObject({
   etiqueta: z.string().min(1),
   /** En el orden en que se muestran. */
   valores: z.array(z.string().min(1)).min(1),
+  /**
+   * Cada valor incluye los anteriores: para llegar a A2 hay que pasar por A1, así que la ficha A2
+   * abarca los temas de A1 y de A2. Sin esto, cada ficha abarca solo los temas de su valor.
+   */
+  acumulativa: z.boolean().optional(),
 });
 
 const esquemaMoneda = z.strictObject({

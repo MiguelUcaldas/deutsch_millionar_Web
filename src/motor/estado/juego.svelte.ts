@@ -265,12 +265,15 @@ export function crearJuego(opciones: OpcionesJuego) {
     },
     /** Todos, algunos o ninguno de los temas de ese valor están marcados. */
     estadoDeFicha(dimension: string, valor: string) {
-      return estadoDeValor(banco?.temas ?? [], temasElegidos, dimension, valor);
+      const definicion = dimensionesDeFiltro.find((d) => d.id === dimension);
+      if (!definicion) return 'ninguno';
+      return estadoDeValor(banco?.temas ?? [], temasElegidos, definicion, valor);
     },
-    /** Marca todos los temas del valor, o los desmarca si ya estaban todos marcados. */
+    /** Marca los temas de la ficha (en una dimensión acumulativa, también los de los niveles anteriores), o los desmarca si ya estaban todos marcados. */
     alternarNivel(dimension: string, valor: string) {
-      if (!dimensionesDeFiltro.some((d) => d.id === dimension)) return;
-      temasElegidos = alternarTemasDeValor(banco?.temas ?? [], temasElegidos, dimension, valor);
+      const definicion = dimensionesDeFiltro.find((d) => d.id === dimension);
+      if (!definicion) return;
+      temasElegidos = alternarTemasDeValor(banco?.temas ?? [], temasElegidos, definicion, valor);
       almacen.escribir('temas', temasElegidos);
     },
     preguntasEnTema(id: string): number {

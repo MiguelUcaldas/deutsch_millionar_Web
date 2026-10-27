@@ -2,7 +2,8 @@ import { expect, test, type Page } from '@playwright/test';
 import { abrir } from './ayudas';
 import { ES_ALEMAN } from './temario';
 
-// Usa los niveles del temario alemán: diez temas A1 y «Conectores» en A2.
+// Usa los niveles del temario alemán: diez temas A1 y «Conectores» en A2. El nivel es acumulativo:
+// para llegar a A2 hay que pasar por A1, así que la ficha A2 abarca los temas de A1 y de A2.
 test.skip(!ES_ALEMAN, 'Solo para el temario alemán');
 
 const filaSeleccion = (page: Page) => page.getByRole('group', { name: 'Seleccionar:' });
@@ -48,54 +49,66 @@ test.describe('selección rápida por nivel', () => {
     await expect(page.getByText('11 de 11 elegidos')).toBeVisible();
   });
 
-  test('pulsar A2 desmarca solo su tema y otra vez A2 lo vuelve a marcar; los temas no se ocultan', async ({
+  test('A1 desmarca solo los temas A1 y deja A2 mixta; A2 marca todo y luego lo desmarca', async ({
     page,
   }) => {
     await abrir(page);
-    await nivel(page, 'A2').click();
-    await expect(casilla(page, 'Conectores')).not.toBeChecked();
-    await expect(casilla(page, 'Acusativo')).toBeChecked();
-    await expect(nivel(page, 'A2')).toHaveAttribute('aria-pressed', 'false');
-    await expect(nivel(page, 'A1')).toHaveAttribute('aria-pressed', 'true');
+    await nivel(page, 'A1').click();
+    await expect(casilla(page, 'Acusativo')).not.toBeChecked();
+    await expect(casilla(page, 'Conectores')).toBeChecked();
+    await expect(nivel(page, 'A1')).toHaveAttribute('aria-pressed', 'false');
+    // A2 abarca también los temas de A1: solo uno de los once está marcado.
+    await expect(nivel(page, 'A2')).toHaveAttribute('aria-pressed', 'mixed');
     await expect(casillas(page)).toHaveCount(11);
-    await expect(page.getByText('10 de 11 elegidos')).toBeVisible();
-    await expect(disponibles(page)).toHaveText('178');
+    await expect(page.getByText('1 de 11 elegidos')).toBeVisible();
     // No hay aviso de temas «fuera por el filtro»: ya no existe el filtrado.
     await expect(page.getByText('quedan fuera por el filtro')).toHaveCount(0);
 
+    // Con alguno sin marcar, A2 marca los temas de A1 y de A2.
     await nivel(page, 'A2').click();
-    await expect(casilla(page, 'Conectores')).toBeChecked();
+    await expect(page.getByText('11 de 11 elegidos')).toBeVisible();
+    await expect(nivel(page, 'A1')).toHaveAttribute('aria-pressed', 'true');
     await expect(nivel(page, 'A2')).toHaveAttribute('aria-pressed', 'true');
+    await expect(disponibles(page)).toHaveText('190');
+
+    // Con todo marcado, A2 desmarca los temas de A1 y de A2.
+    await nivel(page, 'A2').click();
+    await expect(page.getByText('0 de 11 elegidos')).toBeVisible();
+    await expect(nivel(page, 'A1')).toHaveAttribute('aria-pressed', 'false');
+    await expect(nivel(page, 'A2')).toHaveAttribute('aria-pressed', 'false');
+  });
+
+  test('A2 incluye los temas de A1', async ({ page }) => {
+    await abrir(page);
+    await accion(page, 'Ninguno').click();
+    await nivel(page, 'A2').click();
+    await expect(casilla(page, 'Acusativo')).toBeChecked();
+    await expect(casilla(page, 'Conectores')).toBeChecked();
     await expect(page.getByText('11 de 11 elegidos')).toBeVisible();
     await expect(disponibles(page)).toHaveText('190');
   });
 
-  test('desmarcar una casilla a mano deja la ficha mixta; pulsarla marca todos y luego los desmarca', async ({
+  test('desmarcar una casilla a mano deja mixtas las fichas que la abarcan; A1 la vuelve a marcar', async ({
     page,
   }) => {
     await abrir(page);
     await casilla(page, 'Acusativo').uncheck();
     await expect(nivel(page, 'A1')).toHaveAttribute('aria-pressed', 'mixed');
-    await expect(nivel(page, 'A2')).toHaveAttribute('aria-pressed', 'true');
+    await expect(nivel(page, 'A2')).toHaveAttribute('aria-pressed', 'mixed');
 
-    // Con alguno sin marcar, la ficha marca todos los de su nivel.
+    // Con alguno sin marcar, la ficha marca todos los temas que abarca.
     await nivel(page, 'A1').click();
     await expect(casilla(page, 'Acusativo')).toBeChecked();
     await expect(nivel(page, 'A1')).toHaveAttribute('aria-pressed', 'true');
-    await expect(page.getByText('11 de 11 elegidos')).toBeVisible();
-
-    // Con todos marcados, la ficha los desmarca (y deja el nivel A2 como estaba).
-    await nivel(page, 'A1').click();
-    await expect(nivel(page, 'A1')).toHaveAttribute('aria-pressed', 'false');
     await expect(nivel(page, 'A2')).toHaveAttribute('aria-pressed', 'true');
-    await expect(page.getByText('1 de 11 elegidos')).toBeVisible();
-    await expect(casilla(page, 'Conectores')).toBeChecked();
+    await expect(page.getByText('11 de 11 elegidos')).toBeVisible();
   });
 
   test('las fichas se actualizan solas al marcar y desmarcar casillas', async ({ page }) => {
     await abrir(page);
     await casilla(page, 'Conectores').uncheck();
-    await expect(nivel(page, 'A2')).toHaveAttribute('aria-pressed', 'false');
+    await expect(nivel(page, 'A1')).toHaveAttribute('aria-pressed', 'true');
+    await expect(nivel(page, 'A2')).toHaveAttribute('aria-pressed', 'mixed');
     await casilla(page, 'Conectores').check();
     await expect(nivel(page, 'A2')).toHaveAttribute('aria-pressed', 'true');
   });
@@ -141,19 +154,18 @@ test.describe('selección rápida por nivel', () => {
     await expect
       .poll(() => page.evaluate(() => localStorage.getItem('millonario:aleman:filtros')))
       .toBeNull();
-    await nivel(page, 'A2').click();
-    await expect(page.getByText('10 de 11 elegidos')).toBeVisible();
+    await nivel(page, 'A1').click();
+    await expect(page.getByText('1 de 11 elegidos')).toBeVisible();
     expect(await page.evaluate(() => localStorage.getItem('millonario:aleman:filtros'))).toBeNull();
-    expect(
-      await page.evaluate(() => localStorage.getItem('millonario:aleman:temas')),
-    ).not.toContain('conectores');
+    const guardados = await page.evaluate(() => localStorage.getItem('millonario:aleman:temas'));
+    expect(JSON.parse(guardados!)).toEqual(['conectores']);
   });
 
   test('Repaso muestra todos los temas con su nivel y sin fichas de selección', async ({
     page,
   }) => {
     await abrir(page);
-    await nivel(page, 'A2').click();
+    await nivel(page, 'A1').click();
     await page.getByRole('button', { name: 'Repaso' }).click();
     await expect(page.locator('button.tema')).toHaveCount(11);
     await expect(
@@ -163,9 +175,9 @@ test.describe('selección rápida por nivel', () => {
     await expect(page.getByRole('group', { name: 'Seleccionar:' })).toHaveCount(0);
   });
 
-  test('una partida con A2 desmarcado no incluye el tema de A2', async ({ page }) => {
+  test('una partida con Conectores desmarcado no incluye ese tema', async ({ page }) => {
     await abrir(page);
-    await nivel(page, 'A2').click();
+    await casilla(page, 'Conectores').uncheck();
     await page.getByRole('button', { name: 'Comenzar' }).click();
     await page.locator('[data-opcion]').first().waitFor();
     await expect(page.locator('.chip.tema')).not.toHaveText('Conectores');

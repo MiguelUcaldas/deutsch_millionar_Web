@@ -15,7 +15,15 @@ export default {
   repositorio: 'https://github.com/MiguelUcaldas/deutsch_millionar',
   emblema: Emblema,
 
-  filtrosTemas: [{ id: 'nivel', etiqueta: 'Nivel', valores: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'] }],
+  // Acumulativa: para llegar a A2 hay que pasar por A1, así que la ficha A2 abarca también los temas de A1.
+  filtrosTemas: [
+    {
+      id: 'nivel',
+      etiqueta: 'Nivel',
+      valores: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'],
+      acumulativa: true,
+    },
+  ],
 
   reglasInicio: [
     'Responde 15 preguntas de alemán, cada vez más difíciles.',
