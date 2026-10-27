@@ -120,8 +120,10 @@
               onchange={(evento) => juego.elegirTema(tema.id, evento.currentTarget.checked)}
             />
             <span class="nombre">{tema.nombre_corto}</span>
-            <PildorasDeTema {tema} />
-            <span class="cantidad numeros">{juego.preguntasEnTema(tema.id)}</span>
+            <span class="meta">
+              <PildorasDeTema {tema} />
+              <span class="cantidad numeros">{juego.preguntasEnTema(tema.id)}</span>
+            </span>
           </label>
         {/each}
       </div>
@@ -254,8 +256,11 @@
   }
   .casilla {
     display: flex;
+    /* Si el nombre no cabe entero junto al nivel y la cantidad, estos bajan a una segunda línea
+       en vez de estrechar el nombre hasta partir una palabra. */
+    flex-wrap: wrap;
     align-items: center;
-    gap: var(--espacio-3);
+    gap: 6px var(--espacio-3);
     min-height: 52px;
     padding: 10px 14px;
     min-width: 0;
@@ -278,12 +283,20 @@
     accent-color: var(--acento);
   }
   .nombre {
-    flex: 1;
-    min-width: 0;
+    /* Siempre al menos el ancho de una palabra larga («Preposiciones»), salvo que la casilla sea más angosta. */
+    flex: 1 1 9rem;
+    min-width: min(100%, 9rem);
     font-weight: 600;
     line-height: 1.3;
     overflow-wrap: break-word;
     hyphens: auto;
+  }
+  .meta {
+    flex: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
   }
   .cantidad {
     flex: none;

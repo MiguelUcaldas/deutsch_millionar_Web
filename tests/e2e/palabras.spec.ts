@@ -56,11 +56,16 @@ for (const ancho of ANCHOS) {
   });
 }
 
-test('ningún nombre de tema se parte a mitad de palabra en ningún ancho de 320 a 1500 px', async ({
+test('ningún nombre de tema se parte a mitad de palabra en ningún ancho de 320 a 1500 px, ni con una tipografía ancha', async ({
   page,
 }) => {
   test.setTimeout(120_000);
   await abrir(page, { reloj: true });
+  // Peor caso: sin las fuentes de Google se usa la del sistema, y en Linux es mucho más ancha que en
+  // Windows o macOS. Se fuerza una tipografía ancha para que el resultado no dependa del equipo.
+  await page.addStyleTag({
+    content: "body, button, input { font-family: Verdana, 'DejaVu Sans', sans-serif !important; }",
+  });
   const partidas: string[] = [];
   for (let ancho = 320; ancho <= 1500; ancho += 10) {
     await page.setViewportSize({ width: ancho, height: 800 });
