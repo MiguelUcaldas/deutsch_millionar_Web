@@ -43,7 +43,7 @@ export default defineConfig(({ mode }) => {
       svelte(),
       VitePWA({
         registerType: 'autoUpdate',
-        includeAssets: ['favicon.svg', 'apple-touch-icon.png'],
+        includeAssets: ['recursos/iconos/favicon.svg', 'recursos/iconos/apple-touch-icon.png'],
         manifest: {
           name: nombre,
           short_name: nombre.length > 14 ? 'Millonario' : nombre,
@@ -55,10 +55,10 @@ export default defineConfig(({ mode }) => {
           background_color: '#0e1424',
           theme_color: '#0e1424',
           icons: [
-            { src: 'icono-192.png', sizes: '192x192', type: 'image/png' },
-            { src: 'icono-512.png', sizes: '512x512', type: 'image/png' },
+            { src: 'recursos/iconos/icono-192.png', sizes: '192x192', type: 'image/png' },
+            { src: 'recursos/iconos/icono-512.png', sizes: '512x512', type: 'image/png' },
             {
-              src: 'icono-maskable-512.png',
+              src: 'recursos/iconos/icono-maskable-512.png',
               sizes: '512x512',
               type: 'image/png',
               purpose: 'maskable',
@@ -66,7 +66,7 @@ export default defineConfig(({ mode }) => {
           ],
         },
         workbox: {
-          globPatterns: ['**/*.{js,css,html,svg,png,webmanifest}'],
+          globPatterns: ['**/*.{js,css,html,svg,png,webmanifest,mp3}'],
           runtimeCaching: [
             {
               // Las fuentes vienen de Google Fonts: se guardan para que el juego se vea igual sin conexión.

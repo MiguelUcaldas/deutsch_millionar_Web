@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <clipPath id="forma"><rect width="64" height="64" rx="14" /></clipPath>
+  <g clip-path="url(#forma)">
+    <rect width="64" height="22" fill="#000000" />
+    <rect y="21" width="64" height="22" fill="#dd0000" />
+    <rect y="42" width="64" height="22" fill="#ffce00" />
+  </g>
+</svg>

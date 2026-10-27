@@ -4,3 +4,8 @@ test-results/
 playwright-report/
 .env
 dev-dist/
+
+# Documentación: el único .md que se sube es el README.md principal.
+# docs/, public/recursos/LEEME.md y cualquier otro .md quedan solo en local.
+*.md
+!/README.md

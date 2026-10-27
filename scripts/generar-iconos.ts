@@ -1,10 +1,10 @@
-// Genera los íconos PNG de la PWA a partir de public/favicon.svg (se usa Chromium de Playwright).
+// Genera los íconos PNG de la PWA a partir de public/recursos/iconos/favicon.svg (se usa Chromium de Playwright).
 // Se ejecuta con: npm run generar-iconos
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { chromium } from '@playwright/test';
 
-const publico = path.resolve(import.meta.dirname, '..', 'public');
+const publico = path.resolve(import.meta.dirname, '..', 'public', 'recursos', 'iconos');
 const svg = readFileSync(path.join(publico, 'favicon.svg'), 'utf8');
 
 const navegador = await chromium.launch();
@@ -22,7 +22,7 @@ async function pintar(archivo: string, lado: number, margen: number) {
      </body>`,
   );
   await pagina.screenshot({ path: path.join(publico, archivo) });
-  console.log(`public/${archivo}`);
+  console.log(`public/recursos/iconos/${archivo}`);
 }
 
 await pintar('icono-192.png', 192, 0);
