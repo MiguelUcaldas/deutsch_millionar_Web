@@ -90,6 +90,22 @@ describe('preguntas der/die/das generadas', () => {
     expect(pregunta.ficha).toBe('genero_terminaciones');
   });
 
+  it('el plural va en un apoyo aparte, con el artículo «die», y solo si el sustantivo lo tiene', () => {
+    const con = generarPregunta(sustantivo({ plural: 'Tische' }), puntos);
+    expect(con.apoyo).toEqual({ tipo: 'plural', singular: 'der Tisch', plural: 'die Tische' });
+    const sin = generarPregunta(sustantivo({ plural: undefined }), puntos);
+    expect(sin.apoyo).toBeUndefined();
+  });
+
+  it('todas las preguntas generadas con plural lo muestran con «die»', () => {
+    const conPlural = banco.preguntas.filter((p) => p.tema === 'der_die_das' && p.apoyo);
+    expect(conPlural.length).toBeGreaterThan(0);
+    for (const pregunta of conPlural) {
+      expect(pregunta.apoyo).toMatchObject({ tipo: 'plural' });
+      expect(String(pregunta.apoyo!.plural)).toMatch(/^die \S+$/);
+    }
+  });
+
   it('el generador produce las 70 preguntas DDD-Palabra, todas válidas', () => {
     const generadas = banco.preguntas.filter((p) => p.tema === 'der_die_das');
     expect(generadas).toHaveLength(70);

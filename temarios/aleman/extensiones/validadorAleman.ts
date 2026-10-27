@@ -19,6 +19,18 @@ export const validadorAleman: Validador = ({ banco, fuentes }) => {
     if (pregunta.apoyo?.tipo === 'reloj' && !PATRON_HORA.test(String(pregunta.apoyo.hora))) {
       errores.push(`${pregunta.id} → apoyo.hora: «${pregunta.apoyo.hora}» no tiene formato HH:MM`);
     }
+    if (pregunta.apoyo?.tipo === 'plural') {
+      const { singular, plural } = pregunta.apoyo;
+      if (
+        typeof singular !== 'string' ||
+        typeof plural !== 'string' ||
+        !plural.startsWith('die ')
+      ) {
+        errores.push(
+          `${pregunta.id} → apoyo: el plural necesita «singular» y «plural» (en plural el artículo es siempre «die»)`,
+        );
+      }
+    }
     if (pregunta.tema !== 'conjugacion') continue;
 
     const ficha = pregunta.ficha;

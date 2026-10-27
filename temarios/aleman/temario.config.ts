@@ -1,5 +1,6 @@
 import type { ConfiguracionTemario } from '@motor/contenido/esquemas';
 import Emblema from './Emblema.svelte';
+import ApoyoPlural from './extensiones/ApoyoPlural.svelte';
 import ApoyoReloj from './extensiones/ApoyoReloj.svelte';
 import FichaConjugacion from './extensiones/FichaConjugacion.svelte';
 import { generadorDerDieDas } from './extensiones/generadorDerDieDas';
@@ -66,7 +67,7 @@ export default {
   },
 
   extensiones: {
-    apoyos: { reloj: ApoyoReloj },
+    apoyos: { reloj: ApoyoReloj, plural: ApoyoPlural },
     fichas: { conjugacion: FichaConjugacion },
     generadores: [generadorDerDieDas],
     iconoPausa: IconoPan,

@@ -42,6 +42,15 @@ export function generarPregunta(
   if (sustantivo.plural) traduccion += ` → die ${sustantivo.plural}`;
   if (sustantivo.traduccion) traduccion += ` · ${sustantivo.traduccion}`;
 
+  // El plural se muestra aparte, bien visible, solo en el resultado (ver ApoyoPlural.svelte).
+  const apoyo = sustantivo.plural
+    ? {
+        tipo: 'plural',
+        singular: `${sustantivo.articulo} ${sustantivo.palabra}`,
+        plural: `die ${sustantivo.plural}`,
+      }
+    : undefined;
+
   return {
     id: `DDD-${sustantivo.palabra}`,
     nivel: sustantivo.nivel,
@@ -52,6 +61,7 @@ export function generarPregunta(
     explicacion,
     traduccion,
     mantener_orden: true,
+    ...(apoyo ? { apoyo } : {}),
     ficha: 'genero_terminaciones',
     resaltar: [puntoDeGenero(sustantivo.palabra, puntos)],
   };
