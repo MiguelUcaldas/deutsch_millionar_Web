@@ -8,7 +8,8 @@ export default defineConfig({
   // Capturas de referencia separadas por sistema operativo (el texto se dibuja distinto).
   snapshotPathTemplate: '{testDir}/capturas/{platform}/{testFilePath}/{arg}{ext}',
   fullyParallel: true,
-  reporter: [['list']],
+  // En CI, el reporte «github» deja cada fallo como anotación visible sin descargar los registros.
+  reporter: process.env.CI ? [['list'], ['github']] : [['list']],
   expect: { toHaveScreenshot: { maxDiffPixelRatio: 0.002, animations: 'disabled' } },
   webServer: {
     // El modo «test» expone la respuesta correcta en un atributo data- y permite fijar la semilla.
