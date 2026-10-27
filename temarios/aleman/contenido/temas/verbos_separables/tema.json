@@ -3,6 +3,9 @@
   "id": "verbos_separables",
   "prefijo": "SEP",
   "orden": 8,
+  "filtros": {
+    "nivel": "A1"
+  },
   "nombre_corto": "Verbos separables",
   "titulo": "Verbos separables (trennbare Verben)",
   "resumen": "Verbos con un prefijo que se separa y se va al final.",

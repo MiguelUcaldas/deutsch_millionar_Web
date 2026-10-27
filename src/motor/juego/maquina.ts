@@ -40,11 +40,15 @@ export interface EstadoPartida {
   temaAnterior: string | null;
   premioAsegurado: number;
   opcionElegida: string | null;
+  /** En el suspenso: ya terminó el sonido y queda el silencio final antes de la revelación. */
+  suspensoEnSilencio: boolean;
   acerto: boolean | null;
   motivoFin: MotivoFin | null;
   /** Sube cada vez que se asigna una pregunta; invalida avisos de tiempo de preguntas anteriores. */
   turno: number;
   porcentajesPublico: Record<string, number> | null;
+  /** Partida en pausa: se congela todo y no se acepta ninguna acción salvo reanudar. */
+  pausada: boolean;
   /** Mientras las barras del público crecen: el tiempo está en pausa y no se acepta nada. */
   publicoEnCurso: boolean;
   mensajeError: string | null;
@@ -60,11 +64,14 @@ export type Accion =
   | { tipo: 'usarPublico' }
   | { tipo: 'publicoTerminado' }
   | { tipo: 'usarCambiar' }
+  | { tipo: 'suspensoEnSilencio' }
   | { tipo: 'finSuspenso' }
   | { tipo: 'verResultado' }
   | { tipo: 'siguiente' }
   | { tipo: 'comenzarPractica'; titulo: string; preguntas: string[] }
   | { tipo: 'terminarPractica' }
+  | { tipo: 'pausar' }
+  | { tipo: 'reanudar' }
   | { tipo: 'nuevaPartida' };
 
 export interface Contexto {
@@ -87,14 +94,27 @@ export function estadoInicial(): EstadoPartida {
     temaAnterior: null,
     premioAsegurado: 0,
     opcionElegida: null,
+    suspensoEnSilencio: false,
     acerto: null,
     motivoFin: null,
     turno: 0,
     porcentajesPublico: null,
     publicoEnCurso: false,
+    pausada: false,
     mensajeError: null,
     practica: null,
   };
+}
+
+/** Fases en las que se puede pausar: durante toda la partida y la práctica, no en pantallas finales. */
+export function sePuedePausar(estado: EstadoPartida): boolean {
+  return (
+    !estado.pausada &&
+    (estado.fase === 'pregunta' ||
+      estado.fase === 'suspenso' ||
+      estado.fase === 'revelacion' ||
+      estado.fase === 'resultado')
+  );
 }
 
 /** Preguntas del banco que pertenecen a los temas elegidos. */
@@ -140,6 +160,7 @@ function asignarPregunta(
       : barajar(pregunta.opciones, contexto.aleatorio),
     opcionesEliminadas: [],
     opcionElegida: null,
+    suspensoEnSilencio: false,
     acerto: null,
     motivoFin: null,
     porcentajesPublico: null,
@@ -190,6 +211,9 @@ function comodinDisponible(estado: EstadoPartida, comodin: Comodin, contexto: Co
 
 /** Aplica una acción. Las acciones que no corresponden al momento actual se ignoran. */
 export function reducir(estado: EstadoPartida, accion: Accion, contexto: Contexto): EstadoPartida {
+  // En pausa solo se puede reanudar (o abandonar con una partida nueva).
+  if (estado.pausada && accion.tipo !== 'reanudar' && accion.tipo !== 'nuevaPartida') return estado;
+
   switch (accion.tipo) {
     case 'comenzar': {
       if (estado.fase !== 'inicio') return estado;
@@ -225,6 +249,11 @@ export function reducir(estado: EstadoPartida, accion: Accion, contexto: Context
       };
     }
 
+    case 'suspensoEnSilencio':
+      return estado.fase === 'suspenso' && !estado.suspensoEnSilencio
+        ? { ...estado, suspensoEnSilencio: true }
+        : estado;
+
     case 'finSuspenso': {
       if (estado.fase !== 'suspenso') return estado;
       const asegura =
@@ -232,6 +261,7 @@ export function reducir(estado: EstadoPartida, accion: Accion, contexto: Context
       return {
         ...estado,
         fase: 'revelacion',
+        suspensoEnSilencio: false,
         motivoFin: estado.acerto ? null : 'incorrecta',
         premioAsegurado: asegura
           ? premioDePregunta(contexto.juego, estado.numeroPregunta)
@@ -326,6 +356,12 @@ export function reducir(estado: EstadoPartida, accion: Accion, contexto: Context
       return estado.practica && estado.fase !== 'finPractica' && estado.fase !== 'inicio'
         ? { ...estado, fase: 'finPractica' }
         : estado;
+
+    case 'pausar':
+      return sePuedePausar(estado) ? { ...estado, pausada: true } : estado;
+
+    case 'reanudar':
+      return estado.pausada ? { ...estado, pausada: false } : estado;
 
     case 'nuevaPartida':
       return estadoInicial();

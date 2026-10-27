@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import {
+  SUSPENSO_MS,
   abrir,
   avanzar,
   comenzar,
@@ -158,7 +159,7 @@ test.describe('teclado', () => {
     await comenzar(page);
     const letra = await opcionCorrecta(page).getAttribute('data-opcion');
     await page.keyboard.press(letra!.toLowerCase());
-    await avanzar(page, 2900);
+    await avanzar(page, SUSPENSO_MS + 1100);
     await expect(page.getByRole('heading', { name: 'Richtig!' })).toBeVisible();
     await page.keyboard.press('Enter');
     await expect(page.getByText('Pregunta 2 de 15')).toBeVisible();
@@ -315,7 +316,7 @@ test.describe('apariencia y modos', () => {
       .evaluate((el) => getComputedStyle(el).animationName);
     expect(animacion).toBe('none');
     await expect(page.locator('.suspenso')).toHaveCount(1);
-    await avanzar(page, 2900);
+    await avanzar(page, SUSPENSO_MS + 1100);
     await expect(page.getByRole('heading', { name: 'Richtig!' })).toBeVisible();
     await contexto.close();
   });

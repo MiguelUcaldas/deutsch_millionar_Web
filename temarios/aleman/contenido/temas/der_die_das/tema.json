@@ -3,6 +3,9 @@
   "id": "der_die_das",
   "prefijo": "DDD",
   "orden": 4,
+  "filtros": {
+    "nivel": "A1"
+  },
   "nombre_corto": "der / die / das",
   "titulo": "Género de los sustantivos (der, die, das)",
   "resumen": "Saber si un sustantivo es masculino, femenino o neutro.",

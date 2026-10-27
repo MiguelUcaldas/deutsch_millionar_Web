@@ -3,7 +3,14 @@
   import { rellenar } from '../textos';
 
   export type EstadoOpcion =
-    'normal' | 'elegida' | 'suspenso' | 'correcta' | 'incorrecta' | 'apagada' | 'eliminada';
+    | 'normal'
+    | 'elegida'
+    | 'suspenso'
+    | 'suspensoFijo'
+    | 'correcta'
+    | 'incorrecta'
+    | 'apagada'
+    | 'eliminada';
 
   interface Props {
     letra: string;
@@ -22,7 +29,7 @@
   const { textos, idioma } = obtenerJuego();
 
   const marca = $derived(
-    estado === 'elegida' || estado === 'suspenso'
+    estado === 'elegida' || estado === 'suspenso' || estado === 'suspensoFijo'
       ? textos.tuRespuesta
       : estado === 'correcta'
         ? `✓ ${textos.correcta}`
@@ -30,18 +37,6 @@
           ? `✗ ${textos.tuRespuesta}`
           : '',
   );
-
-  // La barra crece desde cero: primero se pinta en 0 y luego se pasa al valor para que la transición se vea.
-  let anchoBarra = $state(0);
-  $effect(() => {
-    const destino = porcentaje ?? 0;
-    if (porcentaje === null) {
-      anchoBarra = 0;
-      return;
-    }
-    const cuadro = requestAnimationFrame(() => requestAnimationFrame(() => (anchoBarra = destino)));
-    return () => cancelAnimationFrame(cuadro);
-  });
 </script>
 
 <button
@@ -62,7 +57,7 @@
   </span>
   {#if porcentaje !== null}
     <span class="publico">
-      <span class="pista"><span class="barra" style:width="{anchoBarra}%"></span></span>
+      <span class="pista"><span class="barra" style:--ancho="{porcentaje}%"></span></span>
       <span class="valor numeros">{porcentaje}%</span>
     </span>
   {/if}
@@ -148,10 +143,11 @@
   .barra {
     display: block;
     height: 100%;
-    width: 0;
+    width: var(--ancho);
     border-radius: 999px;
     background: var(--publico);
-    transition: width 2s ease-out;
+    /* Crece desde cero en lo que dura el comodín; es una animación para poder pausarla. */
+    animation: crecer var(--duracion-publico, 2s) ease-out;
   }
   .valor {
     flex: none;
@@ -162,21 +158,26 @@
   }
 
   .elegida,
-  .suspenso {
+  .suspenso,
+  .suspensoFijo {
     border-color: var(--seleccion);
     background: var(--seleccion-fondo);
   }
   .elegida .letra,
-  .suspenso .letra {
+  .suspenso .letra,
+  .suspensoFijo .letra {
     background: var(--seleccion);
     color: var(--sobre-acento);
   }
   .elegida .marca,
-  .suspenso .marca {
+  .suspenso .marca,
+  .suspensoFijo .marca {
     color: var(--seleccion-texto);
   }
+  /* Parpadea solo mientras suena el suspenso; en el silencio final queda fija (.suspensoFijo).
+     La cantidad y la duración de los ciclos las calcula Pregunta.svelte desde la configuración. */
   .suspenso {
-    animation: parpadeo 0.2s steps(2, jump-none) 9;
+    animation: parpadeo var(--ciclo-parpadeo) steps(2, jump-none) var(--parpadeos);
   }
   .correcta {
     border-color: var(--correcto);

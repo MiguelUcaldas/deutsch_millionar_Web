@@ -3,6 +3,7 @@ import Emblema from './Emblema.svelte';
 import ApoyoReloj from './extensiones/ApoyoReloj.svelte';
 import FichaConjugacion from './extensiones/FichaConjugacion.svelte';
 import { generadorDerDieDas } from './extensiones/generadorDerDieDas';
+import IconoPan from './extensiones/IconoPan.svelte';
 import { validadorAleman } from './extensiones/validadorAleman';
 
 export default {
@@ -12,6 +13,8 @@ export default {
   idiomaContenido: 'de-DE',
   repositorio: 'https://github.com/MiguelUcaldas/deutsch_millionar',
   emblema: Emblema,
+
+  filtrosTemas: [{ id: 'nivel', etiqueta: 'Nivel', valores: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'] }],
 
   reglasInicio: [
     'Responde 15 preguntas de alemán, cada vez más difíciles.',
@@ -34,8 +37,9 @@ export default {
     comodines: { cincuentaCincuenta: true, publico: true, cambiar: true },
     rangosPublico: { 1: [70, 85], 2: [60, 75], 3: [45, 60], 4: [35, 50], 5: [25, 45] },
     duracionesMs: {
-      suspenso: 1800,
-      antesDeResultado: 900,
+      suspensoSonando: 1800,
+      suspensoSilencio: 600,
+      antesDeResultado: 1000,
       barrasPublico: 2000,
       flechaTabla: 1200,
       aviso: 2500,
@@ -53,12 +57,19 @@ export default {
     victoria: 'Herzlichen Glückwunsch! Du bist Millionär!',
     derrotaTitulo: 'Game Over',
     tiempoAgotado: 'Zeit ist um! / ¡Tiempo agotado!',
+    pausa: {
+      titulo: 'Ein Pausebrot',
+      subtitulo: 'Tómate un respiro. La pregunta te espera.',
+      continuar: 'Weiter · Continuar',
+      boton: 'Pausar (Ein Pausebrot)',
+    },
   },
 
   extensiones: {
     apoyos: { reloj: ApoyoReloj },
     fichas: { conjugacion: FichaConjugacion },
     generadores: [generadorDerDieDas],
+    iconoPausa: IconoPan,
     validadores: [validadorAleman],
   },
 } satisfies ConfiguracionTemario;

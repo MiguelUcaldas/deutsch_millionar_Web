@@ -3,7 +3,7 @@ import { crearAleatorio } from '@motor/juego/aleatorio';
 import { crearControlador } from '@motor/juego/controlador';
 import { premioObtenido } from '@motor/juego/maquina';
 import { segundosDePregunta } from '@motor/juego/premios';
-import { banco, juegoPlantilla, todosLosTemas } from './ayudas';
+import { banco, juegoPlantilla, suspensoTotalMs, todosLosTemas } from './ayudas';
 
 const { duracionesMs } = juegoPlantilla;
 
@@ -34,7 +34,7 @@ describe('controlador', () => {
       opcion: controlador.estado().preguntaActual!.correcta,
     });
     expect(controlador.estado().fase).toBe('suspenso');
-    vi.advanceTimersByTime(duracionesMs.suspenso - 1);
+    vi.advanceTimersByTime(suspensoTotalMs - 1);
     expect(controlador.estado().fase).toBe('suspenso');
     vi.advanceTimersByTime(2);
     expect(controlador.estado().fase).toBe('revelacion');
@@ -97,7 +97,7 @@ describe('controlador', () => {
         tipo: 'responder',
         opcion: controlador.estado().preguntaActual!.correcta,
       });
-      vi.advanceTimersByTime(duracionesMs.suspenso + duracionesMs.antesDeResultado + 10);
+      vi.advanceTimersByTime(suspensoTotalMs + duracionesMs.antesDeResultado + 10);
       controlador.despachar({ tipo: 'siguiente' });
     }
     expect(controlador.estado().fase).toBe('victoria');

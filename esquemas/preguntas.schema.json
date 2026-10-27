@@ -60,7 +60,9 @@
             "minLength": 1
           }
         },
-        "required": ["tipo"],
+        "required": [
+          "tipo"
+        ],
         "additionalProperties": {}
       },
       "ficha": {
@@ -77,7 +79,9 @@
                 "minLength": 1
               }
             },
-            "required": ["tipo"],
+            "required": [
+              "tipo"
+            ],
             "additionalProperties": {}
           }
         ]
@@ -119,12 +123,22 @@
               "type": "boolean"
             }
           },
-          "required": ["texto", "etiqueta"],
+          "required": [
+            "texto",
+            "etiqueta"
+          ],
           "additionalProperties": false
         }
       }
     },
-    "required": ["id", "nivel", "enunciado", "opciones", "correcta", "explicacion"],
+    "required": [
+      "id",
+      "nivel",
+      "enunciado",
+      "opciones",
+      "correcta",
+      "explicacion"
+    ],
     "additionalProperties": false
   }
 }

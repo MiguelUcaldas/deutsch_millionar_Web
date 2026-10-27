@@ -3,6 +3,9 @@
   "id": "hora",
   "prefijo": "HOR",
   "orden": 6,
+  "filtros": {
+    "nivel": "A1"
+  },
   "nombre_corto": "La hora",
   "titulo": "La hora (die Uhrzeit)",
   "resumen": "Decir la hora de forma formal e informal.",

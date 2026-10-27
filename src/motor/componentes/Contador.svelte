@@ -13,7 +13,8 @@
   aria-live={alerta ? 'polite' : 'off'}
   aria-atomic="true"
 >
-  <span class="numero numeros">{segundos}</span>
+  <!-- Cada segundo se vuelve a crear el número: el parpadeo de alerta arranca junto con su tic. -->
+  {#key segundos}<span class="numero numeros">{segundos}</span>{/key}
   <span class="unidad">{textos.segundosUnidad}</span>
 </div>
 
@@ -47,6 +48,11 @@
     animation: parpadeo 1s steps(2, jump-none) infinite;
   }
   @media (max-width: 560px) {
+    /* Más compacto para que, junto al botón de pausa, siga cabiendo en la primera fila. */
+    .contador {
+      min-width: 68px;
+      padding: 6px 10px;
+    }
     .numero {
       font-size: 28px;
     }

@@ -5,6 +5,10 @@ export default {
   titulo: 'CULTURA GENERAL (EJEMPLO)',
   descripcion: 'Temario de ejemplo para probar el motor',
 
+  filtrosTemas: [
+    { id: 'dificultad', etiqueta: 'Dificultad', valores: ['Fácil', 'Medio', 'Difícil'] },
+  ],
+
   reglasInicio: [
     'Responde 10 preguntas, cada vez más difíciles.',
     'Al llegar a la pregunta 4 y a la 8 tu premio queda asegurado.',
@@ -23,8 +27,9 @@ export default {
     comodines: { cincuentaCincuenta: true, publico: true, cambiar: true },
     rangosPublico: { 1: [70, 85], 2: [60, 75], 3: [45, 60], 4: [35, 50], 5: [25, 45] },
     duracionesMs: {
-      suspenso: 1800,
-      antesDeResultado: 900,
+      suspensoSonando: 1800,
+      suspensoSilencio: 600,
+      antesDeResultado: 1000,
       barrasPublico: 2000,
       flechaTabla: 1200,
       aviso: 2500,

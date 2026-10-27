@@ -3,6 +3,7 @@
   import { fuentesDelTemario } from './contenido/desdeTemario';
   import temario from '@temario';
   import Depuracion from './componentes/Depuracion.svelte';
+  import Pausa from './componentes/Pausa.svelte';
   import { crearJuego, proveerJuego } from './estado/juego.svelte';
   import Derrota from './pantallas/Derrota.svelte';
   import ErrorDatos from './pantallas/ErrorDatos.svelte';
@@ -44,6 +45,12 @@
     if (enCampo) return;
 
     const tecla = evento.key.toLowerCase();
+    // P pausa en cualquier momento de la partida; reanudar lo maneja la propia pausa.
+    if (tecla === 'p' && juego.puedePausar) {
+      evento.preventDefault();
+      juego.pausar();
+      return;
+    }
     if (juego.pantalla === 'pregunta') {
       const indice = LETRAS.indexOf(tecla);
       const estado = juego.estado;
@@ -69,7 +76,8 @@
 
 <svelte:window onkeydown={alTeclear} />
 
-<main>
+<!-- En pausa el juego se oculta y se vuelve inerte: la pausa no sirve para pensar con la pregunta a la vista. -->
+<main inert={juego.pausada}>
   {#if juego.pantalla === 'error'}
     <ErrorDatos />
   {:else if juego.pantalla === 'inicio'}
@@ -88,5 +96,7 @@
     <FinPractica />
   {/if}
 </main>
+
+{#if juego.pausada}<Pausa />{/if}
 
 {#if juego.debug}<Depuracion />{/if}

@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import type { Component } from 'svelte';
+import { NOMBRES_SONIDO } from '../sonidos/rutas.ts';
 import type { Validador } from './validar';
 
 // ---------- Contenido: temas, preguntas, fichas, traducciones ----------
@@ -19,6 +20,8 @@ export const esquemaTema = z.strictObject({
   ejemplos: z.array(ejemplo),
   errores_comunes: z.array(z.string().min(1)),
   ficha_principal: z.string().optional(),
+  /** Valor de cada dimensión de `filtrosTemas` del temario (p. ej. `{ "nivel": "A1" }`). */
+  filtros: z.record(z.string(), z.string()).optional(),
 });
 
 /** Apoyo visual junto al enunciado. El motor solo exige `tipo`; el resto lo interpreta la extensión. */
@@ -135,7 +138,10 @@ export const esquemaJuego = z
     }),
     rangosPublico: porNivel(z.tuple([z.number().min(0).max(100), z.number().min(0).max(100)])),
     duracionesMs: z.strictObject({
-      suspenso: z.number().min(0),
+      /** Lo que suena el archivo de suspenso: la opción elegida parpadea todo ese tiempo. */
+      suspensoSonando: z.number().min(0),
+      /** Silencio final del suspenso: la opción queda fija en ámbar hasta la revelación. */
+      suspensoSilencio: z.number().min(0),
       antesDeResultado: z.number().min(0),
       barrasPublico: z.number().min(0),
       flechaTabla: z.number().min(0),
@@ -177,6 +183,14 @@ export const esquemaJuego = z
     }
   });
 
+/** Una forma de filtrar los temas en Inicio y Repaso (p. ej. el nivel del idioma). */
+const esquemaDimensionFiltro = z.strictObject({
+  id: z.string().regex(/^[a-z0-9_]+$/),
+  etiqueta: z.string().min(1),
+  /** En el orden en que se muestran. */
+  valores: z.array(z.string().min(1)).min(1),
+});
+
 const esquemaMoneda = z.strictObject({
   simbolo: z.string(),
   separadorMiles: z.string(),
@@ -195,6 +209,10 @@ export const esquemaConfiguracion = z.object({
   marquesina: z.array(z.string()).min(1),
   /** Colores del confeti de la victoria; sin ellos se usan los colores del tema visual. */
   confeti: z.array(z.string()).optional(),
+  /** Dimensiones por las que se pueden filtrar los temas; sin ellas no se muestra ningún filtro. */
+  filtrosTemas: z.array(esquemaDimensionFiltro).optional(),
+  /** Reemplazos de los sonidos, con rutas relativas a la raíz del sitio (por defecto `recursos/sonidos/`). */
+  sonidos: z.partialRecord(z.enum(NOMBRES_SONIDO), z.string()).optional(),
   textos: z.record(z.string(), z.unknown()).optional(),
 });
 
@@ -206,6 +224,7 @@ export type Ficha = z.infer<typeof esquemaFicha>;
 export type Traducciones = z.infer<typeof esquemaTraducciones>;
 export type ConfiguracionJuego = z.infer<typeof esquemaJuego>;
 export type Moneda = z.infer<typeof esquemaMoneda>;
+export type DimensionFiltro = z.infer<typeof esquemaDimensionFiltro>;
 
 export interface PropsVisual {
   pregunta: Pregunta;
@@ -229,6 +248,8 @@ export interface ConfiguracionTemario extends z.infer<typeof esquemaConfiguracio
     apoyos?: Record<string, ComponenteVisual>;
     fichas?: Record<string, ComponenteVisual>;
     generadores?: GeneradorPreguntas[];
+    /** Ícono del botón y de la pantalla de pausa (SVG con trazo `currentColor`, tamaño `1em`). */
+    iconoPausa?: Component;
     /** Comprobaciones extra que corre `npm run validar`. */
     validadores?: Validador[];
   };

@@ -65,8 +65,17 @@ for (const apariencia of APARIENCIAS) {
 
       // Inicio y repaso, con el modal de un tema.
       problemas.push(...(await revisarMaquetacion(page, 'inicio')));
+      const nivelA2 = page
+        .getByRole('group', { name: 'Nivel' })
+        .getByRole('button', { name: 'A2' });
+      await nivelA2.click();
+      problemas.push(...(await revisarMaquetacion(page, 'inicio: filtro')));
+      await nivelA2.click();
       await page.getByRole('button', { name: 'Repaso' }).click();
       problemas.push(...(await revisarMaquetacion(page, 'repaso')));
+      await nivelA2.click();
+      problemas.push(...(await revisarMaquetacion(page, 'repaso: filtro')));
+      await nivelA2.click();
       await page.getByRole('button', { name: /Preposiciones/ }).click();
       problemas.push(...(await revisarMaquetacion(page, 'repaso: modal')));
       await page.keyboard.press('Escape');
@@ -83,6 +92,11 @@ for (const apariencia of APARIENCIAS) {
       await inyectarTextosLargos(page);
       problemas.push(...(await revisarMaquetacion(page, 'pregunta: texto largo')));
 
+      // Pausa sobre la pregunta con el peor caso de texto.
+      await page.getByRole('button', { name: 'Pausar (Ein Pausebrot)' }).click();
+      problemas.push(...(await revisarMaquetacion(page, 'pausa')));
+      await page.keyboard.press('Escape');
+
       // Escalera en celular.
       if (ancho < 900) {
         await page.getByRole('button', { name: 'Escalera' }).click();
@@ -93,6 +107,9 @@ for (const apariencia of APARIENCIAS) {
       // Resultado incorrecto y su modal.
       await responder(page, false, true);
       problemas.push(...(await revisarMaquetacion(page, 'resultado')));
+      await page.getByRole('button', { name: 'Pausar (Ein Pausebrot)' }).click();
+      problemas.push(...(await revisarMaquetacion(page, 'resultado: pausa')));
+      await page.keyboard.press('Escape');
       await page.getByRole('button', { name: /^¿Qué es «/ }).click();
       problemas.push(...(await revisarMaquetacion(page, 'resultado: modal')));
       await page.keyboard.press('Escape');

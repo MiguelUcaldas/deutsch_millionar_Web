@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { fuentesDesdeModulos } from '@motor/contenido/cargar';
 import type { ConfiguracionTemario } from '@motor/contenido/esquemas';
 import { crearJuego } from '@motor/estado/juego.svelte';
-import { configuracion, juegoPlantilla } from './ayudas';
+import { configuracion, juegoPlantilla, suspensoTotalMs } from './ayudas';
 
 // Se usa el mismo contenido de la plantilla que el resto de pruebas del motor.
 const modulos = import.meta.glob(
@@ -104,7 +104,7 @@ describe('estado del juego', () => {
     expect(juego.pantalla).toBe('pregunta');
     juego.responder(juego.estado.preguntaActual!.correcta);
     expect(juego.pantalla).toBe('pregunta'); // suspenso
-    vi.advanceTimersByTime(juegoPlantilla.duracionesMs.suspenso + 10);
+    vi.advanceTimersByTime(suspensoTotalMs + 10);
     expect(juego.pantalla).toBe('pregunta'); // revelación
     vi.advanceTimersByTime(juegoPlantilla.duracionesMs.antesDeResultado + 10);
     expect(juego.pantalla).toBe('resultado');
@@ -118,9 +118,7 @@ describe('estado del juego', () => {
     juego.comenzar();
     for (let i = 0; i < 3; i++) {
       juego.responder(juego.estado.preguntaActual!.correcta);
-      vi.advanceTimersByTime(
-        juegoPlantilla.duracionesMs.suspenso + juegoPlantilla.duracionesMs.antesDeResultado + 20,
-      );
+      vi.advanceTimersByTime(suspensoTotalMs + juegoPlantilla.duracionesMs.antesDeResultado + 20);
       juego.siguiente();
     }
     expect(juego.estado.numeroPregunta).toBe(4);
@@ -197,7 +195,7 @@ describe('estado del juego', () => {
 describe('progreso, práctica y voz en el estado del juego', () => {
   let almacen: ReturnType<typeof almacenFalso>;
   const destruir: (() => void)[] = [];
-  const { suspenso, antesDeResultado } = juegoPlantilla.duracionesMs;
+  const { antesDeResultado } = juegoPlantilla.duracionesMs;
 
   function crear(configuracionPropia: ConfiguracionTemario = configuracion) {
     const juego = crearJuego({
@@ -216,7 +214,7 @@ describe('progreso, práctica y voz en el estado del juego', () => {
         ? pregunta.correcta
         : juego.estado.opcionesMostradas.find((o) => o !== pregunta.correcta)!,
     );
-    vi.advanceTimersByTime(suspenso + antesDeResultado + 20);
+    vi.advanceTimersByTime(suspensoTotalMs + antesDeResultado + 20);
   };
 
   beforeEach(() => {

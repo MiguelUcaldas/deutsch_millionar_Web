@@ -27,6 +27,9 @@ const modulos = import.meta.glob(
 
 export const configuracion = configuracionPlantilla;
 export const juegoPlantilla: ConfiguracionJuego = configuracionPlantilla.juego;
+/** Desde que se elige una opción hasta que empieza la revelación. */
+export const suspensoTotalMs =
+  juegoPlantilla.duracionesMs.suspensoSonando + juegoPlantilla.duracionesMs.suspensoSilencio;
 export const registro = crearRegistro();
 
 export const fuentesDelTest = () => fuentesDesdeModulos(modulos);

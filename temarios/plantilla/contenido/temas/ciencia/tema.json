@@ -3,6 +3,9 @@
   "id": "ciencia",
   "prefijo": "CIE",
   "orden": 2,
+  "filtros": {
+    "dificultad": "Medio"
+  },
   "nombre_corto": "Ciencia",
   "titulo": "Ciencia básica",
   "resumen": "Astronomía, química, biología y física elemental.",

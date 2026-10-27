@@ -3,6 +3,9 @@
   "id": "acusativo",
   "prefijo": "ACU",
   "orden": 3,
+  "filtros": {
+    "nivel": "A1"
+  },
   "nombre_corto": "Acusativo",
   "titulo": "Acusativo (Akkusativ)",
   "resumen": "El caso del objeto directo: lo que recibe la acción del verbo.",

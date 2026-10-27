@@ -25,7 +25,10 @@
                 "type": "string"
               }
             },
-            "required": ["id", "texto"],
+            "required": [
+              "id",
+              "texto"
+            ],
             "additionalProperties": false
           }
         },
@@ -51,7 +54,11 @@
                 }
               }
             },
-            "required": ["id", "texto", "celdas"],
+            "required": [
+              "id",
+              "texto",
+              "celdas"
+            ],
             "additionalProperties": false
           }
         },
@@ -59,7 +66,12 @@
           "type": "string"
         }
       },
-      "required": ["tipo", "titulo", "columnas", "filas"],
+      "required": [
+        "tipo",
+        "titulo",
+        "columnas",
+        "filas"
+      ],
       "additionalProperties": false
     },
     {
@@ -95,7 +107,11 @@
                 "type": "string"
               }
             },
-            "required": ["id", "original", "traduccion"],
+            "required": [
+              "id",
+              "original",
+              "traduccion"
+            ],
             "additionalProperties": false
           }
         },
@@ -103,7 +119,13 @@
           "type": "string"
         }
       },
-      "required": ["tipo", "titulo", "desde", "hasta", "elementos"],
+      "required": [
+        "tipo",
+        "titulo",
+        "desde",
+        "hasta",
+        "elementos"
+      ],
       "additionalProperties": false
     },
     {
@@ -143,12 +165,18 @@
                       "minLength": 1
                     }
                   },
-                  "required": ["original", "traduccion"],
+                  "required": [
+                    "original",
+                    "traduccion"
+                  ],
                   "additionalProperties": false
                 }
               }
             },
-            "required": ["id", "texto"],
+            "required": [
+              "id",
+              "texto"
+            ],
             "additionalProperties": {}
           }
         },
@@ -156,7 +184,11 @@
           "type": "string"
         }
       },
-      "required": ["tipo", "titulo", "puntos"],
+      "required": [
+        "tipo",
+        "titulo",
+        "puntos"
+      ],
       "additionalProperties": false
     }
   ]

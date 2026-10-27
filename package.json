@@ -17,6 +17,7 @@
     "generar-schemas": "node scripts/generar-json-schema.ts",
     "nuevo-temario": "node scripts/nuevo-temario.ts",
     "generar-iconos": "node scripts/generar-iconos.ts",
+    "medir-sonidos": "node scripts/medir-sonidos.ts",
     "test:pwa": "playwright test -c playwright.pwa.config.ts"
   },
   "devDependencies": {
@@ -27,6 +28,7 @@
     "eslint": "^10.13.0",
     "eslint-plugin-svelte": "^3.23.1",
     "globals": "^17.13.0",
+    "mpg123-decoder": "^1.0.3",
     "prettier": "^3.9.10",
     "prettier-plugin-svelte": "^4.1.1",
     "svelte": "^5.57.3",

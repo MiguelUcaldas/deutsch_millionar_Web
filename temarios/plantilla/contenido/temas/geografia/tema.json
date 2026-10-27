@@ -3,6 +3,9 @@
   "id": "geografia",
   "prefijo": "GEO",
   "orden": 1,
+  "filtros": {
+    "dificultad": "Fácil"
+  },
   "nombre_corto": "Geografía",
   "titulo": "Geografía básica",
   "resumen": "Países, capitales, océanos y accidentes geográficos.",

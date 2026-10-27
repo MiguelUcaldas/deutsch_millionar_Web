@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import BotonPausa from '../componentes/BotonPausa.svelte';
   import ExplicacionTema from '../componentes/ExplicacionTema.svelte';
   import Oracion from '../componentes/Oracion.svelte';
   import { obtenerJuego } from '../estado/juego.svelte';
@@ -118,6 +119,7 @@
 
     <div class="barra-inferior">
       <div class="contenido-barra">
+        <BotonPausa />
         {#if tema}
           <button
             type="button"

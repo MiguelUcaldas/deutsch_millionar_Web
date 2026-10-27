@@ -3,6 +3,9 @@
   "id": "conjugacion",
   "prefijo": "CON",
   "orden": 9,
+  "filtros": {
+    "nivel": "A1"
+  },
   "nombre_corto": "Conjugación",
   "titulo": "Conjugación en presente (Präsens)",
   "resumen": "Cómo cambia el verbo según quién hace la acción.",

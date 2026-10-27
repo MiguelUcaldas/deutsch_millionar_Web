@@ -3,6 +3,9 @@
   "id": "numeros",
   "prefijo": "NUM",
   "orden": 5,
+  "filtros": {
+    "nivel": "A1"
+  },
   "nombre_corto": "Números",
   "titulo": "Números (Zahlen)",
   "resumen": "Cómo se dicen y se escriben los números en alemán.",

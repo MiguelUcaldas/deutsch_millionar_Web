@@ -3,6 +3,7 @@
   import Comodines from '../componentes/Comodines.svelte';
   import Contador from '../componentes/Contador.svelte';
   import Aviso from '../componentes/Aviso.svelte';
+  import BotonPausa from '../componentes/BotonPausa.svelte';
   import Escalera from '../componentes/Escalera.svelte';
   import EscaleraCompacta from '../componentes/EscaleraCompacta.svelte';
   import Marquesina from '../componentes/Marquesina.svelte';
@@ -15,6 +16,7 @@
     segundosDePregunta,
     totalPreguntas,
   } from '../juego/premios';
+  import { parpadeosDeSuspenso } from '../juego/suspenso';
   import { rellenar } from '../textos';
 
   const juego = obtenerJuego();
@@ -40,7 +42,10 @@
 
   function estadoDeOpcion(opcion: string): EstadoOpcion {
     if (estado.opcionesEliminadas.includes(opcion)) return 'eliminada';
-    if (enSuspenso) return opcion === estado.opcionElegida ? 'suspenso' : 'apagada';
+    if (enSuspenso) {
+      if (opcion !== estado.opcionElegida) return 'apagada';
+      return estado.suspensoEnSilencio ? 'suspensoFijo' : 'suspenso';
+    }
     if (revelada) {
       if (opcion === pregunta.correcta) return 'correcta';
       return opcion === estado.opcionElegida ? 'incorrecta' : 'apagada';
@@ -56,6 +61,9 @@
     return parte === '—' ? '' : parte;
   };
 
+  // El parpadeo de la opción elegida dura lo que suena el suspenso.
+  const parpadeo = parpadeosDeSuspenso(reglas.duracionesMs.suspensoSonando);
+
   // Los marcadores de la marquesina rotan con cada pregunta.
   const frase = $derived(configuracion.marquesina[estado.turno % configuracion.marquesina.length]!);
 </script>
@@ -63,6 +71,9 @@
 <section
   class="pantalla"
   aria-label={rellenar(textos.preguntaDe, { n: estado.numeroPregunta, total })}
+  style:--parpadeos={parpadeo.cantidad}
+  style:--ciclo-parpadeo="{parpadeo.cicloMs}ms"
+  style:--duracion-publico="{reglas.duracionesMs.barrasPublico}ms"
 >
   <div class="contenedor">
     <header class="tarjeta barra-juego">
@@ -86,6 +97,7 @@
           {/if}
         </div>
         <div class="derecha">
+          <BotonPausa />
           {#if practica}
             <button
               type="button"
@@ -266,6 +278,13 @@
     }
     .premio {
       font-size: 22px;
+    }
+    .fila-barra,
+    .progreso {
+      gap: 10px;
+    }
+    .derecha {
+      gap: 8px;
     }
     .enunciado {
       padding: 18px;

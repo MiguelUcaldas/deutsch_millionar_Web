@@ -1,4 +1,6 @@
 <script lang="ts">
+  import FiltrosTemas from '../componentes/FiltrosTemas.svelte';
+  import PildorasDeTema from '../componentes/PildorasDeTema.svelte';
   import Progreso from '../componentes/Progreso.svelte';
   import { obtenerJuego } from '../estado/juego.svelte';
   import { rellenar } from '../textos';
@@ -7,7 +9,7 @@
   const { textos, configuracion } = juego;
   const Emblema = configuracion.emblema;
 
-  const temas = $derived(juego.banco?.temas ?? []);
+  const temas = $derived(juego.temasVisibles);
   const alcanza = $derived(juego.alcanzaElMinimo);
 </script>
 
@@ -106,8 +108,18 @@
         <div>
           <h2 id="titulo-temas">{textos.temasTitulo}</h2>
           <p>
-            {rellenar(textos.temasElegidos, { n: juego.temasElegidos.length, total: temas.length })}
+            {rellenar(textos.temasElegidos, {
+              n: juego.temasEnPartida.length,
+              total: temas.length,
+            })}
           </p>
+          {#if juego.fueraPorFiltro > 0}
+            <p class="fuera-por-filtro">
+              {juego.fueraPorFiltro === 1
+                ? textos.fueraPorFiltroUno
+                : rellenar(textos.fueraPorFiltro, { n: juego.fueraPorFiltro })}
+            </p>
+          {/if}
         </div>
         <div class="acciones-temas">
           <button
@@ -126,6 +138,7 @@
           </button>
         </div>
       </div>
+      <FiltrosTemas />
       <div class="rejilla">
         {#each temas as tema (tema.id)}
           <label class="casilla">
@@ -135,6 +148,7 @@
               onchange={(evento) => juego.elegirTema(tema.id, evento.currentTarget.checked)}
             />
             <span class="nombre">{tema.nombre_corto}</span>
+            <PildorasDeTema {tema} />
             <span class="cantidad numeros">{juego.preguntasEnTema(tema.id)}</span>
           </label>
         {/each}
@@ -262,6 +276,10 @@
     margin: 4px 0 0;
     font-size: 14px;
     color: var(--texto-suave);
+  }
+  .cabecera-temas .fuera-por-filtro {
+    font-size: var(--texto-xs);
+    color: var(--texto-tenue);
   }
   .acciones-temas {
     display: flex;

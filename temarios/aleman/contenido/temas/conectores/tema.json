@@ -3,6 +3,9 @@
   "id": "conectores",
   "prefijo": "COX",
   "orden": 11,
+  "filtros": {
+    "nivel": "A2"
+  },
   "nombre_corto": "Conectores",
   "titulo": "Conectores lógicos",
   "resumen": "Palabras que unen ideas y que pueden mover el verbo.",

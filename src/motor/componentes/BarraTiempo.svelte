@@ -18,7 +18,7 @@
     height: 100%;
     border-radius: 999px;
     background: var(--acento);
-    transition: width 0.25s linear;
+    /* Sin transición: la barra baja en el mismo cuadro en que cambia el número y suena el tic. */
   }
   .relleno.alerta {
     background: var(--incorrecto);

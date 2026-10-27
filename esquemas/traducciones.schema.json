@@ -28,7 +28,10 @@
             "type": "string"
           }
         },
-        "required": ["original", "traduccion"],
+        "required": [
+          "original",
+          "traduccion"
+        ],
         "additionalProperties": false
       }
     }

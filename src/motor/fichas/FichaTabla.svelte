@@ -52,12 +52,15 @@
     const observador = new ResizeObserver(medir);
     observador.observe(lienzo);
 
-    let espera: ReturnType<typeof setTimeout> | undefined;
+    let espera: number | undefined;
     if (!trazo) destinoMarcado = true;
-    else if (!destinoMarcado) espera = setTimeout(() => (destinoMarcado = true), duracionMs);
+    else if (!destinoMarcado) {
+      // Con el reloj del juego: si se pausa mientras la flecha se dibuja, el destino espera.
+      espera = juego.reloj.programar(duracionMs, () => (destinoMarcado = true));
+    }
     return () => {
       observador.disconnect();
-      clearTimeout(espera);
+      if (espera !== undefined) juego.reloj.cancelar(espera);
     };
   });
 </script>

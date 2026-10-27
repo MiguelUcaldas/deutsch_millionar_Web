@@ -1,3 +1,4 @@
+import type { Component } from 'svelte';
 import {
   TIPOS_FICHA_DEL_MOTOR,
   type ComponenteVisual,
@@ -12,6 +13,7 @@ export interface Registro {
   fichas: Record<string, ComponenteVisual>;
   apoyos: Record<string, ComponenteVisual>;
   generadores: GeneradorPreguntas[];
+  iconoPausa?: Component;
 }
 
 export function crearRegistro(extensiones: ConfiguracionTemario['extensiones'] = {}): Registro {
@@ -21,5 +23,6 @@ export function crearRegistro(extensiones: ConfiguracionTemario['extensiones'] =
     fichas,
     apoyos: extensiones.apoyos ?? {},
     generadores: extensiones.generadores ?? [],
+    iconoPausa: extensiones.iconoPausa,
   };
 }

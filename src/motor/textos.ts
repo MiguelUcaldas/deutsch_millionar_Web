@@ -30,6 +30,9 @@ export interface Textos {
   seleccionaMasTemas: string;
   temasTitulo: string;
   temasElegidos: string;
+  /** Aviso cuando el filtro deja fuera temas que estaban marcados. */
+  fueraPorFiltro: string;
+  fueraPorFiltroUno: string;
   codigoDelProyecto: string;
   teclado: string;
   tecladoResponden: string;
@@ -101,6 +104,14 @@ export interface Textos {
   progresoConfirmarBorrado: string;
 
   detenerAudio: string;
+
+  pausa: {
+    titulo: string;
+    subtitulo: string;
+    continuar: string;
+    /** Etiqueta del botón que pausa (para lectores de pantalla). */
+    boton: string;
+  };
 }
 
 export const textosPorDefecto: Textos = {
@@ -130,6 +141,8 @@ export const textosPorDefecto: Textos = {
   seleccionaMasTemas: 'Selecciona más temas: hay {n} preguntas y se necesitan al menos {minimo}.',
   temasTitulo: 'Temas de la partida',
   temasElegidos: '{n} de {total} elegidos',
+  fueraPorFiltro: '{n} temas marcados quedan fuera por el filtro',
+  fueraPorFiltroUno: '1 tema marcado queda fuera por el filtro',
   codigoDelProyecto: 'Código del proyecto en GitHub',
   teclado: 'Teclado:',
   tecladoResponden: 'responden,',
@@ -202,6 +215,13 @@ export const textosPorDefecto: Textos = {
   progresoConfirmarBorrado: '¿Borrar todo tu progreso en este navegador?',
 
   detenerAudio: 'Detener el audio',
+
+  pausa: {
+    titulo: 'Pausa',
+    subtitulo: 'La partida está detenida. Nada corre mientras tanto.',
+    continuar: 'Continuar',
+    boton: 'Pausar',
+  },
 };
 
 /** Reemplaza cada `{clave}` del texto por su valor. */

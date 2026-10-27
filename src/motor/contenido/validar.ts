@@ -5,8 +5,10 @@ import { armarBanco, type Banco, type FuentesContenido } from './cargar';
 import {
   esquemaConfiguracion,
   type ConfiguracionTemario,
+  type DimensionFiltro,
   type Ficha,
   type Pregunta,
+  type Tema,
 } from './esquemas';
 import { crearRegistro } from './registro';
 
@@ -129,6 +131,34 @@ function contar(banco: Banco) {
   return conteo;
 }
 
+/** Cada tema declara un valor válido para cada dimensión de filtro del temario, y nada más. */
+function validarFiltros(temas: readonly Tema[], dimensiones: readonly DimensionFiltro[]): string[] {
+  const errores: string[] = [];
+  for (const tema of temas) {
+    const declarados = tema.filtros ?? {};
+    for (const { id, valores } of dimensiones) {
+      const valor = declarados[id];
+      if (valor === undefined) {
+        errores.push(
+          `temas/${tema.id}/tema.json → filtros.${id}: falta (valores: ${valores.join(', ')})`,
+        );
+      } else if (!valores.includes(valor)) {
+        errores.push(
+          `temas/${tema.id}/tema.json → filtros.${id}: «${valor}» no está en los valores del temario (${valores.join(', ')})`,
+        );
+      }
+    }
+    for (const id of Object.keys(declarados)) {
+      if (!dimensiones.some((d) => d.id === id)) {
+        errores.push(
+          `temas/${tema.id}/tema.json → filtros.${id}: el temario no declara esa dimensión en filtrosTemas`,
+        );
+      }
+    }
+  }
+  return errores;
+}
+
 /**
  * Revisa todo el contenido de un temario. A diferencia de la carga en ejecución, que omite
  * lo inválido, aquí cada entrada omitida es un error.
@@ -159,6 +189,7 @@ export function validarContenido(
       );
     }
   }
+  errores.push(...validarFiltros(banco.temas, configuracion.filtrosTemas ?? []));
   for (const pregunta of banco.preguntas) {
     errores.push(
       ...validarReferenciasDeFicha(pregunta, banco.fichas),

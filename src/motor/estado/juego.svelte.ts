@@ -4,8 +4,19 @@ import type { ConfiguracionTemario, Tema } from '../contenido/esquemas';
 import { crearRegistro, type Registro } from '../contenido/registro';
 import { barajar, crearAleatorio, type Aleatorio } from '../juego/aleatorio';
 import { crearControlador, type Controlador } from '../juego/controlador';
-import { estadoInicial, premioObtenido, type EstadoPartida } from '../juego/maquina';
+import {
+  alternarValor,
+  filasDeFiltro,
+  limpiarDimension,
+  sanearSeleccion,
+  temaCoincide,
+  type SeleccionFiltros,
+} from '../juego/filtros';
+import { estadoInicial, premioObtenido, sePuedePausar, type EstadoPartida } from '../juego/maquina';
 import { totalPreguntas } from '../juego/premios';
+import { crearRelojPausable } from '../juego/relojPausable';
+import { crearReproductor, reproductorSilencioso, type Reproductor } from '../sonidos/reproductor';
+import { rutasDeSonido } from '../sonidos/rutas';
 import { mezclarTextos, type Textos } from '../textos';
 import { crearAlmacen } from './almacen';
 import {
@@ -51,6 +62,12 @@ export function crearJuego(opciones: OpcionesJuego) {
   // ---------- progreso (récord, fallos y repaso espaciado) ----------
   let progreso = $state.raw<Progreso>(leerProgreso(almacen.leer('progreso')));
   const voz = crearVoz(configuracion.idiomaContenido);
+  // Un solo reloj para todo lo que dura tiempo: al pausar se congela junto con la partida.
+  const reloj = crearRelojPausable();
+  // En las pruebas de pantallas el juego es mudo: no dependen del audio del navegador.
+  const reproductor: Reproductor = modoPrueba
+    ? reproductorSilencioso
+    : crearReproductor(rutasDeSonido(configuracion.sonidos));
 
   /** Anota respuestas y partidas terminadas cuando la máquina cambia de fase. */
   function registrarProgreso(anterior: EstadoPartida, nuevo: EstadoPartida) {
@@ -105,6 +122,8 @@ export function crearJuego(opciones: OpcionesJuego) {
         juego: configuracion.juego,
         banco: armado.preguntas,
         aleatorio,
+        reproductor,
+        reloj,
         alRegistrar: registrar,
       });
       controlador.suscribir((nuevo, restantes) => {
@@ -135,6 +154,15 @@ export function crearJuego(opciones: OpcionesJuego) {
     guardados ? idsDeTemas().filter((id) => guardados.includes(id)) : idsDeTemas(),
   );
 
+  // Filtros de temas: ocultan temas sin deseleccionarlos; la partida usa los marcados y visibles.
+  const dimensionesDeFiltro = configuracion.filtrosTemas ?? [];
+  let filtros = $state.raw<SeleccionFiltros>(
+    sanearSeleccion(almacen.leer('filtros'), dimensionesDeFiltro),
+  );
+  const temasVisibles = () => (banco?.temas ?? []).filter((tema) => temaCoincide(tema, filtros));
+  const idsVisibles = () => temasVisibles().map((tema) => tema.id);
+  const idsEnPartida = () => temasElegidos.filter((id) => idsVisibles().includes(id));
+
   const preferida = almacen.leer<Apariencia>('apariencia');
   const sistemaPrefiereClaro =
     typeof matchMedia === 'function' && matchMedia('(prefers-color-scheme: light)').matches;
@@ -144,18 +172,25 @@ export function crearJuego(opciones: OpcionesJuego) {
     $effect(() => {
       document.documentElement.dataset.theme = apariencia;
     });
+    // En pausa se congelan también las animaciones CSS (ver base.css).
+    $effect(() => {
+      document.documentElement.classList?.toggle('en-pausa', estado.pausada);
+    });
   });
 
   // ---------- navegación auxiliar ----------
   let vista = $state<Vista>('inicio');
   let temaAbierto = $state.raw<Tema | null>(null);
   let aviso = $state<string | null>(null);
-  let temporizadorAviso: ReturnType<typeof setTimeout> | undefined;
+  let temporizadorAviso: number | undefined;
 
   function mostrarAviso(texto: string) {
     aviso = texto;
-    clearTimeout(temporizadorAviso);
-    temporizadorAviso = setTimeout(() => (aviso = null), configuracion.juego.duracionesMs.aviso);
+    if (temporizadorAviso !== undefined) reloj.cancelar(temporizadorAviso);
+    temporizadorAviso = reloj.programar(
+      configuracion.juego.duracionesMs.aviso,
+      () => (aviso = null),
+    );
   }
 
   const minimo = configuracion.juego.minimoPreguntasPartida;
@@ -230,15 +265,49 @@ export function crearJuego(opciones: OpcionesJuego) {
         : temasElegidos.filter((t) => t !== id);
       almacen.escribir('temas', temasElegidos);
     },
+    /** Marca o desmarca solo los temas que el filtro deja ver. */
     elegirTodos(marcar: boolean) {
-      temasElegidos = marcar ? idsDeTemas() : [];
+      const visibles = idsVisibles();
+      temasElegidos = marcar
+        ? [...temasElegidos, ...visibles.filter((id) => !temasElegidos.includes(id))]
+        : temasElegidos.filter((id) => !visibles.includes(id));
       almacen.escribir('temas', temasElegidos);
+    },
+    // ----- filtros de temas -----
+    get filtros() {
+      return filtros;
+    },
+    /** Las filas de fichas a mostrar (vacío si el temario no declara filtros). */
+    get filasDeFiltro() {
+      return filasDeFiltro(dimensionesDeFiltro, banco?.temas ?? []);
+    },
+    alternarFiltro(dimension: string, valor: string) {
+      if (!dimensionesDeFiltro.some((d) => d.id === dimension)) return;
+      filtros = alternarValor(filtros, dimension, valor);
+      almacen.escribir('filtros', filtros);
+    },
+    quitarFiltro(dimension: string) {
+      filtros = limpiarDimension(filtros, dimension);
+      almacen.escribir('filtros', filtros);
+    },
+    /** Los temas que el filtro deja ver, estén marcados o no. */
+    get temasVisibles(): Tema[] {
+      return temasVisibles();
+    },
+    /** Los temas con los que se juega: marcados y visibles. */
+    get temasEnPartida(): string[] {
+      return idsEnPartida();
+    },
+    /** Temas marcados que el filtro deja fuera de la partida. */
+    get fueraPorFiltro(): number {
+      return temasElegidos.length - idsEnPartida().length;
     },
     preguntasEnTema(id: string): number {
       return banco?.preguntas.filter((p) => p.tema === id).length ?? 0;
     },
     get disponibles(): number {
-      return banco?.preguntas.filter((p) => temasElegidos.includes(p.tema)).length ?? 0;
+      const enPartida = idsEnPartida();
+      return banco?.preguntas.filter((p) => enPartida.includes(p.tema)).length ?? 0;
     },
     get alcanzaElMinimo(): boolean {
       return this.disponibles >= minimo;
@@ -275,7 +344,8 @@ export function crearJuego(opciones: OpcionesJuego) {
     // ----- acciones de la partida -----
     comenzar() {
       if (!this.alcanzaElMinimo) return;
-      controlador?.despachar({ tipo: 'comenzar', temasElegidos: [...temasElegidos] });
+      reproductor.activar();
+      controlador?.despachar({ tipo: 'comenzar', temasElegidos: idsEnPartida() });
     },
     responder(opcion: string) {
       controlador?.despachar({ tipo: 'responder', opcion });
@@ -299,6 +369,25 @@ export function crearJuego(opciones: OpcionesJuego) {
     siguiente() {
       controlador?.despachar({ tipo: 'siguiente' });
     },
+    // ----- pausa -----
+    get pausada(): boolean {
+      return estado.pausada;
+    },
+    get puedePausar(): boolean {
+      return sePuedePausar(estado);
+    },
+    pausar() {
+      controlador?.despachar({ tipo: 'pausar' });
+    },
+    reanudar() {
+      controlador?.despachar({ tipo: 'reanudar' });
+    },
+    alternarPausa() {
+      controlador?.despachar({ tipo: estado.pausada ? 'reanudar' : 'pausar' });
+    },
+    /** Para lo que debe congelarse con la pausa (p. ej. la flecha de una tabla). */
+    reloj,
+
     nuevaPartida() {
       aviso = null;
       temaAbierto = null;
@@ -321,6 +410,7 @@ export function crearJuego(opciones: OpcionesJuego) {
         aleatorio,
       ).sort((a, b) => a.nivel - b.nivel);
       temaAbierto = null;
+      reproductor.activar();
       controlador?.despachar({
         tipo: 'comenzarPractica',
         titulo: tema.nombre_corto,
@@ -331,6 +421,7 @@ export function crearJuego(opciones: OpcionesJuego) {
     repasarFallos() {
       const ids = this.pendientes;
       if (ids.length === 0) return;
+      reproductor.activar();
       controlador?.despachar({
         tipo: 'comenzarPractica',
         titulo: textos.repasoFallosTitulo,
@@ -343,6 +434,7 @@ export function crearJuego(opciones: OpcionesJuego) {
     practicarDeNuevo() {
       const practica = estado.practica;
       if (!practica) return;
+      reproductor.activar();
       controlador?.despachar({ tipo: 'nuevaPartida' });
       controlador?.despachar({
         tipo: 'comenzarPractica',
@@ -379,8 +471,9 @@ export function crearJuego(opciones: OpcionesJuego) {
 
     destruir() {
       controlador?.destruir();
+      reproductor.destruir();
       voz.destruir();
-      clearTimeout(temporizadorAviso);
+      if (temporizadorAviso !== undefined) reloj.cancelar(temporizadorAviso);
     },
   };
 }

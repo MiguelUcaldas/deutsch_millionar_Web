@@ -3,6 +3,9 @@
   "id": "preposiciones_temporales",
   "prefijo": "PRE",
   "orden": 7,
+  "filtros": {
+    "nivel": "A1"
+  },
   "nombre_corto": "Preposiciones de tiempo",
   "titulo": "Preposiciones de tiempo (um, am, im)",
   "resumen": "Cuándo usar um, am o im para hablar del tiempo.",

@@ -29,10 +29,36 @@ test.describe('PWA', () => {
       .toBe(true);
 
     await context.setOffline(true);
+    // Los sonidos también se guardan: sin conexión siguen respondiendo desde el caché.
+    for (const sonido of ['tic', 'tic_alerta', 'suspenso', 'correcto', 'incorrecto']) {
+      const estado = await page.evaluate(
+        async (ruta) => (await fetch(ruta)).status,
+        new URL(`recursos/sonidos/${sonido}.mp3`, page.url()).href,
+      );
+      expect(estado, sonido).toBe(200);
+    }
     await page.reload();
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
     await page.locator('button.boton--principal').click();
     await expect(page.locator('[data-opcion]').first()).toBeVisible();
     await context.setOffline(false);
+  });
+
+  test('los cinco sonidos se descargan y se decodifican al comenzar', async ({ page }) => {
+    const avisos: string[] = [];
+    page.on('console', (mensaje) => {
+      if (mensaje.text().includes('[sonidos]')) avisos.push(mensaje.text());
+    });
+    const descargados = new Set<string>();
+    page.on('response', (r) => {
+      const sonido = /\/sonidos\/(\w+)\.mp3$/.exec(r.url());
+      if (sonido && r.ok()) descargados.add(sonido[1]!);
+    });
+    await page.route(/fonts\.(googleapis|gstatic)\.com/, (ruta) => ruta.abort());
+    await page.goto('/');
+    await page.locator('button.boton--principal').click();
+    await expect.poll(() => descargados.size).toBe(5);
+    await page.waitForTimeout(500);
+    expect(avisos).toEqual([]);
   });
 });

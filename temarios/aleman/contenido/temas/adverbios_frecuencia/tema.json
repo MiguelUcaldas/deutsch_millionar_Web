@@ -3,6 +3,9 @@
   "id": "adverbios_frecuencia",
   "prefijo": "ADV",
   "orden": 10,
+  "filtros": {
+    "nivel": "A1"
+  },
   "nombre_corto": "Adverbios de frecuencia",
   "titulo": "Adverbios de frecuencia",
   "resumen": "Palabras para decir qué tan seguido pasa algo.",

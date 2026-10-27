@@ -207,6 +207,11 @@ kbd {
     opacity: 0.35;
   }
 }
+@keyframes crecer {
+  from {
+    width: 0;
+  }
+}
 @keyframes entrada {
   from {
     opacity: 0;
@@ -224,6 +229,17 @@ kbd {
   to {
     transform: translateY(260px) rotate(320deg);
   }
+}
+
+/* Pausa: todo lo animado se congela donde está y el juego queda oculto detrás de la tarjeta de pausa. */
+.en-pausa main,
+.en-pausa main *,
+.en-pausa main *::before,
+.en-pausa main *::after {
+  animation-play-state: paused !important;
+}
+main[inert] {
+  visibility: hidden;
 }
 
 /* Sin movimiento: se apagan animaciones y transiciones. El suspenso se mantiene como pausa. */

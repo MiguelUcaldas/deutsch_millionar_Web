@@ -55,7 +55,10 @@
             "minLength": 1
           }
         },
-        "required": ["original", "traduccion"],
+        "required": [
+          "original",
+          "traduccion"
+        ],
         "additionalProperties": false
       }
     },
@@ -68,6 +71,15 @@
     },
     "ficha_principal": {
       "type": "string"
+    },
+    "filtros": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string"
+      },
+      "additionalProperties": {
+        "type": "string"
+      }
     }
   },
   "required": [

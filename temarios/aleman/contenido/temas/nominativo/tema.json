@@ -3,6 +3,9 @@
   "id": "nominativo",
   "prefijo": "NOM",
   "orden": 2,
+  "filtros": {
+    "nivel": "A1"
+  },
   "nombre_corto": "Nominativo",
   "titulo": "Nominativo (Nominativ)",
   "resumen": "El caso del sujeto: quién hace la acción.",

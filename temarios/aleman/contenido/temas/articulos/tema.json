@@ -3,6 +3,9 @@
   "id": "articulos",
   "prefijo": "ART",
   "orden": 1,
+  "filtros": {
+    "nivel": "A1"
+  },
   "nombre_corto": "Artículos",
   "titulo": "Artículos (der, die, das · ein, eine)",
   "resumen": "Cada sustantivo alemán tiene género y el artículo lo muestra.",

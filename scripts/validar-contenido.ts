@@ -3,6 +3,7 @@
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { createServer } from 'vite';
+import { validarSonidos } from './validar-sonidos.ts';
 
 const raiz = path.resolve(import.meta.dirname, '..');
 const temario = process.env.TEMARIO ?? 'aleman';
@@ -77,6 +78,7 @@ try {
   const modulo = await servidor.ssrLoadModule('/scripts/validar-entrada.ts');
   const informe = modulo.validarTemarioActual();
   const niveles = [...new Set<number>(modulo.niveles)].sort();
+  informe.errores.push(...(await validarSonidos(modulo.sonidosDelTemario)));
 
   console.log(`Preguntas jugables: ${informe.totalPreguntas}\n`);
   imprimirTabla(informe.conteo, niveles);

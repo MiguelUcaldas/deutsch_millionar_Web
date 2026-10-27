@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
 import type { Page } from '@playwright/test';
 
 export const ANCHOS = [360, 390, 768, 1024, 1280, 1440] as const;
@@ -46,7 +48,16 @@ export const opcionCorrecta = (page: Page) => page.locator('[data-correcta="true
 export const opcionIncorrecta = (page: Page) =>
   page.locator('[data-opcion]:not([data-correcta="true"]):not([disabled])').first();
 
-const SUSPENSO_Y_REVELACION_MS = 1800 + 900 + 100;
+// Suspenso (sonando + silencio) y pausa antes del resultado, leídos de la config del alemán
+// (no se importa el módulo porque trae componentes .svelte que Playwright no sabe cargar).
+const configAleman = readFileSync(
+  path.resolve(import.meta.dirname, '../../temarios/aleman/temario.config.ts'),
+  'utf8',
+);
+const duracion = (campo: string) =>
+  Number(new RegExp(String.raw`${campo}:\s*(\d+)`).exec(configAleman)![1]);
+export const SUSPENSO_MS = duracion('suspensoSonando') + duracion('suspensoSilencio');
+const SUSPENSO_Y_REVELACION_MS = SUSPENSO_MS + duracion('antesDeResultado') + 100;
 
 /**
  * Responde. Con reloj falso hace pasar el suspenso y la revelación; con reloj real los espera.
