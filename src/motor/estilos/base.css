@@ -126,7 +126,8 @@ a:hover {
   cursor: pointer;
   border: 1px solid transparent;
   text-decoration: none;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 .boton--principal {
   background: var(--acento);

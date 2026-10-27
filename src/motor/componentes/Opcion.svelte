@@ -116,7 +116,8 @@
     font-size: var(--texto-opcion);
     font-weight: 600;
     line-height: 1.35;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
   .marca {
     flex: none;
@@ -124,7 +125,8 @@
     font-size: var(--texto-s);
     font-weight: 700;
     text-align: right;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
 
   .publico {

@@ -4,14 +4,7 @@ import type { ConfiguracionTemario, Tema } from '../contenido/esquemas';
 import { crearRegistro, type Registro } from '../contenido/registro';
 import { barajar, crearAleatorio, type Aleatorio } from '../juego/aleatorio';
 import { crearControlador, type Controlador } from '../juego/controlador';
-import {
-  alternarValor,
-  filasDeFiltro,
-  limpiarDimension,
-  sanearSeleccion,
-  temaCoincide,
-  type SeleccionFiltros,
-} from '../juego/filtros';
+import { alternarTemasDeValor, estadoDeValor, filasDeFiltro } from '../juego/filtros';
 import { estadoInicial, premioObtenido, sePuedePausar, type EstadoPartida } from '../juego/maquina';
 import { totalPreguntas } from '../juego/premios';
 import { crearRelojPausable } from '../juego/relojPausable';
@@ -154,14 +147,10 @@ export function crearJuego(opciones: OpcionesJuego) {
     guardados ? idsDeTemas().filter((id) => guardados.includes(id)) : idsDeTemas(),
   );
 
-  // Filtros de temas: ocultan temas sin deseleccionarlos; la partida usa los marcados y visibles.
+  // Las fichas de nivel solo marcan y desmarcan casillas: su estado sale de `temasElegidos`, no se guarda.
   const dimensionesDeFiltro = configuracion.filtrosTemas ?? [];
-  let filtros = $state.raw<SeleccionFiltros>(
-    sanearSeleccion(almacen.leer('filtros'), dimensionesDeFiltro),
-  );
-  const temasVisibles = () => (banco?.temas ?? []).filter((tema) => temaCoincide(tema, filtros));
-  const idsVisibles = () => temasVisibles().map((tema) => tema.id);
-  const idsEnPartida = () => temasElegidos.filter((id) => idsVisibles().includes(id));
+  // Versiones anteriores guardaban un filtro aparte; ya no se usa.
+  almacen.borrar('filtros');
 
   const preferida = almacen.leer<Apariencia>('apariencia');
   const sistemaPrefiereClaro =
@@ -265,49 +254,30 @@ export function crearJuego(opciones: OpcionesJuego) {
         : temasElegidos.filter((t) => t !== id);
       almacen.escribir('temas', temasElegidos);
     },
-    /** Marca o desmarca solo los temas que el filtro deja ver. */
     elegirTodos(marcar: boolean) {
-      const visibles = idsVisibles();
-      temasElegidos = marcar
-        ? [...temasElegidos, ...visibles.filter((id) => !temasElegidos.includes(id))]
-        : temasElegidos.filter((id) => !visibles.includes(id));
+      temasElegidos = marcar ? idsDeTemas() : [];
       almacen.escribir('temas', temasElegidos);
     },
-    // ----- filtros de temas -----
-    get filtros() {
-      return filtros;
-    },
-    /** Las filas de fichas a mostrar (vacío si el temario no declara filtros). */
+    // ----- selección rápida por nivel (u otra dimensión del temario) -----
+    /** Las filas de fichas a mostrar (vacío si el temario no declara filtros o no distinguen nada). */
     get filasDeFiltro() {
       return filasDeFiltro(dimensionesDeFiltro, banco?.temas ?? []);
     },
-    alternarFiltro(dimension: string, valor: string) {
+    /** Todos, algunos o ninguno de los temas de ese valor están marcados. */
+    estadoDeFicha(dimension: string, valor: string) {
+      return estadoDeValor(banco?.temas ?? [], temasElegidos, dimension, valor);
+    },
+    /** Marca todos los temas del valor, o los desmarca si ya estaban todos marcados. */
+    alternarNivel(dimension: string, valor: string) {
       if (!dimensionesDeFiltro.some((d) => d.id === dimension)) return;
-      filtros = alternarValor(filtros, dimension, valor);
-      almacen.escribir('filtros', filtros);
-    },
-    quitarFiltro(dimension: string) {
-      filtros = limpiarDimension(filtros, dimension);
-      almacen.escribir('filtros', filtros);
-    },
-    /** Los temas que el filtro deja ver, estén marcados o no. */
-    get temasVisibles(): Tema[] {
-      return temasVisibles();
-    },
-    /** Los temas con los que se juega: marcados y visibles. */
-    get temasEnPartida(): string[] {
-      return idsEnPartida();
-    },
-    /** Temas marcados que el filtro deja fuera de la partida. */
-    get fueraPorFiltro(): number {
-      return temasElegidos.length - idsEnPartida().length;
+      temasElegidos = alternarTemasDeValor(banco?.temas ?? [], temasElegidos, dimension, valor);
+      almacen.escribir('temas', temasElegidos);
     },
     preguntasEnTema(id: string): number {
       return banco?.preguntas.filter((p) => p.tema === id).length ?? 0;
     },
     get disponibles(): number {
-      const enPartida = idsEnPartida();
-      return banco?.preguntas.filter((p) => enPartida.includes(p.tema)).length ?? 0;
+      return banco?.preguntas.filter((p) => temasElegidos.includes(p.tema)).length ?? 0;
     },
     get alcanzaElMinimo(): boolean {
       return this.disponibles >= minimo;
@@ -345,7 +315,7 @@ export function crearJuego(opciones: OpcionesJuego) {
     comenzar() {
       if (!this.alcanzaElMinimo) return;
       reproductor.activar();
-      controlador?.despachar({ tipo: 'comenzar', temasElegidos: idsEnPartida() });
+      controlador?.despachar({ tipo: 'comenzar', temasElegidos: [...temasElegidos] });
     },
     responder(opcion: string) {
       controlador?.despachar({ tipo: 'responder', opcion });

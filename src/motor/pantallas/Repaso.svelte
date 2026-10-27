@@ -1,6 +1,5 @@
 <script lang="ts">
   import ExplicacionTema from '../componentes/ExplicacionTema.svelte';
-  import FiltrosTemas from '../componentes/FiltrosTemas.svelte';
   import PildorasDeTema from '../componentes/PildorasDeTema.svelte';
   import { obtenerJuego } from '../estado/juego.svelte';
 
@@ -19,11 +18,8 @@
         {textos.volver}
       </button>
     </header>
-    <div>
-      <FiltrosTemas />
-    </div>
     <div class="rejilla">
-      {#each juego.temasVisibles as tema (tema.id)}
+      {#each juego.banco?.temas ?? [] as tema (tema.id)}
         <button type="button" class="tema" onclick={() => juego.abrirTema(tema)}>
           <b>{tema.nombre_corto}</b>
           <PildorasDeTema {tema} />
@@ -79,7 +75,8 @@
   .tema b {
     flex: 1;
     min-width: 0;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
   .tema:hover {
     border-color: var(--acento-borde);

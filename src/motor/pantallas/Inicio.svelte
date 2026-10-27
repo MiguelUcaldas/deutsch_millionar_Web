@@ -1,7 +1,7 @@
 <script lang="ts">
-  import FiltrosTemas from '../componentes/FiltrosTemas.svelte';
   import PildorasDeTema from '../componentes/PildorasDeTema.svelte';
   import Progreso from '../componentes/Progreso.svelte';
+  import SeleccionRapida from '../componentes/SeleccionRapida.svelte';
   import { obtenerJuego } from '../estado/juego.svelte';
   import { rellenar } from '../textos';
 
@@ -9,7 +9,7 @@
   const { textos, configuracion } = juego;
   const Emblema = configuracion.emblema;
 
-  const temas = $derived(juego.temasVisibles);
+  const temas = $derived(juego.banco?.temas ?? []);
   const alcanza = $derived(juego.alcanzaElMinimo);
 </script>
 
@@ -105,40 +105,12 @@
 
     <section class="tarjeta" aria-labelledby="titulo-temas">
       <div class="cabecera-temas">
-        <div>
-          <h2 id="titulo-temas">{textos.temasTitulo}</h2>
-          <p>
-            {rellenar(textos.temasElegidos, {
-              n: juego.temasEnPartida.length,
-              total: temas.length,
-            })}
-          </p>
-          {#if juego.fueraPorFiltro > 0}
-            <p class="fuera-por-filtro">
-              {juego.fueraPorFiltro === 1
-                ? textos.fueraPorFiltroUno
-                : rellenar(textos.fueraPorFiltro, { n: juego.fueraPorFiltro })}
-            </p>
-          {/if}
-        </div>
-        <div class="acciones-temas">
-          <button
-            type="button"
-            class="boton boton--pequeno"
-            onclick={() => juego.elegirTodos(true)}
-          >
-            {textos.todos}
-          </button>
-          <button
-            type="button"
-            class="boton boton--pequeno"
-            onclick={() => juego.elegirTodos(false)}
-          >
-            {textos.ninguno}
-          </button>
-        </div>
+        <h2 id="titulo-temas">{textos.temasTitulo}</h2>
+        <p>
+          {rellenar(textos.temasElegidos, { n: juego.temasElegidos.length, total: temas.length })}
+        </p>
       </div>
-      <FiltrosTemas />
+      <SeleccionRapida />
       <div class="rejilla">
         {#each temas as tema (tema.id)}
           <label class="casilla">
@@ -261,12 +233,7 @@
   }
 
   .cabecera-temas {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--espacio-3);
-    margin-bottom: 18px;
+    margin-bottom: 14px;
   }
   .cabecera-temas h2 {
     margin: 0;
@@ -277,17 +244,9 @@
     font-size: 14px;
     color: var(--texto-suave);
   }
-  .cabecera-temas .fuera-por-filtro {
-    font-size: var(--texto-xs);
-    color: var(--texto-tenue);
-  }
-  .acciones-temas {
-    display: flex;
-    gap: 8px;
-  }
   .rejilla {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
     gap: 10px;
   }
   .casilla {
@@ -320,7 +279,8 @@
     min-width: 0;
     font-weight: 600;
     line-height: 1.3;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
   .cantidad {
     flex: none;

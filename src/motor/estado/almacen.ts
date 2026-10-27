@@ -15,6 +15,13 @@ export function crearAlmacen(idTemario: string) {
         return null;
       }
     },
+    borrar(nombre: string): void {
+      try {
+        localStorage.removeItem(clave(nombre));
+      } catch {
+        /* sin almacenamiento */
+      }
+    },
     escribir(nombre: string, valor: unknown): void {
       try {
         localStorage.setItem(clave(nombre), JSON.stringify(valor));

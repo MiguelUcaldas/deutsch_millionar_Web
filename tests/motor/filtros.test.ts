@@ -3,13 +3,7 @@ import { fuentesDesdeModulos } from '@motor/contenido/cargar';
 import type { ConfiguracionTemario } from '@motor/contenido/esquemas';
 import { validarContenido } from '@motor/contenido/validar';
 import { crearJuego } from '@motor/estado/juego.svelte';
-import {
-  alternarValor,
-  filasDeFiltro,
-  limpiarDimension,
-  sanearSeleccion,
-  temaCoincide,
-} from '@motor/juego/filtros';
+import { alternarTemasDeValor, estadoDeValor, filasDeFiltro } from '@motor/juego/filtros';
 import { configuracion, juegoPlantilla, suspensoTotalMs } from './ayudas';
 
 const modulos = import.meta.glob(
@@ -21,64 +15,78 @@ const modulos = import.meta.glob(
   { eager: true, import: 'default' },
 );
 const fuentes = fuentesDesdeModulos(modulos);
+// Los dos temas con el mismo valor («Fácil»), para probar el estado mixto de una ficha.
+const fuentesMismoValor = fuentesDesdeModulos(
+  Object.fromEntries(
+    Object.entries(modulos).map(([ruta, contenido]) =>
+      ruta.endsWith('/ciencia/tema.json')
+        ? [ruta, { ...(contenido as object), filtros: { dificultad: 'Fácil' } }]
+        : [ruta, contenido],
+    ),
+  ),
+);
 
 const nivel = { id: 'nivel', etiqueta: 'Nivel', valores: ['A1', 'A2', 'B1'] };
 const temasDeEjemplo = [
-  { filtros: { nivel: 'A1' } },
-  { filtros: { nivel: 'A1' } },
-  { filtros: { nivel: 'A2' } },
+  { id: 'uno', filtros: { nivel: 'A1' } },
+  { id: 'dos', filtros: { nivel: 'A1' } },
+  { id: 'tres', filtros: { nivel: 'A2' } },
 ];
 
-describe('funciones de filtro', () => {
-  it('sin nada marcado todos los temas coinciden', () => {
-    expect(temaCoincide({ filtros: { nivel: 'A1' } }, {})).toBe(true);
-    expect(temaCoincide({}, {})).toBe(true);
-    expect(temaCoincide({ filtros: { nivel: 'A1' } }, { nivel: [] })).toBe(true);
-  });
-
-  it('marcar valores deja solo los temas con alguno de ellos', () => {
-    expect(temaCoincide({ filtros: { nivel: 'A1' } }, { nivel: ['A2'] })).toBe(false);
-    expect(temaCoincide({ filtros: { nivel: 'A2' } }, { nivel: ['A1', 'A2'] })).toBe(true);
-    expect(temaCoincide({}, { nivel: ['A1'] })).toBe(false);
-  });
-
-  it('las filas solo muestran los valores que tienen temas, en el orden del temario', () => {
-    const filas = filasDeFiltro([nivel], temasDeEjemplo);
-    expect(filas).toEqual([{ id: 'nivel', etiqueta: 'Nivel', valores: ['A1', 'A2'] }]);
+describe('fichas de selección rápida', () => {
+  it('solo muestra los valores que tienen temas, en el orden del temario', () => {
+    expect(filasDeFiltro([nivel], temasDeEjemplo)).toEqual([
+      { id: 'nivel', etiqueta: 'Nivel', valores: ['A1', 'A2'] },
+    ]);
   });
 
   it('una dimensión con un solo valor con temas no muestra su fila', () => {
-    expect(filasDeFiltro([nivel], [{ filtros: { nivel: 'A1' } }])).toEqual([]);
+    expect(filasDeFiltro([nivel], [{ id: 'uno', filtros: { nivel: 'A1' } }])).toEqual([]);
     expect(filasDeFiltro([], temasDeEjemplo)).toEqual([]);
   });
 
-  it('alterna valores y quita la dimensión cuando no queda ninguno', () => {
-    let seleccion = alternarValor({}, 'nivel', 'A1');
-    seleccion = alternarValor(seleccion, 'nivel', 'A2');
-    expect(seleccion).toEqual({ nivel: ['A1', 'A2'] });
-    seleccion = alternarValor(seleccion, 'nivel', 'A1');
-    expect(seleccion).toEqual({ nivel: ['A2'] });
-    expect(alternarValor(seleccion, 'nivel', 'A2')).toEqual({});
-    expect(limpiarDimension({ nivel: ['A1'], otra: ['x'] }, 'nivel')).toEqual({ otra: ['x'] });
+  it('el estado de la ficha sale de las casillas: todos, algunos o ninguno', () => {
+    const todos = ['uno', 'dos', 'tres'];
+    expect(estadoDeValor(temasDeEjemplo, todos, 'nivel', 'A1')).toBe('todos');
+    expect(estadoDeValor(temasDeEjemplo, ['uno', 'tres'], 'nivel', 'A1')).toBe('algunos');
+    expect(estadoDeValor(temasDeEjemplo, ['tres'], 'nivel', 'A1')).toBe('ninguno');
+    expect(estadoDeValor(temasDeEjemplo, [], 'nivel', 'A2')).toBe('ninguno');
+    // Un valor sin temas nunca está «todos».
+    expect(estadoDeValor(temasDeEjemplo, todos, 'nivel', 'B1')).toBe('ninguno');
   });
 
-  it('descarta lo guardado que ya no existe en el temario', () => {
-    expect(sanearSeleccion({ nivel: ['A2', 'Z9'], vieja: ['x'] }, [nivel])).toEqual({
-      nivel: ['A2'],
-    });
-    expect(sanearSeleccion('basura', [nivel])).toEqual({});
-    expect(sanearSeleccion(null, [nivel])).toEqual({});
+  it('pulsar con todos marcados los desmarca, y solo los de su valor', () => {
+    const todos = ['uno', 'dos', 'tres'];
+    expect(alternarTemasDeValor(temasDeEjemplo, todos, 'nivel', 'A2')).toEqual(['uno', 'dos']);
+    expect(alternarTemasDeValor(temasDeEjemplo, todos, 'nivel', 'A1')).toEqual(['tres']);
+  });
+
+  it('pulsar con alguno sin marcar los marca todos, sin tocar los demás', () => {
+    expect(alternarTemasDeValor(temasDeEjemplo, ['uno', 'tres'], 'nivel', 'A1')).toEqual([
+      'uno',
+      'tres',
+      'dos',
+    ]);
+    expect(alternarTemasDeValor(temasDeEjemplo, [], 'nivel', 'A2')).toEqual(['tres']);
+    expect(alternarTemasDeValor(temasDeEjemplo, ['tres'], 'nivel', 'A1')).toEqual([
+      'tres',
+      'uno',
+      'dos',
+    ]);
   });
 });
 
-describe('filtros en el estado del juego (plantilla: geografía «Fácil», ciencia «Medio»)', () => {
+describe('selección rápida en el estado del juego (plantilla: geografía «Fácil», ciencia «Medio»)', () => {
   const almacen: Record<string, string> = {};
   const destruir: (() => void)[] = [];
 
-  function crear(configuracionPropia: ConfiguracionTemario = configuracion) {
+  function crear(
+    configuracionPropia: ConfiguracionTemario = configuracion,
+    fuentesPropias = fuentes,
+  ) {
     const juego = crearJuego({
       configuracion: configuracionPropia,
-      fuentes,
+      fuentes: fuentesPropias,
       semilla: 3,
       modoPrueba: true,
     });
@@ -94,6 +102,9 @@ describe('filtros en el estado del juego (plantilla: geografía «Fácil», cien
       setItem: (clave: string, valor: string) => {
         almacen[clave] = valor;
       },
+      removeItem: (clave: string) => {
+        delete almacen[clave];
+      },
     });
     vi.stubGlobal('document', { documentElement: { dataset: {} } });
   });
@@ -103,61 +114,65 @@ describe('filtros en el estado del juego (plantilla: geografía «Fácil», cien
     vi.unstubAllGlobals();
   });
 
-  it('sin filtro marcado se ven todos los temas y la fila de fichas tiene los dos valores', () => {
+  it('con todo marcado hay una fila con los dos valores y las dos fichas están activas', () => {
     const juego = crear();
-    expect(juego.temasVisibles.map((t) => t.id)).toEqual(['geografia', 'ciencia']);
     expect(juego.filasDeFiltro).toEqual([
       { id: 'dificultad', etiqueta: 'Dificultad', valores: ['Fácil', 'Medio'] },
     ]);
-    expect(juego.fueraPorFiltro).toBe(0);
+    expect(juego.estadoDeFicha('dificultad', 'Fácil')).toBe('todos');
+    expect(juego.estadoDeFicha('dificultad', 'Medio')).toBe('todos');
   });
 
-  it('filtrar oculta temas pero no cambia la selección guardada', () => {
+  it('pulsar una ficha marca o desmarca solo los temas de su valor, y siempre se ven todos', () => {
     const juego = crear();
-    juego.alternarFiltro('dificultad', 'Fácil');
-    expect(juego.temasVisibles.map((t) => t.id)).toEqual(['geografia']);
-    expect(juego.temasElegidos).toEqual(['geografia', 'ciencia']);
-    expect(almacen['millonario:plantilla:temas']).toBeUndefined();
-    expect(JSON.parse(almacen['millonario:plantilla:filtros']!)).toEqual({
-      dificultad: ['Fácil'],
-    });
-    juego.quitarFiltro('dificultad');
-    expect(juego.temasVisibles).toHaveLength(2);
+    juego.alternarNivel('dificultad', 'Medio');
+    expect(juego.temasElegidos).toEqual(['geografia']);
+    expect(juego.estadoDeFicha('dificultad', 'Medio')).toBe('ninguno');
+    expect(juego.estadoDeFicha('dificultad', 'Fácil')).toBe('todos');
+    expect(juego.banco?.temas).toHaveLength(2);
+    juego.alternarNivel('dificultad', 'Medio');
     expect(juego.temasElegidos).toEqual(['geografia', 'ciencia']);
   });
 
-  it('las preguntas disponibles, el mínimo y Comenzar usan solo los temas visibles', () => {
+  it('con un tema del valor desmarcado a mano la ficha queda mixta y al pulsarla marca todos', () => {
+    const juego = crear(configuracion, fuentesMismoValor);
+    juego.elegirTema('ciencia', false);
+    expect(juego.estadoDeFicha('dificultad', 'Fácil')).toBe('algunos');
+    juego.alternarNivel('dificultad', 'Fácil');
+    expect(juego.estadoDeFicha('dificultad', 'Fácil')).toBe('todos');
+    expect(juego.temasElegidos).toEqual(['geografia', 'ciencia']);
+    juego.alternarNivel('dificultad', 'Fácil');
+    expect(juego.temasElegidos).toEqual([]);
+  });
+
+  it('las fichas se actualizan solas al marcar o desmarcar casillas a mano', () => {
+    const juego = crear();
+    juego.elegirTema('ciencia', false);
+    expect(juego.estadoDeFicha('dificultad', 'Medio')).toBe('ninguno');
+    juego.elegirTema('ciencia', true);
+    expect(juego.estadoDeFicha('dificultad', 'Medio')).toBe('todos');
+    juego.elegirTodos(false);
+    expect(juego.estadoDeFicha('dificultad', 'Fácil')).toBe('ninguno');
+    juego.elegirTodos(true);
+    expect(juego.estadoDeFicha('dificultad', 'Fácil')).toBe('todos');
+  });
+
+  it('las preguntas disponibles y el mínimo se actualizan con las fichas', () => {
     const juego = crear();
     expect(juego.disponibles).toBe(20);
-    juego.alternarFiltro('dificultad', 'Fácil');
-    expect(juego.temasEnPartida).toEqual(['geografia']);
+    juego.alternarNivel('dificultad', 'Medio');
     expect(juego.disponibles).toBe(10);
-    expect(juego.fueraPorFiltro).toBe(1);
     expect(juego.alcanzaElMinimo).toBe(true);
-
-    // Con el único tema visible desmarcado no se llega al mínimo, aunque ciencia siga marcada.
-    juego.elegirTema('geografia', false);
+    juego.alternarNivel('dificultad', 'Fácil');
     expect(juego.disponibles).toBe(0);
     expect(juego.alcanzaElMinimo).toBe(false);
     juego.comenzar();
     expect(juego.pantalla).toBe('inicio');
   });
 
-  it('«Todos» y «Ninguno» actúan solo sobre los temas visibles', () => {
+  it('la partida usa los temas marcados', () => {
     const juego = crear();
-    juego.alternarFiltro('dificultad', 'Fácil');
-    juego.elegirTodos(false);
-    expect(juego.temasElegidos).toEqual(['ciencia']);
-    juego.elegirTodos(true);
-    expect(juego.temasElegidos).toEqual(['ciencia', 'geografia']);
-    juego.alternarFiltro('dificultad', 'Medio');
-    juego.elegirTodos(false);
-    expect(juego.temasElegidos).toEqual([]);
-  });
-
-  it('la partida nunca incluye temas ocultos por el filtro', () => {
-    const juego = crear();
-    juego.alternarFiltro('dificultad', 'Medio');
+    juego.alternarNivel('dificultad', 'Fácil');
     juego.comenzar();
     const vistos: string[] = [];
     while (juego.pantalla === 'pregunta') {
@@ -170,23 +185,30 @@ describe('filtros en el estado del juego (plantilla: geografía «Fácil», cien
     expect(new Set(vistos)).toEqual(new Set(['ciencia']));
   });
 
-  it('recuerda el filtro entre visitas y descarta valores que ya no existen', () => {
-    crear().alternarFiltro('dificultad', 'Medio');
-    expect(crear().filtros).toEqual({ dificultad: ['Medio'] });
-    almacen['millonario:plantilla:filtros'] = JSON.stringify({
-      dificultad: ['Imposible'],
-      otra: ['x'],
-    });
-    expect(crear().filtros).toEqual({});
+  it('la selección se guarda como siempre y no se escribe ningún filtro aparte', () => {
+    const juego = crear();
+    juego.alternarNivel('dificultad', 'Medio');
+    expect(JSON.parse(almacen['millonario:plantilla:temas']!)).toEqual(['geografia']);
+    expect(almacen['millonario:plantilla:filtros']).toBeUndefined();
+    expect(crear().estadoDeFicha('dificultad', 'Medio')).toBe('ninguno');
   });
 
-  it('sin filtrosTemas en el temario no hay filas ni filtrado, aunque los temas traigan valores', () => {
+  it('borra el filtro guardado por versiones anteriores', () => {
+    almacen['millonario:plantilla:filtros'] = JSON.stringify({ dificultad: ['Medio'] });
+    const juego = crear();
+    expect(almacen['millonario:plantilla:filtros']).toBeUndefined();
+    expect(juego.temasElegidos).toEqual(['geografia', 'ciencia']);
+  });
+
+  it('sin filtrosTemas no hay fichas y pulsar una no hace nada, pero Todos y Ninguno siguen', () => {
     const juego = crear({ ...configuracion, filtrosTemas: undefined });
     expect(juego.filasDeFiltro).toEqual([]);
-    juego.alternarFiltro('dificultad', 'Fácil');
-    expect(juego.temasVisibles).toHaveLength(2);
+    juego.alternarNivel('dificultad', 'Fácil');
+    expect(juego.temasElegidos).toEqual(['geografia', 'ciencia']);
+    juego.elegirTodos(false);
+    expect(juego.temasElegidos).toEqual([]);
+    juego.elegirTodos(true);
     expect(juego.disponibles).toBe(20);
-    expect(juego.fueraPorFiltro).toBe(0);
   });
 });
 

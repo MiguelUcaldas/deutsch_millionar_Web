@@ -65,17 +65,18 @@ for (const apariencia of APARIENCIAS) {
 
       // Inicio y repaso, con el modal de un tema.
       problemas.push(...(await revisarMaquetacion(page, 'inicio')));
-      const nivelA2 = page
-        .getByRole('group', { name: 'Nivel' })
-        .getByRole('button', { name: 'A2' });
-      await nivelA2.click();
-      problemas.push(...(await revisarMaquetacion(page, 'inicio: filtro')));
-      await nivelA2.click();
+      // Selección rápida: A2 desmarca su tema y una casilla desmarcada a mano deja A1 mixta.
+      const nivel = (valor: string) =>
+        page
+          .getByRole('group', { name: 'Nivel' })
+          .getByRole('button', { name: valor, exact: true });
+      await nivel('A2').click();
+      await page.getByRole('checkbox').nth(2).uncheck();
+      await expect(nivel('A1')).toHaveAttribute('aria-pressed', 'mixed');
+      problemas.push(...(await revisarMaquetacion(page, 'inicio: selección rápida')));
+      await page.getByRole('button', { name: 'Todos', exact: true }).click();
       await page.getByRole('button', { name: 'Repaso' }).click();
       problemas.push(...(await revisarMaquetacion(page, 'repaso')));
-      await nivelA2.click();
-      problemas.push(...(await revisarMaquetacion(page, 'repaso: filtro')));
-      await nivelA2.click();
       await page.getByRole('button', { name: /Preposiciones/ }).click();
       problemas.push(...(await revisarMaquetacion(page, 'repaso: modal')));
       await page.keyboard.press('Escape');

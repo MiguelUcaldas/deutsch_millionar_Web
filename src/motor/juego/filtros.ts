@@ -1,8 +1,5 @@
 import type { DimensionFiltro, Tema } from '../contenido/esquemas';
 
-/** Valores marcados por dimensión. Una dimensión sin valores marcados (o ausente) significa «todos». */
-export type SeleccionFiltros = Record<string, string[]>;
-
 export interface FilaDeFiltro {
   id: string;
   etiqueta: string;
@@ -10,23 +7,18 @@ export interface FilaDeFiltro {
   valores: string[];
 }
 
-type ConFiltros = Pick<Tema, 'filtros'>;
+type TemaConFiltros = Pick<Tema, 'id' | 'filtros'>;
 
-/** Un tema es visible si, en cada dimensión con valores marcados, su valor es uno de ellos. */
-export function temaCoincide(tema: ConFiltros, seleccion: SeleccionFiltros): boolean {
-  return Object.entries(seleccion).every(
-    ([dimension, valores]) =>
-      valores.length === 0 || valores.includes(tema.filtros?.[dimension] ?? ''),
-  );
-}
+/** Cuántos temas de un valor están marcados: todos, algunos o ninguno. */
+export type EstadoDeValor = 'todos' | 'algunos' | 'ninguno';
 
 /**
- * Las filas de fichas que se muestran. No aparecen los valores sin temas (si no hay temas B1, no hay
- * ficha B1) ni las dimensiones con un solo valor: una ficha única no filtra nada.
+ * Las fichas de selección rápida que se muestran. No aparecen los valores sin temas (si no hay temas B1,
+ * no hay ficha B1) ni las dimensiones con un solo valor: una ficha única no distingue nada.
  */
 export function filasDeFiltro(
   dimensiones: readonly DimensionFiltro[],
-  temas: readonly ConFiltros[],
+  temas: readonly TemaConFiltros[],
 ): FilaDeFiltro[] {
   return dimensiones
     .map(({ id, etiqueta, valores }) => ({
@@ -37,38 +29,35 @@ export function filasDeFiltro(
     .filter((fila) => fila.valores.length >= 2);
 }
 
-/** Descarta lo guardado que ya no existe en el temario (dimensiones o valores que cambiaron). */
-export function sanearSeleccion(
-  guardado: unknown,
-  dimensiones: readonly DimensionFiltro[],
-): SeleccionFiltros {
-  const resultado: SeleccionFiltros = {};
-  if (typeof guardado !== 'object' || guardado === null) return resultado;
-  for (const { id, valores } of dimensiones) {
-    const marcados = (guardado as Record<string, unknown>)[id];
-    if (!Array.isArray(marcados)) continue;
-    const validos = valores.filter((valor) => marcados.includes(valor));
-    if (validos.length > 0) resultado[id] = validos;
-  }
-  return resultado;
-}
+const temasDelValor = (temas: readonly TemaConFiltros[], dimension: string, valor: string) =>
+  temas.filter((tema) => tema.filtros?.[dimension] === valor);
 
-const sinDimension = (seleccion: SeleccionFiltros, dimension: string): SeleccionFiltros =>
-  Object.fromEntries(Object.entries(seleccion).filter(([id]) => id !== dimension));
-
-export function alternarValor(
-  seleccion: SeleccionFiltros,
+/** El estado de una ficha sale siempre de las casillas marcadas: no se guarda aparte. */
+export function estadoDeValor(
+  temas: readonly TemaConFiltros[],
+  elegidos: readonly string[],
   dimension: string,
   valor: string,
-): SeleccionFiltros {
-  const actuales = seleccion[dimension] ?? [];
-  const nuevos = actuales.includes(valor)
-    ? actuales.filter((v) => v !== valor)
-    : [...actuales, valor];
-  const resto = sinDimension(seleccion, dimension);
-  return nuevos.length > 0 ? { ...resto, [dimension]: nuevos } : resto;
+): EstadoDeValor {
+  const delValor = temasDelValor(temas, dimension, valor);
+  const marcados = delValor.filter((tema) => elegidos.includes(tema.id)).length;
+  if (delValor.length > 0 && marcados === delValor.length) return 'todos';
+  return marcados > 0 ? 'algunos' : 'ninguno';
 }
 
-export function limpiarDimension(seleccion: SeleccionFiltros, dimension: string): SeleccionFiltros {
-  return sinDimension(seleccion, dimension);
+/**
+ * Pulsar una ficha: si todos los temas de ese valor están marcados se desmarcan; si falta alguno,
+ * se marcan todos. Los temas de otros valores no se tocan.
+ */
+export function alternarTemasDeValor(
+  temas: readonly TemaConFiltros[],
+  elegidos: readonly string[],
+  dimension: string,
+  valor: string,
+): string[] {
+  const ids = temasDelValor(temas, dimension, valor).map((tema) => tema.id);
+  if (estadoDeValor(temas, elegidos, dimension, valor) === 'todos') {
+    return elegidos.filter((id) => !ids.includes(id));
+  }
+  return [...elegidos, ...ids.filter((id) => !elegidos.includes(id))];
 }

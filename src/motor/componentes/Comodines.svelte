@@ -56,7 +56,8 @@
     font-size: var(--texto-m);
     font-weight: 700;
     cursor: pointer;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
   .comodin:disabled {
     cursor: not-allowed;

@@ -56,7 +56,8 @@
   }
   .resumen {
     min-width: 0;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
   strong {
     font-family: var(--fuente-mono);

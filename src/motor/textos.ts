@@ -30,9 +30,8 @@ export interface Textos {
   seleccionaMasTemas: string;
   temasTitulo: string;
   temasElegidos: string;
-  /** Aviso cuando el filtro deja fuera temas que estaban marcados. */
-  fueraPorFiltro: string;
-  fueraPorFiltroUno: string;
+  /** Etiqueta de la fila de selección rápida (Todos, Ninguno y las fichas de nivel). */
+  seleccionar: string;
   codigoDelProyecto: string;
   teclado: string;
   tecladoResponden: string;
@@ -141,8 +140,7 @@ export const textosPorDefecto: Textos = {
   seleccionaMasTemas: 'Selecciona más temas: hay {n} preguntas y se necesitan al menos {minimo}.',
   temasTitulo: 'Temas de la partida',
   temasElegidos: '{n} de {total} elegidos',
-  fueraPorFiltro: '{n} temas marcados quedan fuera por el filtro',
-  fueraPorFiltroUno: '1 tema marcado queda fuera por el filtro',
+  seleccionar: 'Seleccionar:',
   codigoDelProyecto: 'Código del proyecto en GitHub',
   teclado: 'Teclado:',
   tecladoResponden: 'responden,',

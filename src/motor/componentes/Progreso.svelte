@@ -158,7 +158,8 @@
   .nombre-tema {
     min-width: 0;
     font-weight: 600;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
   .tasa {
     flex: none;
